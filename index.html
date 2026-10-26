@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atemingo Client</title>
+<meta name="description" content="ATEMINGO LAUNCHER - Minecraft Java launcher. Profiller, Modrinth modları, arkadaş sunucuları ve sohbet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230B132B'/%3E%3Cpath d='M58 18a36 36 0 1 0 26 52 28 28 0 1 1-26-52z' fill='%23F3E5AB'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg-1: #0B132B; --bg-2: #1C2541; --bg-3: #1F2937;
+    --gold-300: #F3E5AB; --gold-500: #D4AF37; --gold-600: #B8962E;
+    --text: #F9FAFB; --muted: #9CA3AF; --card: rgba(31,41,55,.6); --line: rgba(255,255,255,.08);
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) { --text:#0B132B; --muted:#4B5563; --card:rgba(255,255,255,.7); --line:rgba(11,19,43,.12); }
+  }
+  :root[data-theme="dark"] { --text:#F9FAFB; --muted:#9CA3AF; --card:rgba(31,41,55,.6); --line:rgba(255,255,255,.08); }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh; color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(212,175,55,.45), transparent 55%),
+      radial-gradient(ellipse at 50% 110%, rgba(243,229,171,.2), transparent 55%),
+      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 60%, var(--bg-3) 100%);
+    background-color: var(--bg-1); background-attachment: fixed;
+  }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
+  header { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .12em; font-size: 14px; }
+  .brand svg { width: 30px; height: 30px; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-size: 14px; }
+  nav a:hover { color: var(--gold-300); }
+  .hero { text-align: center; padding: 56px 0 40px; }
+  .moon { width: 120px; height: 120px; filter: drop-shadow(0 0 34px rgba(253,230,138,.55)); animation: float 4s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  h1 {
+    margin: 18px 0 6px; font-size: clamp(34px, 7vw, 64px); font-weight: 900; letter-spacing: .08em;
+    background: linear-gradient(180deg, #F9FAFB, var(--gold-300) 60%, var(--gold-300));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .tag { color: var(--muted); font-size: 17px; margin: 0 0 28px; }
+  .btn {
+    display: inline-block; padding: 14px 28px; border-radius: 14px; font-weight: 800; text-decoration: none;
+    background: linear-gradient(180deg, var(--gold-300), var(--gold-500)); color: #0B132B;
+    box-shadow: 0 10px 30px rgba(212,175,55,.35); transition: transform .15s, box-shadow .15s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(212,175,55,.45); }
+  .btn[aria-disabled="true"] { opacity: .5; pointer-events: none; }
+  .meta { margin-top: 14px; font-size: 14px; color: var(--muted); min-height: 1.4em; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 28px 0 40px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px;
+    backdrop-filter: blur(8px);
+  }
+  .card h3 { margin: 0 0 8px; color: var(--gold-300); font-size: 17px; }
+  .card p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
+  .notes { margin: 0 0 40px; }
+  .notes h2 { font-size: 20px; margin: 0 0 12px; }
+  .notes ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.7; }
+  footer { border-top: 1px solid var(--line); padding: 22px 0 36px; color: var(--muted); font-size: 13px; text-align: center; }
+  @media (max-width: 600px) { nav a { margin-left: 12px; } .hero { padding-top: 36px; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M58 18a36 36 0 1 0 26 52 28 28 0 1 1-26-52z" fill="#F3E5AB"/></svg>
+        ATEMINGO LAUNCHER
+      </div>
+      <nav>
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#surumler">Sürüm notları</a>
+        <a href="https://discord.gg/manorya" target="_blank" rel="noopener">Discord</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <svg class="moon" viewBox="0 0 200 200" aria-hidden="true"><path d="M120 18 A84 84 0 1 0 182 138 A66 66 0 1 1 120 18 Z" fill="#f6e9c9"/><circle cx="78" cy="118" r="9" fill="#e7cfa0" opacity=".7"/><circle cx="104" cy="150" r="6" fill="#e7cfa0" opacity=".6"/></svg>
+      <h1>ATEMINGO</h1>
+      <p class="tag">Minecraft için gece temalı launcher. Profiller, modlar, sunucular ve arkadaşlarınız tek yerde.</p>
+      <a id="download" class="btn" href="downloads/AtemingoLauncher-setup.exe" aria-disabled="true">Windows için indir</a>
+      <div class="meta" id="meta">Sürüm bilgisi yükleniyor…</div>
+    </section>
+
+    <section id="ozellikler" class="grid">
+      <div class="card"><h3>Profiller</h3><p>Vanilla ve Fabric profilleri. Her profilin kendi mod, resource pack ve dünya klasörü var.</p></div>
+      <div class="card"><h3>Modrinth</h3><p>Modları, resource pack'leri, shader'ları ve modpack'leri doğrudan launcher içinden arayıp kurun. .mrpack dosyalarını sürükleyip bırakın.</p></div>
+      <div class="card"><h3>Microsoft girişi</h3><p>Birden fazla hesap ekleyin, aralarında geçiş yapın. Hesap bilgileri şifreli olarak yalnızca sizin bilgisayarınızda saklanır.</p></div>
+      <div class="card"><h3>Sunucular ve arkadaşlar</h3><p>Arkadaş sunucularına tek tıkla bağlanın. Microsoft hesabınızla diğer oyuncularla sohbet edin.</p></div>
+      <div class="card"><h3>Otomatik güncelleme</h3><p>Yeni sürüm çıktığında launcher bunu size bildirir ve tek tıkla güncellenir. Tekrar kurulum gerekmez.</p></div>
+    </section>
+
+    <section id="surumler" class="notes card">
+      <h2>Son sürüm</h2>
+      <ul id="notes"><li>Yükleniyor…</li></ul>
+    </section>
+
+    <footer>© Atemingo · Manorya topluluğu için yapıldı</footer>
+  </div>
+
+<script>
+(function () {
+  var meta = document.getElementById('meta');
+  var btn = document.getElementById('download');
+  var notes = document.getElementById('notes');
+  fetch('updates/version.json', { cache: 'no-store' })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (v) {
+      meta.textContent = 'Sürüm ' + v.version;
+      if (v.url) { btn.href = v.url; }
+      btn.setAttribute('aria-disabled', 'false');
+      notes.innerHTML = '';
+      String(v.notes || 'Sürüm notu yok.').split(/\r?\n|;\s*/).forEach(function (line) {
+        if (!line.trim()) return;
+        var li = document.createElement('li');
+        li.textContent = line.trim();
+        notes.appendChild(li);
+      });
+    })
+    .catch(function () {
+      meta.textContent = 'Sürüm bilgisi alınamadı. Lütfen daha sonra tekrar deneyin.';
+      notes.innerHTML = '<li>Sürüm bilgisi alınamadı.</li>';
+    });
+})();
+</script>
+</body>
+</html>

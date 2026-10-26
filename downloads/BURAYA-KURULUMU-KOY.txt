@@ -1,0 +1,2 @@
+Yeni sürümün kurulum dosyasını (AtemingoLauncher_X.Y.Z_x64-setup.exe) bu klasöre koyun.
+Dosyanın adını AtemingoLauncher-setup.exe yapın (updates/version.json içindeki url ile aynı olmalı).
