@@ -9,61 +9,160 @@
 <style>
   :root {
     --bg-1: #0B132B; --bg-2: #1C2541; --bg-3: #1F2937;
-    --gold-300: #F3E5AB; --gold-500: #D4AF37; --gold-600: #B8962E;
-    --text: #F9FAFB; --muted: #9CA3AF; --card: rgba(31,41,55,.6); --line: rgba(255,255,255,.08);
+    --gold-200: #FBF3CF; --gold-300: #F3E5AB; --gold-500: #D4AF37; --gold-600: #B8962E;
+    --text: #F9FAFB; --muted: #9CA3AF; --soft: #CBD5E1;
+    --card: rgba(31,41,55,.55); --line: rgba(255,255,255,.09);
   }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) { --text:#0B132B; --muted:#4B5563; --card:rgba(255,255,255,.7); --line:rgba(11,19,43,.12); }
-  }
-  :root[data-theme="dark"] { --text:#F9FAFB; --muted:#9CA3AF; --card:rgba(31,41,55,.6); --line:rgba(255,255,255,.08); }
   * { box-sizing: border-box; }
   html, body { margin: 0; }
   body {
-    min-height: 100vh; color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    background:
-      radial-gradient(ellipse at 50% -10%, rgba(212,175,55,.45), transparent 55%),
-      radial-gradient(ellipse at 50% 110%, rgba(243,229,171,.2), transparent 55%),
-      linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 60%, var(--bg-3) 100%);
-    background-color: var(--bg-1); background-attachment: fixed;
+    min-height: 100vh; color: var(--text); overflow-x: hidden;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
+    background-color: var(--bg-1);
   }
-  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 16px; }
-  header { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .12em; font-size: 14px; }
-  .brand svg { width: 30px; height: 30px; }
-  nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-size: 14px; }
-  nav a:hover { color: var(--gold-300); }
-  .hero { text-align: center; padding: 56px 0 40px; }
-  .moon { width: 120px; height: 120px; filter: drop-shadow(0 0 34px rgba(253,230,138,.55)); animation: float 4s ease-in-out infinite; }
-  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  #stars { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+  .glow {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(ellipse at 50% -5%, rgba(212,175,55,.38), transparent 55%),
+      radial-gradient(ellipse at 90% 100%, rgba(243,229,171,.14), transparent 55%);
+  }
+  .wrap { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* Üst çubuk */
+  header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .18em; font-size: 13px; }
+  .brand svg { width: 28px; height: 28px; }
+  nav { display: flex; gap: 4px; }
+  nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 8px 12px; border-radius: 10px; transition: background .2s, color .2s; }
+  nav a:hover { color: var(--gold-300); background: rgba(255,255,255,.06); }
+
+  /* Hero */
+  .hero { text-align: center; padding: 56px 0 36px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px;
+    background: rgba(212,175,55,.14); border: 1px solid rgba(243,229,171,.3);
+    color: var(--gold-300); font-size: 13px; font-weight: 600;
+  }
+  .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #34D399; box-shadow: 0 0 10px #34D399; }
   h1 {
-    margin: 18px 0 6px; font-size: clamp(34px, 7vw, 64px); font-weight: 900; letter-spacing: .08em;
-    background: linear-gradient(180deg, #F9FAFB, var(--gold-300) 60%, var(--gold-300));
+    margin: 22px auto 16px; max-width: 880px; font-size: clamp(40px, 7vw, 76px); font-weight: 900; line-height: 1.04; letter-spacing: -.01em;
+    background: linear-gradient(180deg, #FFFFFF 0%, var(--gold-300) 60%, var(--gold-500) 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .tag { color: var(--muted); font-size: 17px; margin: 0 0 28px; }
+  .lead { color: var(--soft); font-size: 18px; line-height: 1.6; max-width: 640px; margin: 0 auto 34px; }
+  .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
   .btn {
-    display: inline-block; padding: 14px 28px; border-radius: 14px; font-weight: 800; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; border-radius: 14px;
+    font-weight: 800; font-size: 16px; text-decoration: none; transition: transform .15s, box-shadow .15s, background .2s;
+  }
+  .btn-primary {
     background: linear-gradient(180deg, var(--gold-300), var(--gold-500)); color: #0B132B;
-    box-shadow: 0 10px 30px rgba(212,175,55,.35); transition: transform .15s, box-shadow .15s;
+    box-shadow: 0 12px 34px rgba(212,175,55,.38), inset 0 1px 0 rgba(255,255,255,.4);
   }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(212,175,55,.45); }
-  .btn[aria-disabled="true"] { opacity: .5; pointer-events: none; }
-  .meta { margin-top: 14px; font-size: 14px; color: var(--muted); min-height: 1.4em; }
-  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 28px 0 40px; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 42px rgba(212,175,55,.5), inset 0 1px 0 rgba(255,255,255,.4); }
+  .btn-primary[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+  .btn-ghost { background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { background: rgba(255,255,255,.12); }
+  .btn svg { width: 19px; height: 19px; }
+  .meta { margin-top: 16px; font-size: 13px; color: var(--muted); min-height: 1.4em; display: inline-flex; align-items: center; gap: 8px; }
+  .meta .dot { width: 7px; height: 7px; border-radius: 50%; background: #34D399; box-shadow: 0 0 10px #34D399; }
+
+  /* Launcher ekran görüntüsü (CSS ile çizilmiş) */
+  .shot {
+    position: relative; margin: 56px auto 0; max-width: 960px; border-radius: 18px; overflow: hidden;
+    border: 1px solid rgba(243,229,171,.22); background: #0E1730;
+    box-shadow: 0 40px 90px rgba(0,0,0,.5), 0 0 60px rgba(212,175,55,.12);
+  }
+  .shot-bar { height: 34px; display: flex; align-items: center; gap: 7px; padding: 0 14px; background: #0A1227; border-bottom: 1px solid var(--line); }
+  .shot-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+  .shot-body { display: grid; grid-template-columns: 170px 1fr; min-height: 340px; }
+  .shot-side { background: #0A1227; border-right: 1px solid var(--line); padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; }
+  .shot-side .ic { width: 38px; height: 38px; border-radius: 12px; background: rgba(255,255,255,.06); }
+  .shot-side .ic.on { background: rgba(212,175,55,.25); box-shadow: inset 0 0 0 1px rgba(243,229,171,.4); }
+  .shot-main { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .hero-card {
+    border-radius: 16px; padding: 18px 20px; background: linear-gradient(135deg,#1C2541,#0B132B);
+    border: 1px solid rgba(243,229,171,.2); position: relative; overflow: hidden;
+  }
+  .hero-card::after { content: ''; position: absolute; right: -40px; top: -40px; width: 160px; height: 160px; border-radius: 50%; background: rgba(243,229,171,.14); }
+  .hero-card b { display: block; font-size: 26px; font-weight: 900; color: var(--gold-300); }
+  .hero-card small { color: var(--muted); }
+  .play { margin-top: 12px; display: inline-flex; align-items: center; gap: 6px; background: var(--gold-500); color: #0B132B; font-weight: 800; font-size: 13px; padding: 9px 18px; border-radius: 10px; }
+  .rows { display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr); }
+  .prof { border-radius: 14px; padding: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--line); }
+  .prof .sq { height: 56px; border-radius: 10px; margin-bottom: 10px; }
+  .prof span { display: block; font-weight: 700; font-size: 13px; }
+  .prof small { color: var(--muted); font-size: 11px; }
+
+  /* Özellikler */
+  .section-title { text-align: center; margin: 88px 0 10px; font-size: 13px; letter-spacing: .3em; color: var(--gold-300); text-transform: uppercase; }
+  .section-head { text-align: center; font-size: clamp(28px, 4vw, 42px); font-weight: 900; margin: 0 0 40px; }
+  .feat { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
   .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px;
-    backdrop-filter: blur(8px);
+    background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px;
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: transform .2s, border-color .2s;
   }
-  .card h3 { margin: 0 0 8px; color: var(--gold-300); font-size: 17px; }
-  .card p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
-  .notes { margin: 0 0 40px; }
-  .notes h2 { font-size: 20px; margin: 0 0 12px; }
-  .notes ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.7; }
-  footer { border-top: 1px solid var(--line); padding: 22px 0 36px; color: var(--muted); font-size: 13px; text-align: center; }
-  @media (max-width: 600px) { nav a { margin-left: 12px; } .hero { padding-top: 36px; } }
+  .card:hover { transform: translateY(-3px); border-color: rgba(243,229,171,.35); }
+  .card .ico {
+    width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 16px;
+    background: rgba(212,175,55,.16); color: var(--gold-300); font-weight: 900; font-size: 18px;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 20px; color: var(--gold-200); }
+  .card p { margin: 0; color: var(--soft); font-size: 15px; line-height: 1.65; }
+  .small-feat { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); margin-top: 18px; }
+  .small-feat .card { padding: 22px; }
+  .small-feat h3 { font-size: 17px; }
+
+  /* Sürüm notları */
+  .notes { margin-top: 88px; padding: 30px; }
+  .notes h2 { font-size: 22px; margin: 0 0 14px; color: var(--gold-300); }
+  .notes ul { margin: 0; padding-left: 20px; color: var(--soft); line-height: 1.8; }
+
+  footer { margin-top: 80px; border-top: 1px solid var(--line); padding: 34px 0 40px; color: var(--muted); font-size: 13px; }
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
+  .foot a { color: var(--muted); text-decoration: none; margin-left: 16px; }
+  .foot a:hover { color: var(--gold-300); }
+
+  @media (max-width: 860px) {
+    .feat { grid-template-columns: 1fr; }
+    .small-feat { grid-template-columns: 1fr; }
+    .shot-body { grid-template-columns: 1fr; }
+    .shot-side { display: none; }
+    .rows { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    nav a { padding: 6px 8px; font-size: 13px; }
+    .hero { padding-top: 36px; }
+    .btn { width: 100%; justify-content: center; }
+    .rows { grid-template-columns: 1fr; }
+  }
+
+  /* Animasyonlar */
+  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+  .rise { opacity: 0; animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .d1 { animation-delay: .1s; } .d2 { animation-delay: .25s; } .d3 { animation-delay: .4s; } .d4 { animation-delay: .55s; }
+  .shot img {
+    display: block; width: 100%; height: auto; border-radius: 18px;
+    border: 1px solid rgba(243,229,171,.22);
+    box-shadow: 0 40px 90px rgba(0,0,0,.5), 0 0 60px rgba(212,175,55,.14);
+    animation: drift 7s ease-in-out 1.6s infinite;
+  }
+  @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .shot { margin: 56px auto 0; max-width: 960px; }
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .rise, .reveal { opacity: 1; transform: none; }
+  }
 </style>
 </head>
 <body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+
   <div class="wrap">
     <header>
       <div class="brand">
@@ -78,38 +177,101 @@
     </header>
 
     <section class="hero">
-      <svg class="moon" viewBox="0 0 200 200" aria-hidden="true"><path d="M120 18 A84 84 0 1 0 182 138 A66 66 0 1 1 120 18 Z" fill="#f6e9c9"/><circle cx="78" cy="118" r="9" fill="#e7cfa0" opacity=".7"/><circle cx="104" cy="150" r="6" fill="#e7cfa0" opacity=".6"/></svg>
-      <h1>ATEMINGO</h1>
-      <p class="tag">Minecraft için gece temalı launcher. Profiller, modlar, sunucular ve arkadaşlarınız tek yerde.</p>
-      <a id="download" class="btn" href="downloads/AtemingoLauncher-setup.exe" aria-disabled="true">Windows için indir</a>
-      <div class="meta" id="meta">Sürüm bilgisi yükleniyor…</div>
+      <span class="badge rise d1"><span class="dot"></span> Yeni sürüm yayında</span>
+      <h1 class="rise d1">Atemingo ile Minecraft'a tek tıkla gir</h1>
+      <p class="lead rise d2">Profiller, Modrinth modları, arkadaş sunucuları ve sohbet. Hepsi tek bir gece temalı launcher'da.</p>
+
+      <div class="actions rise d3">
+        <a id="download" class="btn btn-primary" href="downloads/AtemingoLauncher-setup.exe" aria-disabled="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.6h7.5v7.1L3 18.6zM11.5 12.6H21V21l-9.5-1.3z"/></svg>
+          Windows için indir
+        </a>
+        <a class="btn btn-ghost" href="#ozellikler">Özellikleri gör</a>
+      </div>
+      <div class="meta rise d3" id="meta">Sürüm bilgisi yükleniyor…</div>
+
+      <figure class="shot rise d4">
+        <img src="launcher.png" alt="Atemingo Launcher ana ekranı" loading="eager">
+      </figure>
     </section>
 
-    <section id="ozellikler" class="grid">
-      <div class="card"><h3>Profiller</h3><p>Vanilla ve Fabric profilleri. Her profilin kendi mod, resource pack ve dünya klasörü var.</p></div>
-      <div class="card"><h3>Modrinth</h3><p>Modları, resource pack'leri, shader'ları ve modpack'leri doğrudan launcher içinden arayıp kurun. .mrpack dosyalarını sürükleyip bırakın.</p></div>
-      <div class="card"><h3>Microsoft girişi</h3><p>Birden fazla hesap ekleyin, aralarında geçiş yapın. Hesap bilgileri şifreli olarak yalnızca sizin bilgisayarınızda saklanır.</p></div>
-      <div class="card"><h3>Sunucular ve arkadaşlar</h3><p>Arkadaş sunucularına tek tıkla bağlanın. Microsoft hesabınızla diğer oyuncularla sohbet edin.</p></div>
-      <div class="card"><h3>Otomatik güncelleme</h3><p>Yeni sürüm çıktığında launcher bunu size bildirir ve tek tıkla güncellenir. Tekrar kurulum gerekmez.</p></div>
+    <div class="section-title reveal" id="ozellikler">Özellikler</div>
+    <h2 class="section-head reveal">Her şey tek yerde</h2>
+
+    <section class="feat reveal">
+      <div class="card"><div class="ico">P</div><h3>Profiller</h3><p>Vanilla ve Fabric profilleri. Her profilin kendi mod, resource pack ve dünya klasörü var. Oyunlar birbirini etkilemez.</p></div>
+      <div class="card"><div class="ico">M</div><h3>Modrinth entegrasyonu</h3><p>Modları, resource pack'leri, shader'ları ve modpack'leri launcher içinden arayıp tek tıkla kurun. .mrpack dosyalarını sürükleyip bırakmanız yeterli.</p></div>
     </section>
 
-    <section id="surumler" class="notes card">
-      <h2>Son sürüm</h2>
+    <section class="small-feat reveal">
+      <div class="card"><div class="ico">H</div><h3>Microsoft girişi</h3><p>Birden fazla hesap ekleyin. Hesap bilgileri şifreli olarak yalnızca sizin bilgisayarınızda saklanır.</p></div>
+      <div class="card"><div class="ico">S</div><h3>Sunucular ve arkadaşlar</h3><p>Arkadaş sunucularına tek tıkla bağlanın. Microsoft hesabınızla diğer oyuncularla sohbet edin.</p></div>
+      <div class="card"><div class="ico">G</div><h3>Otomatik güncelleme</h3><p>Yeni sürüm çıktığında launcher bunu size bildirir. Tek tıkla güncellenir, tekrar kurulum gerekmez.</p></div>
+    </section>
+
+    <section id="surumler" class="card notes reveal">
+      <h2>Son sürüm notları</h2>
       <ul id="notes"><li>Yükleniyor…</li></ul>
     </section>
 
-    <footer>© Atemingo · Manorya topluluğu için yapıldı</footer>
+    <footer>
+      <div class="foot">
+        <div>© Atemingo · Manorya topluluğu için yapıldı</div>
+        <div>
+          <a href="https://discord.gg/manorya" target="_blank" rel="noopener">Discord</a>
+          <a href="#ozellikler">Özellikler</a>
+          <a href="#surumler">Sürüm notları</a>
+        </div>
+      </div>
+    </footer>
   </div>
 
 <script>
 (function () {
+  // Yıldız alanı
+  var canvas = document.getElementById('stars');
+  var ctx = canvas.getContext('2d');
+  var stars = [];
+  function resize() {
+    var dpr = window.devicePixelRatio || 1;
+    canvas.width = innerWidth * dpr; canvas.height = innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    stars = Array.from({ length: Math.round(innerWidth * innerHeight / 14000) }, function () {
+      return { x: Math.random(), y: Math.random(), r: Math.random() * 1.4 + 0.4, tw: Math.random() * 6.28, s: Math.random() * 0.03 + 0.01 };
+    });
+  }
+  function frame() {
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    for (var i = 0; i < stars.length; i++) {
+      var s = stars[i];
+      s.tw += s.s;
+      ctx.beginPath();
+      ctx.fillStyle = 'rgba(255,240,200,' + (0.25 + Math.sin(s.tw) * 0.3) + ')';
+      ctx.arc(s.x * innerWidth, s.y * innerHeight, s.r, 0, 6.283);
+      ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  resize(); frame();
+  addEventListener('resize', resize);
+
+
+  // Görünüme gelen bölümleri yumuşakça aç
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+
+  // Sürüm bilgisi ve indirme bağlantısı (updates/version.json)
   var meta = document.getElementById('meta');
   var btn = document.getElementById('download');
   var notes = document.getElementById('notes');
   fetch('updates/version.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(function (v) {
-      meta.textContent = 'Sürüm ' + v.version;
+      meta.innerHTML = '<span class="dot"></span> Sürüm ' + v.version + ' · Windows';
       if (v.url) { btn.href = v.url; }
       btn.setAttribute('aria-disabled', 'false');
       notes.innerHTML = '';
