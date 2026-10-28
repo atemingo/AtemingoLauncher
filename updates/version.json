@@ -1,6 +1,6 @@
 {
-  "version": "1.4.0",
+  "version": "1.4.5",
   "url": "https://atemingo.github.io/AtemingoLauncher/downloads/AtemingoLauncher-setup.exe",
-  "sha1": "37B39C1F1F499BA3905F71A4096FFF744571F167",
-  "notes": "BUG FİXES Yeni mavi tema; mor, yeşil ve sarı renkler kaldırıldı; Pelerin sayfası eklendi (ATEMİNGO modu ile çalışır); ATEMİNGO modu isteğe bağlı eklendi; sunucu listesi yüklenemezse yedek liste gösteriliyor; masaüstü kısayolu her kurulumda oluşturuluyor; logo kenar sorunu düzeltildi; güncelleme sırasında kullanıcı verileri korunuyor"
+  "sha1": "3EE0130D00287EC3A43351F4AADCFBBC38A0B454",
+  "notes": "YENİ TEMA,YENİ GİRİŞ EKRANI ve YENİ BİR MENÜ"
 }
