@@ -1,6 +1,6 @@
 {
-  "version": "1.3.9",
+  "version": "1.4.0",
   "url": "https://atemingo.github.io/AtemingoLauncher/downloads/AtemingoLauncher-setup.exe",
-  "sha1": "0310190ABF56C838C9513F350F74A8EFF08A4A21",
-  "notes": " BUG FİXES Arka planda sessiz güncelleme; Discord bağlantısı güncellendi; TR CENTRAL sunucusu eklendi; yeni logo ve ATEMİNGO STUDİOS yükleme ekranı; Bug fixes: sunucu listesi yüklenme sorunu giderildi; oyun başlatma ve çift açılma hataları düzeltildi; güncelleme sırasında kullanıcı verileri silinmiyor"
+  "sha1": "37B39C1F1F499BA3905F71A4096FFF744571F167",
+  "notes": "BUG FİXES Yeni mavi tema; mor, yeşil ve sarı renkler kaldırıldı; Pelerin sayfası eklendi (ATEMİNGO modu ile çalışır); ATEMİNGO modu isteğe bağlı eklendi; sunucu listesi yüklenemezse yedek liste gösteriliyor; masaüstü kısayolu her kurulumda oluşturuluyor; logo kenar sorunu düzeltildi; güncelleme sırasında kullanıcı verileri korunuyor"
 }
