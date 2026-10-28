@@ -1,292 +1,397 @@
 <!doctype html>
 <html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Atemingo Client</title>
-<meta name="description" content="ATEMINGO LAUNCHER - Minecraft Java launcher. Profiller, Modrinth modları, arkadaş sunucuları ve sohbet.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230B132B'/%3E%3Cpath d='M58 18a36 36 0 1 0 26 52 28 28 0 1 1-26-52z' fill='%23F3E5AB'/%3E%3C/svg%3E">
-<style>
-  :root {
-    --bg-1: #0B132B; --bg-2: #1C2541; --bg-3: #1F2937;
-    --gold-200: #FBF3CF; --gold-300: #F3E5AB; --gold-500: #D4AF37; --gold-600: #B8962E;
-    --text: #F9FAFB; --muted: #9CA3AF; --soft: #CBD5E1;
-    --card: rgba(31,41,55,.55); --line: rgba(255,255,255,.09);
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; }
-  body {
-    min-height: 100vh; color: var(--text); overflow-x: hidden;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-3) 100%);
-    background-color: var(--bg-1);
-  }
-  #stars { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
-  .glow {
-    position: fixed; inset: 0; pointer-events: none; z-index: 0;
-    background:
-      radial-gradient(ellipse at 50% -5%, rgba(212,175,55,.38), transparent 55%),
-      radial-gradient(ellipse at 90% 100%, rgba(243,229,171,.14), transparent 55%);
-  }
-  .wrap { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090a12" />
+    <meta
+      name="description"
+      content="Atemingo Launcher ile Minecraft profillerini, modlarını ve sunucularını tek bir yerden yönet."
+    />
+    <title>Atemingo Launcher — Minecraft'ı kendi tarzında yaşa</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+        color: #f5f3ff;
+        background: #090a12;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        --muted: #a7a5bc;
+        --line: rgba(255, 255, 255, 0.1);
+        --purple: #a78bfa;
+        --cyan: #67e8f9;
+      }
 
-  /* Üst çubuk */
-  header { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .18em; font-size: 13px; }
-  .brand svg { width: 28px; height: 28px; }
-  nav { display: flex; gap: 4px; }
-  nav a { color: var(--muted); text-decoration: none; font-size: 14px; padding: 8px 12px; border-radius: 10px; transition: background .2s, color .2s; }
-  nav a:hover { color: var(--gold-300); background: rgba(255,255,255,.06); }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; min-width: 320px; overflow-x: hidden; }
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; }
+      .page { position: relative; min-height: 100vh; overflow: hidden; }
+      .backdrop {
+        position: absolute;
+        inset: 0 0 auto;
+        height: 900px;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse at 50% 22%, rgba(116, 79, 220, .22), transparent 42%),
+          radial-gradient(ellipse at 85% 50%, rgba(36, 185, 206, .1), transparent 36%);
+      }
+      .stars, .stars::before, .stars::after {
+        position: absolute;
+        inset: 0;
+        content: "";
+        pointer-events: none;
+        background-image: radial-gradient(1px 1px at 18% 22%, #fff 50%, transparent 100%),
+          radial-gradient(1px 1px at 78% 16%, #b9a7ff 50%, transparent 100%),
+          radial-gradient(1.5px 1.5px at 89% 46%, #fff 50%, transparent 100%),
+          radial-gradient(1px 1px at 10% 62%, #9beafa 50%, transparent 100%),
+          radial-gradient(1px 1px at 64% 72%, #fff 50%, transparent 100%);
+        background-size: 390px 340px;
+        opacity: .42;
+        animation: drift 26s linear infinite;
+      }
+      .stars::before { transform: translateY(100%); }
+      .stars::after { opacity: .2; transform: translate(120px, 42px); animation-duration: 38s; }
+      .wrap { position: relative; width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
+      header {
+        height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(255, 255, 255, .06);
+      }
+      .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 800; letter-spacing: .03em; }
+      .brand img { width: 38px; height: 38px; border-radius: 12px; box-shadow: 0 0 24px rgba(167, 139, 250, .28); }
+      nav { display: flex; align-items: center; gap: 32px; color: var(--muted); font-size: 13px; }
+      nav a { transition: color .2s ease; }
+      nav a:hover { color: #fff; }
+      .nav-discord { color: #d7d0ff; }
+      .hero {
+        min-height: 650px;
+        display: grid;
+        grid-template-columns: 1.05fr .95fr;
+        align-items: center;
+        gap: 40px;
+        padding: 72px 0 92px;
+      }
+      .hero-copy { position: relative; z-index: 1; animation: enter .8s both; }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 9px 13px;
+        border: 1px solid rgba(167, 139, 250, .24);
+        border-radius: 99px;
+        background: rgba(167, 139, 250, .08);
+        color: #d9ccff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+      }
+      .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); animation: pulse 1.8s infinite; }
+      h1 { max-width: 630px; margin: 25px 0 18px; font-size: clamp(46px, 6.4vw, 78px); line-height: .99; letter-spacing: -.065em; }
+      .gradient-text { color: transparent; background: linear-gradient(100deg, #c4b5fd 10%, #9c8bff 52%, #67e8f9 100%); background-clip: text; -webkit-background-clip: text; }
+      .intro { max-width: 490px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.8; }
+      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 32px; }
+      .button {
+        min-height: 54px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 11px;
+        padding: 0 22px;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        font-size: 14px;
+        font-weight: 800;
+        transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      }
+      .button:hover { transform: translateY(-3px); }
+      .button:focus-visible, nav a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+      .button-primary { color: #11101b; background: linear-gradient(110deg, #c4b5fd, #8bdbf5); box-shadow: 0 10px 34px rgba(148, 127, 250, .26); }
+      .button-primary:hover { box-shadow: 0 14px 42px rgba(148, 127, 250, .42); }
+      .button-secondary { border-color: var(--line); background: rgba(255,255,255,.045); color: #eeebff; }
+      .button-secondary:hover { border-color: rgba(255,255,255,.24); }
+      .download-icon { width: 18px; height: 18px; }
+      .release { min-height: 18px; margin: 13px 0 0 3px; color: #88869d; font-size: 12px; }
+      .release a { color: #c3b4fd; text-decoration: underline; text-underline-offset: 3px; }
+      .showcase { position: relative; min-height: 440px; display: grid; place-items: center; animation: enter .9s .12s both; }
+      .orb {
+        position: absolute;
+        width: min(390px, 82vw);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle at 38% 34%, rgba(185, 160, 255, .32), rgba(108, 73, 193, .12) 38%, transparent 70%);
+        filter: blur(2px);
+        animation: breathe 6s ease-in-out infinite;
+      }
+      .ring { position: absolute; width: 380px; height: 160px; border: 1px solid rgba(179, 159, 255, .28); border-radius: 50%; transform: rotate(-24deg); box-shadow: 0 0 34px rgba(167, 139, 250, .12); }
+      .ring-two { width: 430px; height: 190px; transform: rotate(38deg); border-color: rgba(103, 232, 249, .18); }
+      .launcher-card {
+        position: relative;
+        z-index: 1;
+        width: min(350px, 85%);
+        padding: 24px;
+        border: 1px solid rgba(255,255,255,.15);
+        border-radius: 24px;
+        background: linear-gradient(145deg, rgba(38, 34, 65, .9), rgba(16, 18, 32, .91));
+        box-shadow: 0 30px 90px rgba(0,0,0,.5), inset 0 1px rgba(255,255,255,.09);
+        backdrop-filter: blur(18px);
+        transform: rotate(-4deg);
+        animation: float 6s ease-in-out infinite;
+      }
+      .card-top { display: flex; justify-content: space-between; align-items: center; color: #aaa6c1; font-size: 10px; letter-spacing: .12em; }
+      .window-dots { display: flex; gap: 5px; }
+      .window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #b89eff; opacity: .7; }
+      .game-tile {
+        position: relative;
+        height: 190px;
+        display: flex;
+        align-items: end;
+        overflow: hidden;
+        margin-top: 20px;
+        padding: 18px;
+        border: 1px solid rgba(255,255,255,.1);
+        border-radius: 16px;
+        background:
+          linear-gradient(0deg, rgba(10,11,20,.9), transparent 70%),
+          radial-gradient(ellipse at 70% 20%, rgba(82, 212, 231, .6), transparent 36%),
+          linear-gradient(135deg, #4a3b7c, #1d3852 55%, #171a29);
+      }
+      .game-tile::before, .game-tile::after { position: absolute; bottom: 0; content: ""; background: #151722; opacity: .85; }
+      .game-tile::before { left: 0; width: 75%; height: 54px; clip-path: polygon(0 40%, 18% 40%, 18% 0, 40% 0, 40% 56%, 66% 56%, 66% 15%, 100% 15%, 100% 100%, 0 100%); }
+      .game-tile::after { right: 0; width: 42%; height: 84px; clip-path: polygon(0 48%, 34% 48%, 34% 0, 73% 0, 73% 36%, 100% 36%, 100% 100%, 0 100%); }
+      .game-title { position: relative; z-index: 1; font-size: 23px; font-weight: 900; letter-spacing: -.06em; text-shadow: 0 2px 14px #000; }
+      .profile-row { display: flex; align-items: center; gap: 11px; margin: 17px 0; }
+      .profile-icon { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.18); border-radius: 10px; }
+      .profile-name { font-size: 12px; font-weight: 700; }
+      .profile-meta { margin-top: 4px; color: #9692ac; font-size: 10px; }
+      .mini-play { display: flex; align-items: center; justify-content: center; gap: 8px; height: 40px; border-radius: 12px; color: #15111f; background: linear-gradient(100deg, #c4b5fd, #8bdbf5); font-size: 11px; font-weight: 900; letter-spacing: .1em; }
+      .floating-chip { position: absolute; z-index: 2; display: flex; align-items: center; gap: 9px; padding: 11px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(22, 21, 37, .82); box-shadow: 0 14px 35px rgba(0,0,0,.25); color: #ded9f3; font-size: 11px; backdrop-filter: blur(12px); animation: float 5s ease-in-out infinite; }
+      .chip-one { top: 74px; right: 0; }
+      .chip-two { bottom: 56px; left: 0; animation-delay: -2s; }
+      .chip-symbol { color: var(--cyan); font-size: 15px; }
+      .section { padding: 42px 0 100px; }
+      .section-heading { max-width: 550px; margin: 0 auto 34px; text-align: center; }
+      .section-heading p { margin: 0 0 10px; color: #bba8ff; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+      h2 { margin: 0; font-size: clamp(28px, 4vw, 42px); letter-spacing: -.045em; }
+      .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+      .feature {
+        min-height: 194px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+        transition: transform .25s ease, border-color .25s ease, background .25s ease;
+      }
+      .feature:hover { transform: translateY(-5px); border-color: rgba(167,139,250,.35); background: rgba(167,139,250,.06); }
+      .feature-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 22px; border: 1px solid rgba(167,139,250,.22); border-radius: 13px; background: rgba(167,139,250,.1); color: #c8b7ff; font-size: 19px; }
+      .feature h3 { margin: 0 0 9px; font-size: 15px; }
+      .feature p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+      .bottom-cta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 72px;
+        padding: 32px;
+        border: 1px solid rgba(167,139,250,.2);
+        border-radius: 24px;
+        background: radial-gradient(ellipse at 0% 50%, rgba(167,139,250,.15), transparent 54%), rgba(255,255,255,.025);
+      }
+      .bottom-cta p { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+      footer { padding: 24px 0 30px; border-top: 1px solid rgba(255,255,255,.07); color: #77758b; font-size: 11px; }
+      .footer-inner { display: flex; justify-content: space-between; gap: 16px; }
+      .footer-links { display: flex; gap: 20px; }
+      .footer-links a:hover { color: #fff; }
+      .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+      @keyframes enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+      @keyframes breathe { 0%, 100% { transform: scale(.94); opacity: .72; } 50% { transform: scale(1.07); opacity: 1; } }
+      @keyframes pulse { 50% { opacity: .45; box-shadow: 0 0 3px var(--cyan); } }
+      @keyframes drift { to { transform: translateY(-340px); } }
+      @media (max-width: 760px) {
+        .wrap { width: min(100% - 36px, 560px); }
+        header { height: 72px; }
+        nav { gap: 16px; }
+        nav a:not(.nav-discord) { display: none; }
+        .hero { min-height: auto; grid-template-columns: 1fr; gap: 8px; padding: 68px 0 46px; }
+        h1 { max-width: 540px; }
+        .showcase { min-height: 390px; margin-top: 5px; }
+        .launcher-card { width: min(340px, 78%); }
+        .ring { width: 340px; }
+        .ring-two { width: 370px; }
+        .chip-one { right: 1%; }
+        .chip-two { left: 1%; }
+        .section { padding-bottom: 70px; }
+        .feature-grid { grid-template-columns: 1fr; }
+        .feature { min-height: 0; }
+        .bottom-cta { align-items: flex-start; flex-direction: column; padding: 25px; }
+        .footer-inner { flex-direction: column; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+        .reveal { opacity: 1; transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="backdrop" aria-hidden="true"></div>
+      <div class="stars" aria-hidden="true"></div>
+      <div class="wrap">
+        <header>
+          <a class="brand" href="#top" aria-label="Atemingo Launcher ana sayfa">
+            <img src="./logo.png" alt="" />
+            <span>ATEMINGO</span>
+          </a>
+          <nav aria-label="Ana menü">
+            <a href="#ozellikler">Özellikler</a>
+            <a class="nav-discord" href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord ↗</a>
+          </nav>
+        </header>
 
-  /* Hero */
-  .hero { text-align: center; padding: 56px 0 36px; }
-  .badge {
-    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px;
-    background: rgba(212,175,55,.14); border: 1px solid rgba(243,229,171,.3);
-    color: var(--gold-300); font-size: 13px; font-weight: 600;
-  }
-  .badge .dot { width: 7px; height: 7px; border-radius: 50%; background: #34D399; box-shadow: 0 0 10px #34D399; }
-  h1 {
-    margin: 22px auto 16px; max-width: 880px; font-size: clamp(40px, 7vw, 76px); font-weight: 900; line-height: 1.04; letter-spacing: -.01em;
-    background: linear-gradient(180deg, #FFFFFF 0%, var(--gold-300) 60%, var(--gold-500) 100%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .lead { color: var(--soft); font-size: 18px; line-height: 1.6; max-width: 640px; margin: 0 auto 34px; }
-  .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; border-radius: 14px;
-    font-weight: 800; font-size: 16px; text-decoration: none; transition: transform .15s, box-shadow .15s, background .2s;
-  }
-  .btn-primary {
-    background: linear-gradient(180deg, var(--gold-300), var(--gold-500)); color: #0B132B;
-    box-shadow: 0 12px 34px rgba(212,175,55,.38), inset 0 1px 0 rgba(255,255,255,.4);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 42px rgba(212,175,55,.5), inset 0 1px 0 rgba(255,255,255,.4); }
-  .btn-primary[aria-disabled="true"] { opacity: .45; pointer-events: none; }
-  .btn-ghost { background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--text); }
-  .btn-ghost:hover { background: rgba(255,255,255,.12); }
-  .btn svg { width: 19px; height: 19px; }
-  .meta { margin-top: 16px; font-size: 13px; color: var(--muted); min-height: 1.4em; display: inline-flex; align-items: center; gap: 8px; }
-  .meta .dot { width: 7px; height: 7px; border-radius: 50%; background: #34D399; box-shadow: 0 0 10px #34D399; }
+        <section class="hero" id="top">
+          <div class="hero-copy">
+            <span class="eyebrow"><span class="pulse"></span> MINECRAFT'I KENDİ TARZINDA YAŞA</span>
+            <h1>Macera<br /><span class="gradient-text">buradan başlar.</span></h1>
+            <p class="intro">Profillerini, modlarını ve sunucularını tek bir yerden yönet. Atemingo Launcher ile oyuna girmek artık çok daha kolay.</p>
+            <div class="actions">
+              <a class="button button-primary" id="download" href="#" aria-disabled="true">
+                <svg class="download-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span id="download-label">İndirme bağlantısı yükleniyor...</span>
+              </a>
+              <a class="button button-secondary" href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord'a katıl <span aria-hidden="true">↗</span></a>
+            </div>
+            <p class="release" id="release" aria-live="polite">Windows 10/11 · Güncel sürüm bilgisi alınıyor</p>
+          </div>
 
-  /* Launcher ekran görüntüsü (CSS ile çizilmiş) */
-  .shot {
-    position: relative; margin: 56px auto 0; max-width: 960px; border-radius: 18px; overflow: hidden;
-    border: 1px solid rgba(243,229,171,.22); background: #0E1730;
-    box-shadow: 0 40px 90px rgba(0,0,0,.5), 0 0 60px rgba(212,175,55,.12);
-  }
-  .shot-bar { height: 34px; display: flex; align-items: center; gap: 7px; padding: 0 14px; background: #0A1227; border-bottom: 1px solid var(--line); }
-  .shot-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
-  .shot-body { display: grid; grid-template-columns: 170px 1fr; min-height: 340px; }
-  .shot-side { background: #0A1227; border-right: 1px solid var(--line); padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; }
-  .shot-side .ic { width: 38px; height: 38px; border-radius: 12px; background: rgba(255,255,255,.06); }
-  .shot-side .ic.on { background: rgba(212,175,55,.25); box-shadow: inset 0 0 0 1px rgba(243,229,171,.4); }
-  .shot-main { padding: 22px; display: flex; flex-direction: column; gap: 14px; }
-  .hero-card {
-    border-radius: 16px; padding: 18px 20px; background: linear-gradient(135deg,#1C2541,#0B132B);
-    border: 1px solid rgba(243,229,171,.2); position: relative; overflow: hidden;
-  }
-  .hero-card::after { content: ''; position: absolute; right: -40px; top: -40px; width: 160px; height: 160px; border-radius: 50%; background: rgba(243,229,171,.14); }
-  .hero-card b { display: block; font-size: 26px; font-weight: 900; color: var(--gold-300); }
-  .hero-card small { color: var(--muted); }
-  .play { margin-top: 12px; display: inline-flex; align-items: center; gap: 6px; background: var(--gold-500); color: #0B132B; font-weight: 800; font-size: 13px; padding: 9px 18px; border-radius: 10px; }
-  .rows { display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr); }
-  .prof { border-radius: 14px; padding: 12px; background: rgba(255,255,255,.04); border: 1px solid var(--line); }
-  .prof .sq { height: 56px; border-radius: 10px; margin-bottom: 10px; }
-  .prof span { display: block; font-weight: 700; font-size: 13px; }
-  .prof small { color: var(--muted); font-size: 11px; }
+          <div class="showcase" aria-label="Atemingo Launcher arayüzü tanıtımı">
+            <div class="orb" aria-hidden="true"></div>
+            <div class="ring" aria-hidden="true"></div>
+            <div class="ring ring-two" aria-hidden="true"></div>
+            <div class="floating-chip chip-one"><span class="chip-symbol">✦</span> Modlarını yönet</div>
+            <div class="floating-chip chip-two"><span class="chip-symbol">◈</span> Tek tıkla oyuna gir</div>
+            <div class="launcher-card">
+              <div class="card-top"><span>ATEMINGO LAUNCHER</span><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+              <div class="game-tile"><span class="game-title">MINECRAFT</span></div>
+              <div class="profile-row">
+                <img class="profile-icon" src="./icon.png" alt="" />
+                <div><div class="profile-name">Hayatta Kalma</div><div class="profile-meta">Fabric · 1.21.11</div></div>
+              </div>
+              <div class="mini-play"><span aria-hidden="true">▶</span> OYNA</div>
+            </div>
+          </div>
+        </section>
 
-  /* Özellikler */
-  .section-title { text-align: center; margin: 88px 0 10px; font-size: 13px; letter-spacing: .3em; color: var(--gold-300); text-transform: uppercase; }
-  .section-head { text-align: center; font-size: clamp(28px, 4vw, 42px); font-weight: 900; margin: 0 0 40px; }
-  .feat { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px;
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: transform .2s, border-color .2s;
-  }
-  .card:hover { transform: translateY(-3px); border-color: rgba(243,229,171,.35); }
-  .card .ico {
-    width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 16px;
-    background: rgba(212,175,55,.16); color: var(--gold-300); font-weight: 900; font-size: 18px;
-  }
-  .card h3 { margin: 0 0 8px; font-size: 20px; color: var(--gold-200); }
-  .card p { margin: 0; color: var(--soft); font-size: 15px; line-height: 1.65; }
-  .small-feat { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); margin-top: 18px; }
-  .small-feat .card { padding: 22px; }
-  .small-feat h3 { font-size: 17px; }
+        <section class="section" id="ozellikler">
+          <div class="section-heading reveal">
+            <p>Her şey elinin altında</p>
+            <h2>Oyuna odaklan, gerisini biz halledelim.</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature reveal">
+              <div class="feature-icon" aria-hidden="true">▦</div>
+              <h3>Profiller tek yerde</h3>
+              <p>Vanilla ve Fabric profillerini kolayca oluştur, düzenle ve yönet.</p>
+            </article>
+            <article class="feature reveal">
+              <div class="feature-icon" aria-hidden="true">✧</div>
+              <h3>Modlarını keşfet</h3>
+              <p>Modlarını görüntüle, açıp kapat ve yeni içerikleri keşfet.</p>
+            </article>
+            <article class="feature reveal">
+              <div class="feature-icon" aria-hidden="true">⌘</div>
+              <h3>Toplulukla buluş</h3>
+              <p>Sunucularını ekle ve Atemingo topluluğuyla Discord'da buluş.</p>
+            </article>
+          </div>
+        </section>
 
-  /* Sürüm notları */
-  .notes { margin-top: 88px; padding: 30px; }
-  .notes h2 { font-size: 22px; margin: 0 0 14px; color: var(--gold-300); }
-  .notes ul { margin: 0; padding-left: 20px; color: var(--soft); line-height: 1.8; }
+        <section class="bottom-cta reveal">
+          <div><h2>Hazır mısın?</h2><p>Windows için Atemingo Launcher'ı indir ve macerana başla.</p></div>
+          <a class="button button-primary" href="#" data-download aria-disabled="true"><span>Windows için indir</span><span aria-hidden="true">↓</span></a>
+        </section>
 
-  footer { margin-top: 80px; border-top: 1px solid var(--line); padding: 34px 0 40px; color: var(--muted); font-size: 13px; }
-  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
-  .foot a { color: var(--muted); text-decoration: none; margin-left: 16px; }
-  .foot a:hover { color: var(--gold-300); }
-
-  @media (max-width: 860px) {
-    .feat { grid-template-columns: 1fr; }
-    .small-feat { grid-template-columns: 1fr; }
-    .shot-body { grid-template-columns: 1fr; }
-    .shot-side { display: none; }
-    .rows { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 560px) {
-    nav a { padding: 6px 8px; font-size: 13px; }
-    .hero { padding-top: 36px; }
-    .btn { width: 100%; justify-content: center; }
-    .rows { grid-template-columns: 1fr; }
-  }
-
-  /* Animasyonlar */
-  @keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
-  .rise { opacity: 0; animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
-  .d1 { animation-delay: .1s; } .d2 { animation-delay: .25s; } .d3 { animation-delay: .4s; } .d4 { animation-delay: .55s; }
-  .shot img {
-    display: block; width: 100%; height: auto; border-radius: 18px;
-    border: 1px solid rgba(243,229,171,.22);
-    box-shadow: 0 40px 90px rgba(0,0,0,.5), 0 0 60px rgba(212,175,55,.14);
-    animation: drift 7s ease-in-out 1.6s infinite;
-  }
-  @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-  .shot { margin: 56px auto 0; max-width: 960px; }
-  .reveal { opacity: 0; transform: translateY(32px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
-  .reveal.in { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation: none !important; transition: none !important; }
-    .rise, .reveal { opacity: 1; transform: none; }
-  }
-</style>
-</head>
-<body>
-  <canvas id="stars" aria-hidden="true"></canvas>
-  <div class="glow" aria-hidden="true"></div>
-
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M58 18a36 36 0 1 0 26 52 28 28 0 1 1-26-52z" fill="#F3E5AB"/></svg>
-        ATEMINGO LAUNCHER
+        <footer>
+          <div class="footer-inner">
+            <span>© <span id="year"></span> Atemingo Launcher</span>
+            <div class="footer-links">
+              <a href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord</a>
+              <a href="#top">Yukarı çık ↑</a>
+            </div>
+          </div>
+        </footer>
       </div>
-      <nav>
-        <a href="#ozellikler">Özellikler</a>
-        <a href="#surumler">Sürüm notları</a>
-        <a href="https://discord.gg/YnCzzVKnDX" target="_blank" rel="noopener">Discord</a>
-      </nav>
-    </header>
+    </main>
+    <script>
+      const updateUrl = new URL("https://atemingo.github.io/AtemingoLauncher/updates/version.json");
+      const download = document.getElementById("download");
+      const downloadLabel = document.getElementById("download-label");
+      const release = document.getElementById("release");
+      const downloadButtons = [download, ...document.querySelectorAll("[data-download]")];
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-    <section class="hero">
-      <span class="badge rise d1"><span class="dot"></span> Yeni sürüm yayında</span>
-      <h1 class="rise d1">Atemingo LAUNCHER ile Minecraft'a tek tıkla gir</h1>
-      <p class="lead rise d2">Profiller, Modrinth modları, arkadaş sunucuları ve sohbet. Hepsi tek bir gece temalı launcher'da.</p>
+      downloadButtons.forEach((button) => button.addEventListener("click", (event) => {
+        if (button.getAttribute("aria-disabled") === "true") {
+          event.preventDefault();
+          loadRelease();
+        }
+      }));
 
-      <div class="actions rise d3">
-        <a id="download" class="btn btn-primary" href="downloads/AtemingoLauncher-setup.exe" aria-disabled="true">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.4v7.1H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.6h7.5v7.1L3 18.6zM11.5 12.6H21V21l-9.5-1.3z"/></svg>
-          Windows için indir
-        </a>
-        <a class="btn btn-ghost" href="#ozellikler">Özellikleri gör</a>
-      </div>
-      <div class="meta rise d3" id="meta">Sürüm bilgisi yükleniyor…</div>
+      function setDownloadUrl(url) {
+        const installerUrl = new URL(url, updateUrl);
+        if (installerUrl.protocol !== "https:") throw new Error("Güvenli olmayan indirme adresi.");
+        downloadButtons.forEach((button) => {
+          button.href = installerUrl.href;
+          button.target = "_blank";
+          button.rel = "noopener noreferrer";
+          button.removeAttribute("aria-disabled");
+        });
+        downloadLabel.textContent = "Windows için indir";
+        document.querySelector("[data-download] span").textContent = "Windows için indir";
+      }
 
-      <figure class="shot rise d4">
-        <img src="launcher.png" alt="Atemingo Launcher ana ekranı" loading="eager">
-      </figure>
-    </section>
+      async function loadRelease() {
+        downloadLabel.textContent = "İndirme bağlantısı yükleniyor...";
+        downloadButtons.forEach((button) => {
+          button.removeAttribute("href");
+          button.setAttribute("aria-disabled", "true");
+        });
+        try {
+          const response = await fetch(updateUrl, { cache: "no-store" });
+          if (!response.ok) throw new Error("Sürüm bilgisi alınamadı (" + response.status + ").");
+          const info = await response.json();
+          if (!info || typeof info.version !== "string" || typeof info.url !== "string") {
+            throw new Error("Sürüm bilgisinin biçimi geçersiz.");
+          }
+          setDownloadUrl(info.url);
+          release.textContent = "Windows 10/11 · Sürüm " + info.version + (info.notes ? " · " + info.notes : "");
+        } catch (error) {
+          release.textContent = "İndirme bilgisi alınamadı. Yeniden denemek için tıklayın.";
+          downloadLabel.textContent = "Tekrar dene";
+          document.querySelector("[data-download] span").textContent = "Tekrar dene";
+          console.error("Atemingo Launcher sürüm bilgisi yüklenemedi:", error);
+        }
+      }
 
-    <div class="section-title reveal" id="ozellikler">Özellikler</div>
-    <h2 class="section-head reveal">Her şey tek yerde</h2>
-
-    <section class="feat reveal">
-      <div class="card"><div class="ico">P</div><h3>Profiller</h3><p>Vanilla ve Fabric profilleri. Her profilin kendi mod, resource pack ve dünya klasörü var. Oyunlar birbirini etkilemez.</p></div>
-      <div class="card"><div class="ico">M</div><h3>Modrinth entegrasyonu</h3><p>Modları, resource pack'leri, shader'ları ve modpack'leri launcher içinden arayıp tek tıkla kurun. .mrpack dosyalarını sürükleyip bırakmanız yeterli.</p></div>
-    </section>
-
-    <section class="small-feat reveal">
-      <div class="card"><div class="ico">H</div><h3>Microsoft girişi</h3><p>Birden fazla hesap ekleyin. Hesap bilgileri şifreli olarak yalnızca sizin bilgisayarınızda saklanır.</p></div>
-      <div class="card"><div class="ico">S</div><h3>Sunucular ve arkadaşlar</h3><p>Arkadaş sunucularına tek tıkla bağlanın. Microsoft hesabınızla diğer oyuncularla sohbet edin.</p></div>
-      <div class="card"><div class="ico">G</div><h3>Otomatik güncelleme</h3><p>Yeni sürüm çıktığında launcher bunu size bildirir. Tek tıkla güncellenir, tekrar kurulum gerekmez.</p></div>
-    </section>
-
-    <section id="surumler" class="card notes reveal">
-      <h2>Son sürüm notları</h2>
-      <ul id="notes"><li>Yükleniyor…</li></ul>
-    </section>
-
-    <footer>
-      <div class="foot">
-        <div>© Atemingo Launcher · FPS BOOST topluluğu için yapıldı</div>
-        <div>
-          <a href="https://discord.gg/YnCzzVKnDX" target="_blank" rel="noopener">Discord</a>
-          <a href="#ozellikler">Özellikler</a>
-          <a href="#surumler">Sürüm notları</a>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-<script>
-(function () {
-  // Yıldız alanı
-  var canvas = document.getElementById('stars');
-  var ctx = canvas.getContext('2d');
-  var stars = [];
-  function resize() {
-    var dpr = window.devicePixelRatio || 1;
-    canvas.width = innerWidth * dpr; canvas.height = innerHeight * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    stars = Array.from({ length: Math.round(innerWidth * innerHeight / 14000) }, function () {
-      return { x: Math.random(), y: Math.random(), r: Math.random() * 1.4 + 0.4, tw: Math.random() * 6.28, s: Math.random() * 0.03 + 0.01 };
-    });
-  }
-  function frame() {
-    ctx.clearRect(0, 0, innerWidth, innerHeight);
-    for (var i = 0; i < stars.length; i++) {
-      var s = stars[i];
-      s.tw += s.s;
-      ctx.beginPath();
-      ctx.fillStyle = 'rgba(255,240,200,' + (0.25 + Math.sin(s.tw) * 0.3) + ')';
-      ctx.arc(s.x * innerWidth, s.y * innerHeight, s.r, 0, 6.283);
-      ctx.fill();
-    }
-    requestAnimationFrame(frame);
-  }
-  resize(); frame();
-  addEventListener('resize', resize);
-
-
-  // Görünüme gelen bölümleri yumuşakça aç
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-
-  // Sürüm bilgisi ve indirme bağlantısı (updates/version.json)
-  var meta = document.getElementById('meta');
-  var btn = document.getElementById('download');
-  var notes = document.getElementById('notes');
-  fetch('updates/version.json', { cache: 'no-store' })
-    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(function (v) {
-      meta.innerHTML = '<span class="dot"></span> Sürüm ' + v.version + ' · Windows';
-      if (v.url) { btn.href = v.url; }
-      btn.setAttribute('aria-disabled', 'false');
-      notes.innerHTML = '';
-      String(v.notes || 'Sürüm notu yok.').split(/\r?\n|;\s*/).forEach(function (line) {
-        if (!line.trim()) return;
-        var li = document.createElement('li');
-        li.textContent = line.trim();
-        notes.appendChild(li);
+      loadRelease();
+      const revealObserver = "IntersectionObserver" in window
+        ? new IntersectionObserver((entries, observer) => entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          }), { threshold: 0.12 })
+        : null;
+      document.querySelectorAll(".reveal").forEach((element) => {
+        if (revealObserver) revealObserver.observe(element);
+        else element.classList.add("visible");
       });
-    })
-    .catch(function () {
-      meta.textContent = 'Sürüm bilgisi alınamadı. Lütfen daha sonra tekrar deneyin.';
-      notes.innerHTML = '<li>Sürüm bilgisi alınamadı.</li>';
-    });
-})();
-</script>
-</body>
+    </script>
+  </body>
 </html>
