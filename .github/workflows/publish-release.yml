@@ -27,6 +27,10 @@ on:
         description: 'Yayından sonra silinecek eski release etiketi (boş bırakılabilir)'
         required: false
         default: ''
+      recreate_existing:
+        description: 'Aynı etiketli release varsa silip yeniden oluştur (releases listesinde en üste taşır): true / false'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
@@ -42,6 +46,7 @@ jobs:
       ASSET_SHA256: ${{ inputs.asset_sha256 }}
       NOTES_FROM: ${{ inputs.notes_from_tag }}
       DELETE_RELEASE: ${{ inputs.delete_release }}
+      RECREATE: ${{ inputs.recreate_existing }}
       REPO: ${{ github.repository }}
       GH_REPO: ${{ github.repository }}
     steps:
@@ -67,6 +72,9 @@ jobs:
         run: |
           set -euo pipefail
           name="$(basename "$ASSET_URL")"
+          if [ "$RECREATE" = "true" ]; then
+            gh release delete "$TAG" --yes || true
+          fi
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" "$name" --clobber
           else
