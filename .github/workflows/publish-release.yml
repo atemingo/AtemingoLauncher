@@ -43,6 +43,7 @@ jobs:
       NOTES_FROM: ${{ inputs.notes_from_tag }}
       DELETE_RELEASE: ${{ inputs.delete_release }}
       REPO: ${{ github.repository }}
+      GH_REPO: ${{ github.repository }}
     steps:
       - name: Kurulum dosyasını indir ve doğrula
         run: |
