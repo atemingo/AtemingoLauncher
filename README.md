@@ -8,7 +8,7 @@ Web sitesi: https://atemingo.github.io/AtemingoLauncher/
 
 | Dosya | Platform | Kurulum |
 | --- | --- | --- |
-| [AtemingoLauncher-setup.exe](https://github.com/atemingo/AtemingoLauncher/releases/download/v2.0.0/AtemingoLauncher-setup.exe) | **Windows 10/11 (64-bit)** | İndirip çalıştırın |
+| [AtemingoLauncher-setup.exe](https://github.com/atemingo/AtemingoLauncher/releases/download/v2.0.0-windows/AtemingoLauncher-setup.exe) | **Windows 10/11 (64-bit)** | İndirip çalıştırın |
 | [AtemingoLauncher-2.0.0-linux-x64.AppImage](https://github.com/atemingo/AtemingoLauncher/releases/download/v2.0.0-linux/AtemingoLauncher-2.0.0-linux-x64.AppImage) | **Linux (64-bit) — taşınabilir** | `chmod +x AtemingoLauncher-2.0.0-linux-x64.AppImage` ve çift tıklayın |
 | [AtemingoLauncher-2.0.0-linux-x64.deb](https://github.com/atemingo/AtemingoLauncher/releases/download/v2.0.0-linux/AtemingoLauncher-2.0.0-linux-x64.deb) | **Linux — Debian / Ubuntu (64-bit)** | `sudo apt install ./AtemingoLauncher-2.0.0-linux-x64.deb` |
 
