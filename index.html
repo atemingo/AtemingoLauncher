@@ -136,6 +136,36 @@
       }
       .head-cta:hover { background: rgba(246, 196, 83, 0.12); border-color: rgba(246, 196, 83, 0.45); }
       .head-cta svg { width: 15px; height: 15px; }
+      .head-tools { display: inline-flex; align-items: center; gap: 10px; }
+      .lang-switch {
+        display: inline-flex;
+        gap: 2px;
+        padding: 3px;
+        border: 1px solid var(--line-strong);
+        border-radius: 11px;
+        background: rgba(255, 255, 255, 0.045);
+      }
+      .lang-btn {
+        appearance: none;
+        padding: 6px 9px;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: var(--dim);
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+        transition: color 0.2s ease, background 0.2s ease;
+      }
+      .lang-btn:hover { color: #fff; }
+      .lang-btn[aria-pressed="true"] {
+        color: #1a1206;
+        background: linear-gradient(103deg, #ffe29a, #f6c453 62%, #eab13c);
+        box-shadow: inset 0 1px rgba(255, 255, 255, 0.45);
+      }
+      .lang-btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
 
       /* ---------- hero ---------- */
       .hero { position: relative; display: grid; grid-template-columns: 1.02fr 0.98fr; align-items: center; gap: 44px; padding: 76px 0 88px; }
@@ -439,6 +469,9 @@
         .wrap { width: calc(100% - 34px); }
         .head-inner { height: 68px; }
         .brand-tag { display: none; }
+        .head-tools { gap: 8px; }
+        .head-tools .head-cta { display: none; }
+        .lang-btn { padding: 5px 7px; }
         h1 { font-size: clamp(42px, 12.6vw, 58px); }
         .actions { gap: 10px; }
         .actions .btn { flex: 1 1 100%; }
@@ -467,30 +500,36 @@
 
     <header class="site-head" id="site-head">
       <div class="wrap head-inner">
-        <a class="brand" href="#top" aria-label="Atemingo Launcher ana sayfa">
+        <a class="brand" href="#top" aria-label="Atemingo Launcher ana sayfa" data-i18n-aria="brandAria">
           <img src="./logo.png" alt="" width="40" height="40" />
           <span class="brand-name">ATEMINGO</span>
           <span class="brand-tag">LAUNCHER</span>
         </a>
-        <nav aria-label="Ana menü">
-          <a href="#ozellikler">Özellikler</a>
-          <a href="#nasil">Nasıl çalışır</a>
-          <a href="#indir">İndir</a>
+        <nav aria-label="Ana menü" data-i18n-aria="navAria">
+          <a href="#ozellikler" data-i18n="nav.features">Özellikler</a>
+          <a href="#nasil" data-i18n="nav.how">Nasıl çalışır</a>
+          <a href="#indir" data-i18n="nav.download">İndir</a>
           <a class="nav-discord" href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord</a>
         </nav>
-        <a class="head-cta" href="#indir">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-          İndir
-        </a>
+        <div class="head-tools">
+          <div class="lang-switch" role="group" aria-label="Dil seçimi" data-i18n-aria="langAria">
+            <button type="button" class="lang-btn" data-lang="tr" aria-pressed="true">TR</button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+          </div>
+          <a class="head-cta" href="#indir">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <span data-i18n="nav.download">İndir</span>
+          </a>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="hero wrap" id="top">
         <div class="hero-copy">
-          <span class="eyebrow"><span class="pulse"></span> Sürüm <b id="ver">2.0.0</b> · Fabric 1.21.11</span>
-          <h1>Macera<br /><span class="grad">burada başlar.</span></h1>
-          <p class="intro">
+          <span class="eyebrow"><span class="pulse"></span> <span data-i18n="hero.version">Sürüm</span> <b id="ver">2.0.0</b> · Fabric 1.21.11</span>
+          <h1><span data-i18n="hero.title1">Macera</span><br /><span class="grad" data-i18n="hero.title2">burada başlar.</span></h1>
+          <p class="intro" data-i18n="hero.intro">
             Profillerini, modlarını ve sunucularını tek bir yerden yönet. Java'yı, modları ve ayarları
             Atemingo halletsin; sen sadece oyna.
           </p>
@@ -504,16 +543,16 @@
               <span data-linux-label>Linux · yakında</span>
             </a>
           </div>
-          <p class="release" id="release" aria-live="polite">Sürüm bilgisi alınıyor…</p>
+          <p class="release" id="release" aria-live="polite" data-i18n="releaseLoading">Sürüm bilgisi alınıyor…</p>
           <ul class="facts">
-            <li>Windows 10/11</li>
-            <li>Fabric 1.21.11</li>
-            <li>~28 MB</li>
-            <li>Ücretsiz</li>
+            <li data-i18n="hero.fact1">Windows 10/11</li>
+            <li data-i18n="hero.fact2">Fabric 1.21.11</li>
+            <li data-i18n="hero.fact3">~28 MB</li>
+            <li data-i18n="hero.fact4">Ücretsiz</li>
           </ul>
         </div>
 
-        <div class="showcase" aria-label="Atemingo Launcher arayüzü">
+        <div class="showcase" aria-label="Atemingo Launcher arayüzü" data-i18n-aria="hero.showcaseAria">
           <div class="orbit" aria-hidden="true"></div>
           <div class="orbit two" aria-hidden="true"></div>
           <img class="moon-badge" src="./logo.png" alt="" width="72" height="72" loading="eager" />
@@ -523,108 +562,105 @@
                 <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
                 <span class="shot-title">ATEMINGO LAUNCHER <b id="shot-ver">2.0.0</b></span>
               </div>
-              <img src="./launcher.png" alt="Atemingo Launcher ana ekranı" width="1914" height="1025" loading="eager" />
+              <img src="./launcher.png" alt="Atemingo Launcher ana ekranı" data-i18n-alt="hero.shotAlt" width="1914" height="1025" loading="eager" />
             </div>
           </div>
           <div class="chip chip-a">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            Modrinth'te <b>keşfet</b>
+            <span data-i18n-html="chip.modrinth">Modrinth'te <b>keşfet</b></span>
           </div>
           <div class="chip chip-b">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 19c.6-3 2.6-4.5 5-4.5s4.4 1.5 5 4.5M13.5 19c.4-2.4 2-3.7 4-3.7s3.6 1.3 4 3.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Arkadaşlarınla <b>oyna</b>
+            <span data-i18n-html="chip.friends">Arkadaşlarınla <b>oyna</b></span>
           </div>
           <div class="chip chip-c">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            Nişangah <b>Stüdyosu</b>
+            <span data-i18n-html="chip.crosshair">Nişangah <b>Stüdyosu</b></span>
           </div>
         </div>
       </section>
 
       <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span>PROFİLLER <em>✦</em></span><span>MODRINTH <em>✦</em></span><span>SÜRÜMLER <em>✦</em></span><span>SUNUCULAR <em>✦</em></span><span>ARKADAŞLAR <em>✦</em></span><span>NİŞANGAH <em>✦</em></span><span>PERFORMANS <em>✦</em></span>
-          <span>PROFİLLER <em>✦</em></span><span>MODRINTH <em>✦</em></span><span>SÜRÜMLER <em>✦</em></span><span>SUNUCULAR <em>✦</em></span><span>ARKADAŞLAR <em>✦</em></span><span>NİŞANGAH <em>✦</em></span><span>PERFORMANS <em>✦</em></span>
-        </div>
+        <div class="marquee-track" id="marquee-track"></div>
       </div>
 
       <section class="section wrap" id="ozellikler">
         <div class="section-head reveal">
-          <span class="kicker">Her şey elinin altında</span>
-          <h2>Oyuna odaklan, gerisini biz halledelim.</h2>
-          <p>Vanilla'dan Fabric'e, mod keşfinden arkadaşlarına kadar launcher'ın her parçası tek bir akışta.</p>
+          <span class="kicker" data-i18n="f.kicker">Her şey elinin altında</span>
+          <h2 data-i18n="f.title">Oyuna odaklan, gerisini biz halledelim.</h2>
+          <p data-i18n="f.lead">Vanilla'dan Fabric'e, mod keşfinden arkadaşlarına kadar launcher'ın her parçası tek bir akışta.</p>
         </div>
         <div class="bento">
           <article class="card wide feature-gold reveal">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
             </div>
-            <h3>Modrinth atölyesi</h3>
-            <p>Modları launcher'ın içinde ara, sürüm uyumluluğunu gör, tek tıkla profiline ekle. Ayrı site, ayrı indirme yok.</p>
-            <div class="tags"><span class="tag">Tek tıkla kur</span><span class="tag">Sürüm filtresi</span><span class="tag">Otomatik güncelleme</span></div>
+            <h3 data-i18n="f.modrinth.title">Modrinth atölyesi</h3>
+            <p data-i18n="f.modrinth.body">Modları launcher'ın içinde ara, sürüm uyumluluğunu gör, tek tıkla profiline ekle. Ayrı site, ayrı indirme yok.</p>
+            <div class="tags"><span class="tag" data-i18n="f.modrinth.tag1">Tek tıkla kur</span><span class="tag" data-i18n="f.modrinth.tag2">Sürüm filtresi</span><span class="tag" data-i18n="f.modrinth.tag3">Otomatik güncelleme</span></div>
           </article>
           <article class="card reveal">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m12 12 8-4.5M12 12v9M12 12 4 7.5" stroke="currentColor" stroke-width="1.7"/></svg>
             </div>
-            <h3>Profiller tek yerde</h3>
-            <p>Vanilla ve Fabric profillerini oluştur; her profil kendi modlarını, ayarlarını ve dünyasını taşısın.</p>
+            <h3 data-i18n="f.profiles.title">Profiller tek yerde</h3>
+            <p data-i18n="f.profiles.body">Vanilla ve Fabric profillerini oluştur; her profil kendi modlarını, ayarlarını ve dünyasını taşısın.</p>
           </article>
           <article class="card reveal">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13" width="18" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M7 7.5h.01M7 16.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
             </div>
-            <h3>Sunucular</h3>
-            <p>Sunucu adreslerini kaydet, canlı durumlarını gör ve oyuna doğrudan sunucuya bağlan.</p>
+            <h3 data-i18n="f.servers.title">Sunucular</h3>
+            <p data-i18n="f.servers.body">Sunucu adreslerini kaydet, canlı durumlarını gör ve oyuna doğrudan sunucuya bağlan.</p>
           </article>
           <article class="card reveal">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 19c.6-3 2.6-4.5 5-4.5s4.4 1.5 5 4.5M13.5 19c.4-2.4 2-3.7 4-3.7s3.6 1.3 4 3.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
             </div>
-            <h3>Arkadaşlar</h3>
-            <p>Paylaşım kodlarıyla arkadaş ekle, kimin çevrimiçi olduğunu gör ve birlikte oynayın.</p>
+            <h3 data-i18n="f.friends.title">Arkadaşlar</h3>
+            <p data-i18n="f.friends.body">Paylaşım kodlarıyla arkadaş ekle, kimin çevrimiçi olduğunu gör ve birlikte oynayın.</p>
           </article>
           <article class="card reveal">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
             </div>
-            <h3>Nişangah Stüdyosu</h3>
-            <p>Kendi nişangahını tasarla, rengini ve biçimini seç; anında oyunda kullan.</p>
+            <h3 data-i18n="f.crosshair.title">Nişangah Stüdyosu</h3>
+            <p data-i18n="f.crosshair.body">Kendi nişangahını tasarla, rengini ve biçimini seç; anında oyunda kullan.</p>
           </article>
           <article class="card reveal">
             <div class="card-icon">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 16a8 8 0 1 1 16 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m12 15 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 20h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
             </div>
-            <h3>Performans</h3>
-            <p>RAM, çözünürlük ve JVM ayarlarını profiline göre düzenle; hazır FPS paketleriyle başla.</p>
+            <h3 data-i18n="f.performance.title">Performans</h3>
+            <p data-i18n="f.performance.body">RAM, çözünürlük ve JVM ayarlarını profiline göre düzenle; hazır FPS paketleriyle başla.</p>
           </article>
           <article class="card card-cta reveal">
             <div>
-              <h3>Hepsi tek uygulamada</h3>
-              <p>Windows ve Linux. Kurulum, Java ve modlar dahil.</p>
+              <h3 data-i18n="f.cta.title">Hepsi tek uygulamada</h3>
+              <p data-i18n="f.cta.body">Windows ve Linux. Kurulum, Java ve modlar dahil.</p>
             </div>
-            <a class="btn btn-primary" href="#indir">İndir <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-primary" href="#indir"><span data-i18n="f.cta.button">İndir</span> <span aria-hidden="true">↓</span></a>
           </article>
         </div>
       </section>
 
       <section class="section wrap" id="nasil">
         <div class="section-head reveal">
-          <span class="kicker">Üç adım</span>
-          <h2>Kur, giriş yap, oyna.</h2>
+          <span class="kicker" data-i18n="s.kicker">Üç adım</span>
+          <h2 data-i18n="s.title">Kur, giriş yap, oyna.</h2>
         </div>
         <div class="steps">
           <article class="step reveal">
-            <h3>İndir</h3>
-            <p>Windows kurulum dosyasını çalıştır ya da Linux'ta AppImage'ı çift tıkla. Ek kurulum gerekmez.</p>
+            <h3 data-i18n="s.1.title">İndir</h3>
+            <p data-i18n="s.1.body">Windows kurulum dosyasını çalıştır ya da Linux'ta AppImage'ı çift tıkla. Ek kurulum gerekmez.</p>
           </article>
           <article class="step reveal">
-            <h3>Giriş yap</h3>
-            <p>Microsoft hesabınla oturum aç. Bilgilerin cihazında şifrelenmiş olarak saklanır.</p>
+            <h3 data-i18n="s.2.title">Giriş yap</h3>
+            <p data-i18n="s.2.body">Microsoft hesabınla oturum aç. Bilgilerin cihazında şifrelenmiş olarak saklanır.</p>
           </article>
           <article class="step reveal">
-            <h3>Oyna</h3>
-            <p>Profilini seç, OYNA'ya bas. Java çalışma zamanı ve modlar otomatik hazırlanır.</p>
+            <h3 data-i18n="s.3.title">Oyna</h3>
+            <p data-i18n="s.3.body">Profilini seç, OYNA'ya bas. Java çalışma zamanı ve modlar otomatik hazırlanır.</p>
           </article>
         </div>
       </section>
@@ -632,10 +668,10 @@
       <section class="download wrap" id="indir">
         <div class="download-panel reveal">
           <div class="download-copy">
-            <span class="kicker">Hazır mısın?</span>
-            <h2>Maceraya tek tıkla başla.</h2>
-            <p>Ücretsiz, reklamsız ve hesabın sende kalır. Kurulum paketi GitHub Releases üzerinden iner.</p>
-            <p class="release" id="release-2" aria-live="polite">Sürüm bilgisi alınıyor…</p>
+            <span class="kicker" data-i18n="d.kicker">Hazır mısın?</span>
+            <h2 data-i18n="d.title">Maceraya tek tıkla başla.</h2>
+            <p data-i18n="d.body">Ücretsiz, reklamsız ve hesabın sende kalır. Kurulum paketi GitHub Releases üzerinden iner.</p>
+            <p class="release" id="release-2" aria-live="polite" data-i18n="releaseLoading">Sürüm bilgisi alınıyor…</p>
           </div>
           <div class="platforms">
             <div class="platform">
@@ -644,7 +680,7 @@
               </span>
               <div class="platform-body">
                 <div class="platform-title">Windows <span class="soon">x64</span></div>
-                <div class="platform-meta" id="win-meta">Windows 10/11 · .exe kurulum</div>
+                <div class="platform-meta" id="win-meta" data-i18n="d.winMeta">Windows 10/11 · .exe kurulum</div>
               </div>
               <a class="btn btn-primary" href="#" data-win aria-disabled="true">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -657,8 +693,8 @@
               </span>
               <div class="platform-body">
                 <div class="platform-title">Linux <span class="soon" id="linux-badge">x64</span></div>
-                <div class="platform-meta" id="linux-meta">AppImage · 64-bit</div>
-                <a class="deb-link" id="deb-link" href="#" rel="noopener noreferrer">veya .deb paketini indir</a>
+                <div class="platform-meta" id="linux-meta" data-i18n="d.linuxMeta">AppImage · 64-bit</div>
+                <a class="deb-link" id="deb-link" href="#" rel="noopener noreferrer" data-i18n="d.deb">veya .deb paketini indir</a>
               </div>
               <a class="btn btn-ghost" href="#" data-linux aria-disabled="true">
                 <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -675,7 +711,7 @@
         <span class="foot-brand"><img src="./logo.png" alt="" width="22" height="22" /> © <span id="year"></span> Atemingo Launcher</span>
         <div class="foot-links">
           <a href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord</a>
-          <a href="#top">Yukarı çık ↑</a>
+          <a href="#top" data-i18n="foot.top">Yukarı çık ↑</a>
         </div>
       </div>
     </footer>
@@ -692,10 +728,190 @@
         const debLink = document.getElementById("deb-link");
         const linuxMeta = document.getElementById("linux-meta");
         const linuxBadge = document.getElementById("linux-badge");
+        const winMetaEl = document.getElementById("win-meta");
+        const marqueeTrack = document.getElementById("marquee-track");
+        const langButtons = Array.from(document.querySelectorAll("[data-lang]"));
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        const MARQUEE_KEYS = ["mqProfiles", "mqModrinth", "mqVersions", "mqServers", "mqFriends", "mqCrosshair", "mqPerformance"];
+
+        const I18N = {
+          tr: {
+            title: "Atemingo Launcher — Macera burada başlar",
+            desc: "Atemingo Launcher ile Minecraft profillerini, modlarını ve sunucularını tek bir yerden yönet. Windows ve Linux için ücretsiz.",
+            ogTitle: "Atemingo Launcher — Macera burada başlar",
+            ogDesc: "Profiller, modlar, Modrinth, sunucular ve arkadaşlar. Minecraft'ı tek tıkla, kendi tarzında oyna.",
+            brandAria: "Atemingo Launcher ana sayfa",
+            navAria: "Ana menü",
+            langAria: "Dil seçimi",
+            "nav.features": "Özellikler",
+            "nav.how": "Nasıl çalışır",
+            "nav.download": "İndir",
+            "hero.version": "Sürüm",
+            "hero.title1": "Macera",
+            "hero.title2": "burada başlar.",
+            "hero.intro": "Profillerini, modlarını ve sunucularını tek bir yerden yönet. Java'yı, modları ve ayarları Atemingo halletsin; sen sadece oyna.",
+            "hero.showcaseAria": "Atemingo Launcher arayüzü",
+            "hero.shotAlt": "Atemingo Launcher ana ekranı",
+            "hero.fact1": "Windows 10/11",
+            "hero.fact2": "Fabric 1.21.11",
+            "hero.fact3": "~28 MB",
+            "hero.fact4": "Ücretsiz",
+            "chip.modrinth": "Modrinth'te <b>keşfet</b>",
+            "chip.friends": "Arkadaşlarınla <b>oyna</b>",
+            "chip.crosshair": "Nişangah <b>Stüdyosu</b>",
+            mqProfiles: "PROFİLLER",
+            mqModrinth: "MODRINTH",
+            mqVersions: "SÜRÜMLER",
+            mqServers: "SUNUCULAR",
+            mqFriends: "ARKADAŞLAR",
+            mqCrosshair: "NİŞANGAH",
+            mqPerformance: "PERFORMANS",
+            "f.kicker": "Her şey elinin altında",
+            "f.title": "Oyuna odaklan, gerisini biz halledelim.",
+            "f.lead": "Vanilla'dan Fabric'e, mod keşfinden arkadaşlarına kadar launcher'ın her parçası tek bir akışta.",
+            "f.modrinth.title": "Modrinth atölyesi",
+            "f.modrinth.body": "Modları launcher'ın içinde ara, sürüm uyumluluğunu gör, tek tıkla profiline ekle. Ayrı site, ayrı indirme yok.",
+            "f.modrinth.tag1": "Tek tıkla kur",
+            "f.modrinth.tag2": "Sürüm filtresi",
+            "f.modrinth.tag3": "Otomatik güncelleme",
+            "f.profiles.title": "Profiller tek yerde",
+            "f.profiles.body": "Vanilla ve Fabric profillerini oluştur; her profil kendi modlarını, ayarlarını ve dünyasını taşısın.",
+            "f.servers.title": "Sunucular",
+            "f.servers.body": "Sunucu adreslerini kaydet, canlı durumlarını gör ve oyuna doğrudan sunucuya bağlan.",
+            "f.friends.title": "Arkadaşlar",
+            "f.friends.body": "Paylaşım kodlarıyla arkadaş ekle, kimin çevrimiçi olduğunu gör ve birlikte oynayın.",
+            "f.crosshair.title": "Nişangah Stüdyosu",
+            "f.crosshair.body": "Kendi nişangahını tasarla, rengini ve biçimini seç; anında oyunda kullan.",
+            "f.performance.title": "Performans",
+            "f.performance.body": "RAM, çözünürlük ve JVM ayarlarını profiline göre düzenle; hazır FPS paketleriyle başla.",
+            "f.cta.title": "Hepsi tek uygulamada",
+            "f.cta.body": "Windows ve Linux. Kurulum, Java ve modlar dahil.",
+            "f.cta.button": "İndir",
+            "s.kicker": "Üç adım",
+            "s.title": "Kur, giriş yap, oyna.",
+            "s.1.title": "İndir",
+            "s.1.body": "Windows kurulum dosyasını çalıştır ya da Linux'ta AppImage'ı çift tıkla. Ek kurulum gerekmez.",
+            "s.2.title": "Giriş yap",
+            "s.2.body": "Microsoft hesabınla oturum aç. Bilgilerin cihazında şifrelenmiş olarak saklanır.",
+            "s.3.title": "Oyna",
+            "s.3.body": "Profilini seç, OYNA'ya bas. Java çalışma zamanı ve modlar otomatik hazırlanır.",
+            "d.kicker": "Hazır mısın?",
+            "d.title": "Maceraya tek tıkla başla.",
+            "d.body": "Ücretsiz, reklamsız ve hesabın sende kalır. Kurulum paketi GitHub Releases üzerinden iner.",
+            "d.winMeta": "Windows 10/11 · .exe kurulum",
+            "d.linuxMeta": "AppImage · 64-bit",
+            "d.deb": "veya .deb paketini indir",
+            "d.linuxPreparing": "Linux sürümü hazırlanıyor",
+            "d.linuxSoonBadge": "Yakında",
+            "foot.top": "Yukarı çık ↑",
+            releaseLoading: "Sürüm bilgisi alınıyor…",
+            releaseError: "Sürüm bilgisi alınamadı · Tekrar denemek için tıkla",
+            retry: "Tekrar dene",
+            versionLabel: "Sürüm",
+            winDownload: "Windows için indir",
+            linuxDownload: "Linux için indir",
+            linuxSoon: "Linux · yakında",
+            winMetaReady: "Windows 10/11 · Sürüm ",
+            linuxMetaReady: "AppImage · Sürüm ",
+            linuxUnreleased: "Linux sürümü henüz yayınlanmadı · Windows sürümü hazır"
+          },
+          en: {
+            title: "Atemingo Launcher — Adventure starts here",
+            desc: "Manage your Minecraft profiles, mods and servers in one place with Atemingo Launcher. Free for Windows and Linux.",
+            ogTitle: "Atemingo Launcher — Adventure starts here",
+            ogDesc: "Profiles, mods, Modrinth, servers and friends. Play Minecraft in one click, your way.",
+            brandAria: "Atemingo Launcher home",
+            navAria: "Main menu",
+            langAria: "Language",
+            "nav.features": "Features",
+            "nav.how": "How it works",
+            "nav.download": "Download",
+            "hero.version": "Version",
+            "hero.title1": "Adventure",
+            "hero.title2": "starts here.",
+            "hero.intro": "Manage your profiles, mods and servers in one place. Atemingo takes care of Java, mods and settings — you just play.",
+            "hero.showcaseAria": "Atemingo Launcher interface",
+            "hero.shotAlt": "Atemingo Launcher home screen",
+            "hero.fact1": "Windows 10/11",
+            "hero.fact2": "Fabric 1.21.11",
+            "hero.fact3": "~28 MB",
+            "hero.fact4": "Free",
+            "chip.modrinth": "Discover on <b>Modrinth</b>",
+            "chip.friends": "Play with <b>friends</b>",
+            "chip.crosshair": "<b>Crosshair</b> Studio",
+            mqProfiles: "PROFILES",
+            mqModrinth: "MODRINTH",
+            mqVersions: "VERSIONS",
+            mqServers: "SERVERS",
+            mqFriends: "FRIENDS",
+            mqCrosshair: "CROSSHAIR",
+            mqPerformance: "PERFORMANCE",
+            "f.kicker": "Everything you need",
+            "f.title": "Focus on the game — we handle the rest.",
+            "f.lead": "From Vanilla to Fabric, from mod discovery to your friends — every part of the launcher in one flow.",
+            "f.modrinth.title": "Modrinth workshop",
+            "f.modrinth.body": "Search mods inside the launcher, check version compatibility and add them to your profile in one click. No extra site, no extra downloads.",
+            "f.modrinth.tag1": "One-click install",
+            "f.modrinth.tag2": "Version filter",
+            "f.modrinth.tag3": "Auto updates",
+            "f.profiles.title": "Profiles in one place",
+            "f.profiles.body": "Create Vanilla and Fabric profiles, each with its own mods, settings and worlds.",
+            "f.servers.title": "Servers",
+            "f.servers.body": "Save server addresses, see live status and join straight from the launcher.",
+            "f.friends.title": "Friends",
+            "f.friends.body": "Add friends with share codes, see who's online and play together.",
+            "f.crosshair.title": "Crosshair Studio",
+            "f.crosshair.body": "Design your own crosshair, choose its color and shape, and use it in-game instantly.",
+            "f.performance.title": "Performance",
+            "f.performance.body": "Tune RAM, resolution and JVM settings per profile, and start with ready-made presets.",
+            "f.cta.title": "All in one app",
+            "f.cta.body": "Windows and Linux. Setup, Java and mods included.",
+            "f.cta.button": "Download",
+            "s.kicker": "Three steps",
+            "s.title": "Install, sign in, play.",
+            "s.1.title": "Download",
+            "s.1.body": "Run the Windows installer or double-click the AppImage on Linux. No extra setup needed.",
+            "s.2.title": "Sign in",
+            "s.2.body": "Sign in with your Microsoft account. Your credentials are stored encrypted on your device.",
+            "s.3.title": "Play",
+            "s.3.body": "Pick your profile and hit PLAY. The Java runtime and mods are prepared automatically.",
+            "d.kicker": "Ready?",
+            "d.title": "Start the adventure in one click.",
+            "d.body": "Free, ad-free, and your account stays yours. The installer downloads from GitHub Releases.",
+            "d.winMeta": "Windows 10/11 · .exe installer",
+            "d.linuxMeta": "AppImage · 64-bit",
+            "d.deb": "or download the .deb package",
+            "d.linuxPreparing": "The Linux build is being prepared",
+            "d.linuxSoonBadge": "Soon",
+            "foot.top": "Back to top ↑",
+            releaseLoading: "Loading release info…",
+            releaseError: "Couldn't load release info · Click to retry",
+            retry: "Retry",
+            versionLabel: "Version",
+            winDownload: "Download for Windows",
+            linuxDownload: "Download for Linux",
+            linuxSoon: "Linux · soon",
+            winMetaReady: "Windows 10/11 · Version ",
+            linuxMetaReady: "AppImage · Version ",
+            linuxUnreleased: "The Linux build isn't out yet · The Windows build is ready"
+          }
+        };
+
+        let lang = "tr";
+        try {
+          const saved = localStorage.getItem("atemingo.lang");
+          if (I18N[saved]) lang = saved;
+        } catch (error) {}
 
         let state = "loading";
         let linuxUrl = "";
+        let debUrl = "";
+        let info = null;
+
+        function dict() {
+          return I18N[lang];
+        }
 
         function setButtons(nodes, url, enabled) {
           nodes.forEach(function (node) {
@@ -749,63 +965,131 @@
           }
         }
 
-        async function loadRelease() {
-          releaseNodes.forEach(function (node) {
-            if (node) node.textContent = "Sürüm bilgisi alınıyor…";
+        function renderMarquee() {
+          if (!marqueeTrack) return;
+          const d = dict();
+          const chunk = MARQUEE_KEYS.map(function (key) {
+            return "<span>" + d[key] + ' <em>✦</em></span>';
+          }).join("");
+          marqueeTrack.innerHTML = chunk + chunk;
+        }
+
+        function paint() {
+          const d = dict();
+          if (state === "ready" && info) {
+            setVersion(info.version);
+            setText(winLabels, d.winDownload);
+            if (winMetaEl) winMetaEl.textContent = d.winMetaReady + info.version + " · .exe";
+            if (linuxUrl) {
+              setText(linuxLabels, d.linuxDownload);
+              if (linuxBadge) linuxBadge.textContent = "x64";
+              if (linuxMeta) linuxMeta.textContent = d.linuxMetaReady + info.version;
+            } else {
+              setText(linuxLabels, d.linuxSoon);
+              if (linuxBadge) linuxBadge.textContent = d.linuxSoonBadge;
+              if (linuxMeta) linuxMeta.textContent = d.linuxPreparing;
+            }
+            if (debLink) debLink.classList.toggle("show", !!debUrl);
+            releaseNodes.forEach(function (node, index) {
+              if (!node) return;
+              node.textContent = "";
+              const strong = document.createElement("b");
+              strong.textContent = d.versionLabel + " " + info.version;
+              node.appendChild(strong);
+              let suffix = " · Windows 10/11" + (linuxUrl ? " & Linux" : "");
+              if (index === 1 && info.notes && lang === "tr") suffix += " · " + info.notes;
+              node.appendChild(document.createTextNode(suffix));
+            });
+          } else if (state === "error") {
+            setText(releaseNodes.filter(Boolean), d.releaseError);
+            setText(winLabels, d.retry);
+            setText(linuxLabels, d.linuxSoon);
+            if (winMetaEl) winMetaEl.textContent = d.winMeta;
+            if (linuxMeta) linuxMeta.textContent = d.linuxMeta;
+            if (linuxBadge) linuxBadge.textContent = "x64";
+            if (debLink) debLink.classList.remove("show");
+          } else {
+            setText(releaseNodes.filter(Boolean), d.releaseLoading);
+            setText(winLabels, d.winDownload);
+            setText(linuxLabels, d.linuxSoon);
+            if (winMetaEl) winMetaEl.textContent = d.winMeta;
+            if (linuxMeta) linuxMeta.textContent = d.linuxMeta;
+            if (linuxBadge) linuxBadge.textContent = "x64";
+            if (debLink) debLink.classList.remove("show");
+          }
+        }
+
+        function setMeta(attr, name, value) {
+          const el = document.querySelector("meta[" + attr + '="' + name + '"]');
+          if (el) el.setAttribute("content", value);
+        }
+
+        function applyLang(next) {
+          lang = I18N[next] ? next : "tr";
+          const d = dict();
+          document.documentElement.lang = lang;
+          document.title = d.title;
+          setMeta("name", "description", d.desc);
+          setMeta("property", "og:title", d.ogTitle);
+          setMeta("property", "og:description", d.ogDesc);
+
+          document.querySelectorAll("[data-i18n]").forEach(function (el) {
+            const value = d[el.getAttribute("data-i18n")];
+            if (typeof value === "string") el.textContent = value;
           });
+          document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+            const value = d[el.getAttribute("data-i18n-html")];
+            if (typeof value === "string") el.innerHTML = value;
+          });
+          document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+            const value = d[el.getAttribute("data-i18n-aria")];
+            if (typeof value === "string") el.setAttribute("aria-label", value);
+          });
+          document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+            const value = d[el.getAttribute("data-i18n-alt")];
+            if (typeof value === "string") el.alt = value;
+          });
+          langButtons.forEach(function (btn) {
+            btn.setAttribute("aria-pressed", String(btn.getAttribute("data-lang") === lang));
+          });
+          try {
+            localStorage.setItem("atemingo.lang", lang);
+          } catch (error) {}
+          renderMarquee();
+          paint();
+        }
+
+        async function loadRelease() {
           state = "loading";
+          paint();
           try {
             const response = await fetch(updateUrl, { cache: "no-store" });
             if (!response.ok) throw new Error("HTTP " + response.status);
-            const info = await response.json();
-            if (!info || typeof info.version !== "string" || typeof info.url !== "string") {
+            const data = await response.json();
+            if (!data || typeof data.version !== "string" || typeof data.url !== "string") {
               throw new Error("Geçersiz sürüm bilgisi");
             }
-            const winUrl = httpsOnly(info.url);
+            const winUrl = httpsOnly(data.url);
             if (!winUrl) throw new Error("Güvenli olmayan indirme adresi");
 
-            setVersion(info.version);
-            setButtons(winButtons, winUrl, true);
-            setText(winLabels, "Windows için indir");
-            const winMeta = document.getElementById("win-meta");
-            if (winMeta) winMeta.textContent = "Windows 10/11 · Sürüm " + info.version + " · .exe";
+            info = { version: data.version, notes: data.notes };
+            linuxUrl = httpsOnly(linuxUrlFrom(data));
+            debUrl = httpsOnly(linuxDebFrom(data));
 
-            linuxUrl = httpsOnly(linuxUrlFrom(info));
-            const debUrl = httpsOnly(linuxDebFrom(info));
-            if (linuxUrl) {
-              setButtons(linuxButtons, linuxUrl, true);
-              setText(linuxLabels, "Linux için indir");
-              if (linuxBadge) linuxBadge.textContent = "x64";
-              if (linuxMeta) linuxMeta.textContent = "AppImage · Sürüm " + info.version;
-              if (debUrl && debLink) {
-                debLink.href = debUrl;
-                debLink.classList.add("show");
-              }
-            } else {
-              setButtons(linuxButtons, "", false);
-              setText(linuxLabels, "Linux · yakında");
-              if (linuxBadge) linuxBadge.textContent = "Yakında";
-              if (linuxMeta) linuxMeta.textContent = "Linux sürümü hazırlanıyor";
-            }
-            releaseNodes.forEach(function (node, index) {
-              if (!node) return;
-              node.innerHTML = "";
-              const strong = document.createElement("b");
-              strong.textContent = "Sürüm " + info.version;
-              node.appendChild(strong);
-              let suffix = " · Windows 10/11" + (linuxUrl ? " & Linux" : "");
-              if (index === 1 && info.notes) suffix += " · " + info.notes;
-              node.appendChild(document.createTextNode(suffix));
-            });
+            setButtons(winButtons, winUrl, true);
+            setButtons(linuxButtons, linuxUrl, !!linuxUrl);
+            if (debUrl && debLink) debLink.href = debUrl;
+
             state = "ready";
+            paint();
           } catch (error) {
             state = "error";
-            releaseNodes.forEach(function (node) {
-              if (node) node.textContent = "Sürüm bilgisi alınamadı · Tekrar denemek için tıkla";
-            });
+            info = null;
+            linuxUrl = "";
+            debUrl = "";
             setButtons(winButtons, "", false);
-            setText(winLabels, "Tekrar dene");
-            setText(linuxLabels, "Linux · yakında");
+            setButtons(linuxButtons, "", false);
+            paint();
             console.error("Atemingo sürüm bilgisi yüklenemedi:", error);
           }
         }
@@ -820,7 +1104,7 @@
             if (event.currentTarget.hasAttribute("data-linux")) {
               event.preventDefault();
               releaseNodes.forEach(function (node) {
-                if (node) node.textContent = "Linux sürümü henüz yayınlanmadı · Windows sürümü hazır";
+                if (node) node.textContent = dict().linuxUnreleased;
               });
             }
             return;
@@ -831,6 +1115,12 @@
         winButtons.concat(linuxButtons).forEach(function (button) {
           button.addEventListener("click", function (event) {
             if (button.getAttribute("aria-disabled") === "true") onLockedClick(event);
+          });
+        });
+
+        langButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            applyLang(button.getAttribute("data-lang"));
           });
         });
 
@@ -856,6 +1146,7 @@
           else el.classList.add("visible");
         });
 
+        applyLang(lang);
         loadRelease();
       })();
     </script>
