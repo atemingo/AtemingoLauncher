@@ -5,5 +5,9 @@
   "sha1": "e4e992ef540d61d940522e8f0d53bb385fcd9602",
   "notes": "BEST UPDATE — güvenlik, paylaşım kodları, Nişangah Stüdyosu ve daha fazlası. Linux sürümü de yayında!",
   "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.0.0-linux/AtemingoLauncher-2.0.0-linux-x64.AppImage",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.0.0-linux/AtemingoLauncher-2.0.0-linux-x64.deb"
+  "linux_sha256": "f4efa705bb6ee4645c946ea9498677c8aa4bbb599d60c979e298dd1fc35486da",
+  "linux_sha1": "158d193caf215838b16a7241de748bed9ca365a8",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.0.0-linux/AtemingoLauncher-2.0.0-linux-x64.deb",
+  "linux_deb_sha256": "ccc012dbbd3302ccd8c1964ab94ef010995cb826f2cefda2fb586542afadb67e",
+  "linux_deb_sha1": "16049de702a28aece8d27dee7d71163c9e9d96df"
 }
