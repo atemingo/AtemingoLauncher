@@ -3,5 +3,5 @@
   "url": "https://github.com/atemingo/AtemingoLauncher/releases/download/minecraft/AtemingoLauncher-setup.exe",
   "sha256": "152be21d4ef9e65c76cc471b5d7870b287af4bc0530121ed4044cb8a236fe19c",
   "sha1": "e4e992ef540d61d940522e8f0d53bb385fcd9602",
-  "notes": "ATEMINGO LAUNCHER 2.0.0 — BEST UPDATE\nGüvenlik: sağ tık menüsü, tarayıcı kısayolları ve geliştirici araçları kapatıldı; sıkı CSP, yalnızca HTTPS ve doğrulanmış indirmeler.\nGüvenlik: hesaplar Windows DPAPI ile şifrelenir, tokenlar arayüze gönderilmez; arkadaş sunucusuna kısa ömürlü oturum anahtarı gider.\nYenilikler: paylaşım kodları (AT-XXXX-XXXX), Nişangah Stüdyosu, profillere .jar mod ekleme, mod güncelleme merkezi ve FPS Merkezi.\nYenilikler: çökme ekranında tek tıkla otomatik düzeltme, yeni bento ana sayfa, 4K arka plan ve yenilenen dock.\nKartım: başarımlar ve günlük ödüller. Canlı sunucu durumu ve arkadaşlarla sohbet."
+  "notes": "BEST UPDATE — güvenlik, paylaşım kodları, Nişangah Stüdyosu ve daha fazlası."
 }
