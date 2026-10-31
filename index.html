@@ -3,395 +3,861 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#090a12" />
+    <meta name="theme-color" content="#07060f" />
     <meta
       name="description"
-      content="Atemingo Launcher ile Minecraft profillerini, modlarını ve sunucularını tek bir yerden yönet."
+      content="Atemingo Launcher ile Minecraft profillerini, modlarını ve sunucularını tek bir yerden yönet. Windows ve Linux için ücretsiz."
     />
-    <title>Atemingo Launcher — Minecraft'ı kendi tarzında yaşa</title>
+    <meta name="color-scheme" content="dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Atemingo Launcher — Macera burada başlar" />
+    <meta
+      property="og:description"
+      content="Profiller, modlar, Modrinth, sunucular ve arkadaşlar. Minecraft'ı tek tıkla, kendi tarzında oyna."
+    />
+    <meta property="og:image" content="https://atemingo.github.io/AtemingoLauncher/launcher.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Atemingo Launcher — Macera burada başlar</title>
+    <link rel="icon" type="image/png" href="./icon.png" />
+    <link rel="apple-touch-icon" href="./icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         color-scheme: dark;
+        --ink: #07060f;
+        --text: #f7f4ff;
+        --muted: #a8a2c2;
+        --dim: #736e8f;
+        --line: rgba(255, 255, 255, 0.09);
+        --line-strong: rgba(255, 255, 255, 0.16);
+        --gold: #f6c453;
+        --gold-2: #ffdf8e;
+        --violet: #a78bfa;
+        --violet-2: #7c5cff;
+        --cyan: #7fe7f2;
+        --radius: 22px;
         font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
-        color: #f5f3ff;
-        background: #090a12;
+        color: var(--text);
+        background: var(--ink);
         font-synthesis: none;
         text-rendering: optimizeLegibility;
-        --muted: #a7a5bc;
-        --line: rgba(255, 255, 255, 0.1);
-        --purple: #a78bfa;
-        --cyan: #67e8f9;
+        -webkit-font-smoothing: antialiased;
       }
-
       * { box-sizing: border-box; }
       html { scroll-behavior: smooth; }
       body { margin: 0; min-width: 320px; overflow-x: hidden; }
       a { color: inherit; text-decoration: none; }
       button { font: inherit; }
-      .page { position: relative; min-height: 100vh; overflow: hidden; }
-      .backdrop {
+      img { display: block; max-width: 100%; }
+      ::selection { color: #1a1206; background: var(--gold); }
+
+      .bg { position: fixed; inset: 0; z-index: -2; pointer-events: none; overflow: hidden; background: var(--ink); }
+      .bg::before {
+        content: "";
         position: absolute;
-        inset: 0 0 auto;
-        height: 900px;
-        pointer-events: none;
+        inset: -20% -10% auto;
+        height: 1100px;
         background:
-          radial-gradient(ellipse at 50% 22%, rgba(116, 79, 220, .22), transparent 42%),
-          radial-gradient(ellipse at 85% 50%, rgba(36, 185, 206, .1), transparent 36%);
+          radial-gradient(ellipse 60% 50% at 62% 12%, rgba(124, 92, 255, 0.3), transparent 62%),
+          radial-gradient(ellipse 42% 38% at 88% 30%, rgba(246, 196, 83, 0.14), transparent 65%),
+          radial-gradient(ellipse 50% 40% at 8% 26%, rgba(103, 232, 249, 0.08), transparent 60%);
       }
-      .stars, .stars::before, .stars::after {
+      .bg::after {
+        content: "";
         position: absolute;
         inset: 0;
-        content: "";
+        background-image:
+          radial-gradient(1px 1px at 22% 18%, rgba(255, 255, 255, 0.65) 50%, transparent 100%),
+          radial-gradient(1px 1px at 72% 12%, rgba(232, 222, 255, 0.55) 50%, transparent 100%),
+          radial-gradient(1.5px 1.5px at 86% 42%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
+          radial-gradient(1px 1px at 12% 58%, rgba(127, 231, 242, 0.55) 50%, transparent 100%),
+          radial-gradient(1px 1px at 55% 76%, rgba(255, 255, 255, 0.4) 50%, transparent 100%),
+          radial-gradient(1px 1px at 34% 88%, rgba(246, 196, 83, 0.45) 50%, transparent 100%),
+          radial-gradient(1px 1px at 92% 82%, rgba(255, 255, 255, 0.35) 50%, transparent 100%);
+        background-size: 620px 520px;
+        opacity: 0.6;
+        mask-image: linear-gradient(#000 0%, rgba(0, 0, 0, 0.35) 70%, transparent 100%);
+      }
+      .grain {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
         pointer-events: none;
-        background-image: radial-gradient(1px 1px at 18% 22%, #fff 50%, transparent 100%),
-          radial-gradient(1px 1px at 78% 16%, #b9a7ff 50%, transparent 100%),
-          radial-gradient(1.5px 1.5px at 89% 46%, #fff 50%, transparent 100%),
-          radial-gradient(1px 1px at 10% 62%, #9beafa 50%, transparent 100%),
-          radial-gradient(1px 1px at 64% 72%, #fff 50%, transparent 100%);
-        background-size: 390px 340px;
-        opacity: .42;
-        animation: drift 26s linear infinite;
+        opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
       }
-      .stars::before { transform: translateY(100%); }
-      .stars::after { opacity: .2; transform: translate(120px, 42px); animation-duration: 38s; }
-      .wrap { position: relative; width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
-      header {
-        height: 84px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid rgba(255, 255, 255, .06);
+
+      .wrap { position: relative; width: min(1180px, calc(100% - 44px)); margin: 0 auto; }
+
+      /* ---------- header ---------- */
+      .site-head { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(16px) saturate(140%); }
+      .site-head::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12) 22%, rgba(246, 196, 83, 0.24) 52%, rgba(255, 255, 255, 0.12) 78%, transparent);
       }
-      .brand { display: inline-flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 800; letter-spacing: .03em; }
-      .brand img { width: 38px; height: 38px; border-radius: 12px; box-shadow: 0 0 24px rgba(167, 139, 250, .28); }
-      nav { display: flex; align-items: center; gap: 32px; color: var(--muted); font-size: 13px; }
-      nav a { transition: color .2s ease; }
+      .site-head.scrolled { background: rgba(7, 6, 15, 0.72); }
+      .head-inner { height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+      .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.02em; }
+      .brand img { width: 40px; height: 40px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14), 0 0 28px rgba(167, 139, 250, 0.35); }
+      .brand-name { font-family: "Space Grotesk", Inter, sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.08em; }
+      .brand-tag {
+        padding: 3px 7px;
+        border: 1px solid rgba(246, 196, 83, 0.32);
+        border-radius: 6px;
+        color: var(--gold-2);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+      }
+      nav { display: flex; align-items: center; gap: 30px; color: var(--muted); font-size: 13.5px; font-weight: 500; }
+      nav a { transition: color 0.2s ease; }
       nav a:hover { color: #fff; }
-      .nav-discord { color: #d7d0ff; }
-      .hero {
-        min-height: 650px;
-        display: grid;
-        grid-template-columns: 1.05fr .95fr;
+      .nav-discord { color: #d8ccff; }
+      .head-cta {
+        display: inline-flex;
         align-items: center;
-        gap: 40px;
-        padding: 72px 0 92px;
+        gap: 8px;
+        padding: 10px 16px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--line-strong);
+        font-size: 13px;
+        font-weight: 600;
+        color: #fff;
+        transition: background 0.2s ease, border-color 0.2s ease;
       }
-      .hero-copy { position: relative; z-index: 1; animation: enter .8s both; }
+      .head-cta:hover { background: rgba(246, 196, 83, 0.12); border-color: rgba(246, 196, 83, 0.45); }
+      .head-cta svg { width: 15px; height: 15px; }
+
+      /* ---------- hero ---------- */
+      .hero { position: relative; display: grid; grid-template-columns: 1.02fr 0.98fr; align-items: center; gap: 44px; padding: 76px 0 88px; }
+      .hero-copy { position: relative; z-index: 2; animation: rise 0.8s both; }
       .eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 9px;
-        padding: 9px 13px;
-        border: 1px solid rgba(167, 139, 250, .24);
+        padding: 8px 13px;
+        border: 1px solid rgba(167, 139, 250, 0.28);
         border-radius: 99px;
-        background: rgba(167, 139, 250, .08);
-        color: #d9ccff;
+        background: rgba(124, 92, 255, 0.1);
+        color: #ddd2ff;
         font-size: 11px;
-        font-weight: 700;
-        letter-spacing: .12em;
+        font-weight: 600;
+        letter-spacing: 0.12em;
         text-transform: uppercase;
       }
-      .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px var(--cyan); animation: pulse 1.8s infinite; }
-      h1 { max-width: 630px; margin: 25px 0 18px; font-size: clamp(46px, 6.4vw, 78px); line-height: .99; letter-spacing: -.065em; }
-      .gradient-text { color: transparent; background: linear-gradient(100deg, #c4b5fd 10%, #9c8bff 52%, #67e8f9 100%); background-clip: text; -webkit-background-clip: text; }
-      .intro { max-width: 490px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.8; }
-      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 32px; }
-      .button {
+      .eyebrow b { color: var(--gold-2); font-weight: 700; }
+      .pulse { width: 7px; height: 7px; border-radius: 50%; background: #7ef0a8; box-shadow: 0 0 12px #4fe08a; animation: pulse 2s infinite; }
+      h1 {
+        margin: 24px 0 18px;
+        font-family: "Space Grotesk", Inter, sans-serif;
+        font-size: clamp(46px, 6.6vw, 84px);
+        line-height: 0.97;
+        letter-spacing: -0.055em;
+        font-weight: 700;
+      }
+      .grad {
+        color: transparent;
+        background: linear-gradient(104deg, #cfc2ff 0%, #a78bfa 34%, #f7cd6a 78%, #ffe6a8 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
+      .intro { max-width: 500px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
+      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px; }
+      .btn {
         min-height: 54px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 11px;
+        gap: 10px;
         padding: 0 22px;
         border: 1px solid transparent;
         border-radius: 15px;
         font-size: 14px;
-        font-weight: 800;
-        transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        font-weight: 650;
+        letter-spacing: 0.01em;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       }
-      .button:hover { transform: translateY(-3px); }
-      .button:focus-visible, nav a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
-      .button-primary { color: #11101b; background: linear-gradient(110deg, #c4b5fd, #8bdbf5); box-shadow: 0 10px 34px rgba(148, 127, 250, .26); }
-      .button-primary:hover { box-shadow: 0 14px 42px rgba(148, 127, 250, .42); }
-      .button-secondary { border-color: var(--line); background: rgba(255,255,255,.045); color: #eeebff; }
-      .button-secondary:hover { border-color: rgba(255,255,255,.24); }
-      .download-icon { width: 18px; height: 18px; }
-      .release { min-height: 18px; margin: 13px 0 0 3px; color: #88869d; font-size: 12px; }
-      .release a { color: #c3b4fd; text-decoration: underline; text-underline-offset: 3px; }
-      .showcase { position: relative; min-height: 440px; display: grid; place-items: center; animation: enter .9s .12s both; }
-      .orb {
+      .btn:hover { transform: translateY(-2px); }
+      .btn:focus-visible, nav a:focus-visible, .brand:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+      .btn-primary {
+        color: #1a1206;
+        background: linear-gradient(103deg, #ffe29a, #f6c453 62%, #eab13c);
+        box-shadow: 0 12px 36px rgba(246, 196, 83, 0.24), inset 0 1px rgba(255, 255, 255, 0.5);
+      }
+      .btn-primary:hover { box-shadow: 0 16px 46px rgba(246, 196, 83, 0.36), inset 0 1px rgba(255, 255, 255, 0.5); }
+      .btn-ghost {
+        color: #f1edff;
+        background: rgba(255, 255, 255, 0.05);
+        border-color: var(--line-strong);
+      }
+      .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.08); }
+      .btn[aria-disabled="true"] { cursor: default; opacity: 0.55; }
+      .btn[aria-disabled="true"]:hover { transform: none; }
+      .btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
+      .release { min-height: 18px; margin: 14px 0 0 3px; color: #8d87a8; font-size: 12.5px; }
+      .release b { color: #c9bffb; font-weight: 600; }
+      .facts { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 26px 0 0; padding: 0; list-style: none; color: #9791b3; font-size: 12px; }
+      .facts li { display: inline-flex; align-items: center; gap: 7px; }
+      .facts li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: 0.8; }
+
+      .showcase { position: relative; z-index: 1; min-height: 460px; display: grid; place-items: center; animation: rise 0.9s 0.1s both; }
+      .orbit { position: absolute; width: 100%; height: 78%; border: 1px solid rgba(167, 139, 250, 0.15); border-radius: 50%; transform: rotate(-18deg); }
+      .orbit.two { width: 88%; height: 62%; transform: rotate(24deg); border-color: rgba(246, 196, 83, 0.1); }
+      .moon-badge {
         position: absolute;
-        width: min(390px, 82vw);
-        aspect-ratio: 1;
+        z-index: 3;
+        top: 6px;
+        right: 4px;
+        width: 72px;
+        height: 72px;
         border-radius: 50%;
-        background: radial-gradient(circle at 38% 34%, rgba(185, 160, 255, .32), rgba(108, 73, 193, .12) 38%, transparent 70%);
-        filter: blur(2px);
-        animation: breathe 6s ease-in-out infinite;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 10px 40px rgba(124, 92, 255, 0.45);
+        animation: float 7s ease-in-out infinite;
       }
-      .ring { position: absolute; width: 380px; height: 160px; border: 1px solid rgba(179, 159, 255, .28); border-radius: 50%; transform: rotate(-24deg); box-shadow: 0 0 34px rgba(167, 139, 250, .12); }
-      .ring-two { width: 430px; height: 190px; transform: rotate(38deg); border-color: rgba(103, 232, 249, .18); }
-      .launcher-card {
+      .shot { position: relative; width: min(650px, 100%); }
+      .shot::before {
+        content: "";
+        position: absolute;
+        inset: 4% -10% -16%;
+        border-radius: 44px;
+        background: radial-gradient(ellipse at 50% 40%, rgba(124, 92, 255, 0.55), transparent 66%);
+        filter: blur(34px);
+        z-index: -1;
+      }
+      .shot-frame {
         position: relative;
-        z-index: 1;
-        width: min(350px, 85%);
-        padding: 24px;
-        border: 1px solid rgba(255,255,255,.15);
-        border-radius: 24px;
-        background: linear-gradient(145deg, rgba(38, 34, 65, .9), rgba(16, 18, 32, .91));
-        box-shadow: 0 30px 90px rgba(0,0,0,.5), inset 0 1px rgba(255,255,255,.09);
-        backdrop-filter: blur(18px);
-        transform: rotate(-4deg);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 20px;
+        background: linear-gradient(160deg, rgba(40, 34, 70, 0.9), rgba(12, 11, 24, 0.95));
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), inset 0 1px rgba(255, 255, 255, 0.1);
+        transform: perspective(1500px) rotateY(-7deg) rotateX(2.5deg);
+        transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .showcase:hover .shot-frame { transform: perspective(1500px) rotateY(-2deg) rotateX(0.5deg); }
+      .shot-bar { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); background: rgba(10, 9, 20, 0.7); }
+      .dots { display: flex; gap: 5px; }
+      .dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, 0.22); }
+      .dots i:first-child { background: rgba(246, 196, 83, 0.7); }
+      .shot-title { margin-left: 4px; color: #b6aee0; font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; }
+      .shot-title b { color: var(--gold-2); font-weight: 700; }
+      .shot-frame img { width: 100%; height: auto; }
+      .chip {
+        position: absolute;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 10px 13px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 13px;
+        background: rgba(16, 14, 30, 0.86);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+        color: #e6e0ff;
+        font-size: 11.5px;
+        font-weight: 500;
+        backdrop-filter: blur(12px);
         animation: float 6s ease-in-out infinite;
       }
-      .card-top { display: flex; justify-content: space-between; align-items: center; color: #aaa6c1; font-size: 10px; letter-spacing: .12em; }
-      .window-dots { display: flex; gap: 5px; }
-      .window-dots i { width: 6px; height: 6px; border-radius: 50%; background: #b89eff; opacity: .7; }
-      .game-tile {
+      .chip b { color: var(--gold-2); font-weight: 700; }
+      .chip-a { top: 5%; left: -58px; }
+      .chip-b { right: -52px; bottom: 20%; animation-delay: -2.5s; }
+      .chip-c { left: 10%; bottom: -26px; animation-delay: -4s; }
+      .chip svg { width: 15px; height: 15px; color: var(--gold); flex: 0 0 auto; }
+
+      /* ---------- marquee ---------- */
+      .marquee { position: relative; overflow: hidden; padding: 16px 0; border-top: 1px solid rgba(255, 255, 255, 0.07); border-bottom: 1px solid rgba(255, 255, 255, 0.07); background: rgba(255, 255, 255, 0.018); }
+      .marquee-track { display: flex; width: max-content; gap: 42px; animation: slide 32s linear infinite; }
+      .marquee span { color: rgba(255, 255, 255, 0.24); font-family: "Space Grotesk", Inter, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.24em; white-space: nowrap; }
+      .marquee span em { color: rgba(246, 196, 83, 0.55); font-style: normal; }
+
+      /* ---------- sections ---------- */
+      .section { padding: 92px 0 0; scroll-margin-top: 90px; }
+      .section-head { max-width: 640px; margin: 0 0 36px; }
+      .kicker { display: block; margin: 0 0 12px; color: var(--gold-2); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+      h2 { margin: 0; font-family: "Space Grotesk", Inter, sans-serif; font-size: clamp(30px, 4.2vw, 46px); line-height: 1.06; letter-spacing: -0.045em; }
+      .section-head p { max-width: 520px; margin: 14px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.7; }
+
+      .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+      .card {
         position: relative;
-        height: 190px;
-        display: flex;
-        align-items: end;
         overflow: hidden;
-        margin-top: 20px;
-        padding: 18px;
-        border: 1px solid rgba(255,255,255,.1);
-        border-radius: 16px;
-        background:
-          linear-gradient(0deg, rgba(10,11,20,.9), transparent 70%),
-          radial-gradient(ellipse at 70% 20%, rgba(82, 212, 231, .6), transparent 36%),
-          linear-gradient(135deg, #4a3b7c, #1d3852 55%, #171a29);
-      }
-      .game-tile::before, .game-tile::after { position: absolute; bottom: 0; content: ""; background: #151722; opacity: .85; }
-      .game-tile::before { left: 0; width: 75%; height: 54px; clip-path: polygon(0 40%, 18% 40%, 18% 0, 40% 0, 40% 56%, 66% 56%, 66% 15%, 100% 15%, 100% 100%, 0 100%); }
-      .game-tile::after { right: 0; width: 42%; height: 84px; clip-path: polygon(0 48%, 34% 48%, 34% 0, 73% 0, 73% 36%, 100% 36%, 100% 100%, 0 100%); }
-      .game-title { position: relative; z-index: 1; font-size: 23px; font-weight: 900; letter-spacing: -.06em; text-shadow: 0 2px 14px #000; }
-      .profile-row { display: flex; align-items: center; gap: 11px; margin: 17px 0; }
-      .profile-icon { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.18); border-radius: 10px; }
-      .profile-name { font-size: 12px; font-weight: 700; }
-      .profile-meta { margin-top: 4px; color: #9692ac; font-size: 10px; }
-      .mini-play { display: flex; align-items: center; justify-content: center; gap: 8px; height: 40px; border-radius: 12px; color: #15111f; background: linear-gradient(100deg, #c4b5fd, #8bdbf5); font-size: 11px; font-weight: 900; letter-spacing: .1em; }
-      .floating-chip { position: absolute; z-index: 2; display: flex; align-items: center; gap: 9px; padding: 11px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; background: rgba(22, 21, 37, .82); box-shadow: 0 14px 35px rgba(0,0,0,.25); color: #ded9f3; font-size: 11px; backdrop-filter: blur(12px); animation: float 5s ease-in-out infinite; }
-      .chip-one { top: 74px; right: 0; }
-      .chip-two { bottom: 56px; left: 0; animation-delay: -2s; }
-      .chip-symbol { color: var(--cyan); font-size: 15px; }
-      .section { padding: 42px 0 100px; }
-      .section-heading { max-width: 550px; margin: 0 auto 34px; text-align: center; }
-      .section-heading p { margin: 0 0 10px; color: #bba8ff; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-      h2 { margin: 0; font-size: clamp(28px, 4vw, 42px); letter-spacing: -.045em; }
-      .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-      .feature {
-        min-height: 194px;
-        padding: 24px;
+        min-height: 196px;
+        padding: 26px;
         border: 1px solid var(--line);
-        border-radius: 20px;
-        background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
-        transition: transform .25s ease, border-color .25s ease, background .25s ease;
+        border-radius: var(--radius);
+        background: linear-gradient(155deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015));
+        transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
       }
-      .feature:hover { transform: translateY(-5px); border-color: rgba(167,139,250,.35); background: rgba(167,139,250,.06); }
-      .feature-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 22px; border: 1px solid rgba(167,139,250,.22); border-radius: 13px; background: rgba(167,139,250,.1); color: #c8b7ff; font-size: 19px; }
-      .feature h3 { margin: 0 0 9px; font-size: 15px; }
-      .feature p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
-      .bottom-cta {
+      .card:hover { transform: translateY(-5px); border-color: rgba(167, 139, 250, 0.4); background: rgba(167, 139, 250, 0.055); }
+      .card.wide { grid-column: span 2; }
+      .card.feature-gold {
+        background:
+          radial-gradient(ellipse 80% 120% at 88% 0%, rgba(246, 196, 83, 0.18), transparent 62%),
+          linear-gradient(155deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+        border-color: rgba(246, 196, 83, 0.24);
+      }
+      .card.feature-gold:hover { border-color: rgba(246, 196, 83, 0.5); background: rgba(246, 196, 83, 0.06); }
+      .card-icon {
+        width: 44px;
+        height: 44px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 20px;
+        border: 1px solid rgba(167, 139, 250, 0.24);
+        border-radius: 13px;
+        background: rgba(124, 92, 255, 0.1);
+        color: #c9b6ff;
+      }
+      .feature-gold .card-icon { border-color: rgba(246, 196, 83, 0.3); background: rgba(246, 196, 83, 0.1); color: var(--gold-2); }
+      .card-icon svg { width: 21px; height: 21px; }
+      .card h3 { margin: 0 0 8px; font-family: "Space Grotesk", Inter, sans-serif; font-size: 17px; letter-spacing: -0.015em; }
+      .card p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.65; }
+      .card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+      .tag { padding: 5px 9px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 99px; color: #bcb4dc; font-size: 10.5px; }
+      .feature-gold .tag { border-color: rgba(246, 196, 83, 0.24); color: #f0d79c; }
+      .card-cta {
+        grid-column: span 2;
         display: flex;
+        flex-direction: row;
         align-items: center;
         justify-content: space-between;
         gap: 24px;
-        margin-bottom: 72px;
-        padding: 32px;
-        border: 1px solid rgba(167,139,250,.2);
-        border-radius: 24px;
-        background: radial-gradient(ellipse at 0% 50%, rgba(167,139,250,.15), transparent 54%), rgba(255,255,255,.025);
+        background: linear-gradient(150deg, rgba(124, 92, 255, 0.22), rgba(124, 92, 255, 0.05));
+        border-color: rgba(167, 139, 250, 0.3);
       }
-      .bottom-cta p { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
-      footer { padding: 24px 0 30px; border-top: 1px solid rgba(255,255,255,.07); color: #77758b; font-size: 11px; }
-      .footer-inner { display: flex; justify-content: space-between; gap: 16px; }
-      .footer-links { display: flex; gap: 20px; }
-      .footer-links a:hover { color: #fff; }
-      .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-      .reveal.visible { opacity: 1; transform: translateY(0); }
-      @keyframes enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-      @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
-      @keyframes breathe { 0%, 100% { transform: scale(.94); opacity: .72; } 50% { transform: scale(1.07); opacity: 1; } }
-      @keyframes pulse { 50% { opacity: .45; box-shadow: 0 0 3px var(--cyan); } }
-      @keyframes drift { to { transform: translateY(-340px); } }
-      @media (max-width: 760px) {
-        .wrap { width: min(100% - 36px, 560px); }
-        header { height: 72px; }
-        nav { gap: 16px; }
-        nav a:not(.nav-discord) { display: none; }
-        .hero { min-height: auto; grid-template-columns: 1fr; gap: 8px; padding: 68px 0 46px; }
-        h1 { max-width: 540px; }
-        .showcase { min-height: 390px; margin-top: 5px; }
-        .launcher-card { width: min(340px, 78%); }
-        .ring { width: 340px; }
-        .ring-two { width: 370px; }
-        .chip-one { right: 1%; }
-        .chip-two { left: 1%; }
-        .section { padding-bottom: 70px; }
-        .feature-grid { grid-template-columns: 1fr; }
-        .feature { min-height: 0; }
-        .bottom-cta { align-items: flex-start; flex-direction: column; padding: 25px; }
-        .footer-inner { flex-direction: column; }
+      .card-cta .btn { margin-top: 0; min-height: 46px; padding: 0 20px; font-size: 13px; flex: 0 0 auto; }
+
+      /* ---------- steps ---------- */
+      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; counter-reset: step; }
+      .step { position: relative; padding: 28px 26px 30px; border: 1px solid var(--line); border-radius: var(--radius); background: rgba(255, 255, 255, 0.028); }
+      .step::before {
+        counter-increment: step;
+        content: "0" counter(step);
+        display: block;
+        margin-bottom: 22px;
+        color: transparent;
+        font-family: "Space Grotesk", Inter, sans-serif;
+        font-size: 40px;
+        font-weight: 700;
+        -webkit-text-stroke: 1px rgba(246, 196, 83, 0.78);
+        line-height: 1;
+      }
+      .step h3 { margin: 0 0 8px; font-family: "Space Grotesk", Inter, sans-serif; font-size: 18px; }
+      .step p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.7; }
+
+      /* ---------- download ---------- */
+      .download { padding: 96px 0 88px; scroll-margin-top: 80px; }
+      .download-panel {
+        position: relative;
+        overflow: hidden;
+        padding: 44px;
+        border: 1px solid rgba(246, 196, 83, 0.22);
+        border-radius: 28px;
+        background:
+          radial-gradient(ellipse 60% 100% at 0% 0%, rgba(246, 196, 83, 0.13), transparent 58%),
+          radial-gradient(ellipse 60% 120% at 100% 100%, rgba(124, 92, 255, 0.22), transparent 60%),
+          rgba(255, 255, 255, 0.025);
+        display: grid;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .download-copy h2 { font-size: clamp(30px, 3.6vw, 42px); }
+      .download-copy p { margin: 14px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.7; max-width: 380px; }
+      .download-copy .release { margin-top: 18px; color: #9c95b8; }
+      .platforms { display: grid; gap: 12px; }
+      .platform {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 18px 18px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        border-radius: 18px;
+        background: rgba(9, 8, 19, 0.55);
+        backdrop-filter: blur(10px);
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+      .platform:hover { border-color: rgba(255, 255, 255, 0.22); background: rgba(14, 12, 28, 0.7); }
+      .platform-icon { width: 42px; height: 42px; display: grid; place-items: center; flex: 0 0 auto; border-radius: 12px; background: rgba(255, 255, 255, 0.07); color: #eee9ff; }
+      .platform-icon svg { width: 21px; height: 21px; }
+      .platform-body { flex: 1; min-width: 0; }
+      .platform-title { display: flex; align-items: center; gap: 8px; font-family: "Space Grotesk", Inter, sans-serif; font-size: 16px; font-weight: 600; }
+      .platform-meta { margin-top: 3px; color: var(--dim); font-size: 11.5px; }
+      .soon { padding: 2px 7px; border: 1px solid rgba(246, 196, 83, 0.3); border-radius: 99px; color: var(--gold-2); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+      .platform .btn { min-height: 44px; padding: 0 17px; border-radius: 12px; font-size: 13px; }
+      .platform .btn svg { width: 16px; height: 16px; }
+      .deb-link { display: none; margin-top: 6px; color: #a99ff0; font-size: 11.5px; text-decoration: underline; text-underline-offset: 3px; }
+      .deb-link.show { display: inline-block; }
+
+      footer { border-top: 1px solid rgba(255, 255, 255, 0.07); padding: 26px 0 34px; color: #78728f; font-size: 11.5px; }
+      .foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+      .foot-brand { display: inline-flex; align-items: center; gap: 9px; }
+      .foot-brand img { width: 22px; height: 22px; border-radius: 50%; opacity: 0.85; }
+      .foot-links { display: flex; gap: 22px; }
+      .foot-links a:hover { color: #fff; }
+
+      .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+      .reveal.visible { opacity: 1; transform: none; }
+
+      @keyframes rise { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+      @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -11px; } }
+      @keyframes pulse { 50% { opacity: 0.4; box-shadow: 0 0 4px #4fe08a; } }
+      @keyframes slide { to { transform: translateX(-50%); } }
+
+      @media (max-width: 1020px) {
+        .hero { grid-template-columns: 1fr; gap: 30px; padding: 56px 0 64px; }
+        .intro { max-width: 560px; }
+        .showcase { min-height: auto; margin-top: 8px; }
+        .shot { width: min(620px, 94%); margin: 0 auto; }
+        .shot-frame { transform: none; }
+        .chip-a { left: -8px; }
+        .chip-b { right: -6px; }
+        .chip-c { left: 2%; bottom: -4%; }
+        .download-panel { grid-template-columns: 1fr; gap: 28px; padding: 34px; }
+        .download-copy p { max-width: 520px; }
+      }
+      @media (max-width: 820px) {
+        nav { display: none; }
+        .bento { grid-template-columns: 1fr 1fr; }
+        .card.wide { grid-column: span 2; }
+        .card-cta { grid-column: span 1; flex-direction: column; align-items: stretch; gap: 16px; }
+        .steps { grid-template-columns: 1fr; }
+        .moon-badge { width: 56px; height: 56px; }
+      }
+      @media (max-width: 560px) {
+        .wrap { width: calc(100% - 34px); }
+        .head-inner { height: 68px; }
+        .brand-tag { display: none; }
+        h1 { font-size: clamp(42px, 12.6vw, 58px); }
+        .actions { gap: 10px; }
+        .actions .btn { flex: 1 1 100%; }
+        .bento { grid-template-columns: 1fr; }
+        .card.wide { grid-column: auto; }
+        .card-cta { grid-column: auto; }
+        .chip { font-size: 10.5px; padding: 8px 10px; }
+        .chip-a { display: none; }
+        .chip-c { display: none; }
+        .section { padding-top: 70px; }
+        .download-panel { padding: 24px; border-radius: 22px; }
+        .platform { flex-wrap: wrap; }
+        .platform .btn { width: 100%; }
+        .foot { flex-direction: column; align-items: flex-start; }
       }
       @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
         .reveal { opacity: 1; transform: none; }
       }
     </style>
   </head>
   <body>
-    <main class="page">
-      <div class="backdrop" aria-hidden="true"></div>
-      <div class="stars" aria-hidden="true"></div>
-      <div class="wrap">
-        <header>
-          <a class="brand" href="#top" aria-label="Atemingo Launcher ana sayfa">
-            <img src="./logo.png" alt="" />
-            <span>ATEMINGO</span>
-          </a>
-          <nav aria-label="Ana menü">
-            <a href="#ozellikler">Özellikler</a>
-            <a class="nav-discord" href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord ↗</a>
-          </nav>
-        </header>
+    <div class="bg" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-        <section class="hero" id="top">
-          <div class="hero-copy">
-            <span class="eyebrow"><span class="pulse"></span> MINECRAFT'I KENDİ TARZINDA YAŞA</span>
-            <h1>Macera<br /><span class="gradient-text">buradan başlar.</span></h1>
-            <p class="intro">Profillerini, modlarını ve sunucularını tek bir yerden yönet. Atemingo Launcher ile oyuna girmek artık çok daha kolay.</p>
-            <div class="actions">
-              <a class="button button-primary" id="download" href="#" aria-disabled="true">
-                <svg class="download-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                <span id="download-label">İndirme bağlantısı yükleniyor...</span>
-              </a>
-              <a class="button button-secondary" href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord'a katıl <span aria-hidden="true">↗</span></a>
-            </div>
-            <p class="release" id="release" aria-live="polite">Windows 10/11 · Güncel sürüm bilgisi alınıyor</p>
-          </div>
-
-          <div class="showcase" aria-label="Atemingo Launcher arayüzü tanıtımı">
-            <div class="orb" aria-hidden="true"></div>
-            <div class="ring" aria-hidden="true"></div>
-            <div class="ring ring-two" aria-hidden="true"></div>
-            <div class="floating-chip chip-one"><span class="chip-symbol">✦</span> Modlarını yönet</div>
-            <div class="floating-chip chip-two"><span class="chip-symbol">◈</span> Tek tıkla oyuna gir</div>
-            <div class="launcher-card">
-              <div class="card-top"><span>ATEMINGO LAUNCHER</span><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
-              <div class="game-tile"><span class="game-title">MINECRAFT</span></div>
-              <div class="profile-row">
-                <img class="profile-icon" src="./icon.png" alt="" />
-                <div><div class="profile-name">Hayatta Kalma</div><div class="profile-meta">Fabric · 1.21.11</div></div>
-              </div>
-              <div class="mini-play"><span aria-hidden="true">▶</span> OYNA</div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="ozellikler">
-          <div class="section-heading reveal">
-            <p>Her şey elinin altında</p>
-            <h2>Oyuna odaklan, gerisini biz halledelim.</h2>
-          </div>
-          <div class="feature-grid">
-            <article class="feature reveal">
-              <div class="feature-icon" aria-hidden="true">▦</div>
-              <h3>Profiller tek yerde</h3>
-              <p>Vanilla ve Fabric profillerini kolayca oluştur, düzenle ve yönet.</p>
-            </article>
-            <article class="feature reveal">
-              <div class="feature-icon" aria-hidden="true">✧</div>
-              <h3>Modlarını keşfet</h3>
-              <p>Modlarını görüntüle, açıp kapat ve yeni içerikleri keşfet.</p>
-            </article>
-            <article class="feature reveal">
-              <div class="feature-icon" aria-hidden="true">⌘</div>
-              <h3>Toplulukla buluş</h3>
-              <p>Sunucularını ekle ve Atemingo topluluğuyla Discord'da buluş.</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="bottom-cta reveal">
-          <div><h2>Hazır mısın?</h2><p>Windows için Atemingo Launcher'ı indir ve macerana başla.</p></div>
-          <a class="button button-primary" href="#" data-download aria-disabled="true"><span>Windows için indir</span><span aria-hidden="true">↓</span></a>
-        </section>
-
-        <footer>
-          <div class="footer-inner">
-            <span>© <span id="year"></span> Atemingo Launcher</span>
-            <div class="footer-links">
-              <a href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord</a>
-              <a href="#top">Yukarı çık ↑</a>
-            </div>
-          </div>
-        </footer>
+    <header class="site-head" id="site-head">
+      <div class="wrap head-inner">
+        <a class="brand" href="#top" aria-label="Atemingo Launcher ana sayfa">
+          <img src="./logo.png" alt="" width="40" height="40" />
+          <span class="brand-name">ATEMINGO</span>
+          <span class="brand-tag">LAUNCHER</span>
+        </a>
+        <nav aria-label="Ana menü">
+          <a href="#ozellikler">Özellikler</a>
+          <a href="#nasil">Nasıl çalışır</a>
+          <a href="#indir">İndir</a>
+          <a class="nav-discord" href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord</a>
+        </nav>
+        <a class="head-cta" href="#indir">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          İndir
+        </a>
       </div>
+    </header>
+
+    <main>
+      <section class="hero wrap" id="top">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="pulse"></span> Sürüm <b id="ver">2.0.0</b> · Fabric 1.21.11</span>
+          <h1>Macera<br /><span class="grad">burada başlar.</span></h1>
+          <p class="intro">
+            Profillerini, modlarını ve sunucularını tek bir yerden yönet. Java'yı, modları ve ayarları
+            Atemingo halletsin; sen sadece oyna.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#" data-win aria-disabled="true">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <span data-win-label>Windows için indir</span>
+            </a>
+            <a class="btn btn-ghost" href="#" data-linux aria-disabled="true">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 10a3 3 0 1 1 6 0c0 1.2-.6 1.8-1 2.6-.4.8-.3 2.4-1 3.4-.5.8-1.5 1.2-3 1-2-.3-2.6-2-2.4-3.4.2-1.4 1.4-2 1.4-3.6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.5 14.5 7 17m7.5-2.5L17 17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <span data-linux-label>Linux · yakında</span>
+            </a>
+          </div>
+          <p class="release" id="release" aria-live="polite">Sürüm bilgisi alınıyor…</p>
+          <ul class="facts">
+            <li>Windows 10/11</li>
+            <li>Fabric 1.21.11</li>
+            <li>~28 MB</li>
+            <li>Ücretsiz</li>
+          </ul>
+        </div>
+
+        <div class="showcase" aria-label="Atemingo Launcher arayüzü">
+          <div class="orbit" aria-hidden="true"></div>
+          <div class="orbit two" aria-hidden="true"></div>
+          <img class="moon-badge" src="./logo.png" alt="" width="72" height="72" loading="eager" />
+          <div class="shot">
+            <div class="shot-frame">
+              <div class="shot-bar">
+                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span class="shot-title">ATEMINGO LAUNCHER <b id="shot-ver">2.0.0</b></span>
+              </div>
+              <img src="./launcher.png" alt="Atemingo Launcher ana ekranı" width="1914" height="1025" loading="eager" />
+            </div>
+          </div>
+          <div class="chip chip-a">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            Modrinth'te <b>keşfet</b>
+          </div>
+          <div class="chip chip-b">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 19c.6-3 2.6-4.5 5-4.5s4.4 1.5 5 4.5M13.5 19c.4-2.4 2-3.7 4-3.7s3.6 1.3 4 3.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Arkadaşlarınla <b>oyna</b>
+          </div>
+          <div class="chip chip-c">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            Nişangah <b>Stüdyosu</b>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>PROFİLLER <em>✦</em></span><span>MODRINTH <em>✦</em></span><span>SÜRÜMLER <em>✦</em></span><span>SUNUCULAR <em>✦</em></span><span>ARKADAŞLAR <em>✦</em></span><span>NİŞANGAH <em>✦</em></span><span>PERFORMANS <em>✦</em></span>
+          <span>PROFİLLER <em>✦</em></span><span>MODRINTH <em>✦</em></span><span>SÜRÜMLER <em>✦</em></span><span>SUNUCULAR <em>✦</em></span><span>ARKADAŞLAR <em>✦</em></span><span>NİŞANGAH <em>✦</em></span><span>PERFORMANS <em>✦</em></span>
+        </div>
+      </div>
+
+      <section class="section wrap" id="ozellikler">
+        <div class="section-head reveal">
+          <span class="kicker">Her şey elinin altında</span>
+          <h2>Oyuna odaklan, gerisini biz halledelim.</h2>
+          <p>Vanilla'dan Fabric'e, mod keşfinden arkadaşlarına kadar launcher'ın her parçası tek bir akışta.</p>
+        </div>
+        <div class="bento">
+          <article class="card wide feature-gold reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Modrinth atölyesi</h3>
+            <p>Modları launcher'ın içinde ara, sürüm uyumluluğunu gör, tek tıkla profiline ekle. Ayrı site, ayrı indirme yok.</p>
+            <div class="tags"><span class="tag">Tek tıkla kur</span><span class="tag">Sürüm filtresi</span><span class="tag">Otomatik güncelleme</span></div>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m12 12 8-4.5M12 12v9M12 12 4 7.5" stroke="currentColor" stroke-width="1.7"/></svg>
+            </div>
+            <h3>Profiller tek yerde</h3>
+            <p>Vanilla ve Fabric profillerini oluştur; her profil kendi modlarını, ayarlarını ve dünyasını taşısın.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13" width="18" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M7 7.5h.01M7 16.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Sunucular</h3>
+            <p>Sunucu adreslerini kaydet, canlı durumlarını gör ve oyuna doğrudan sunucuya bağlan.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 19c.6-3 2.6-4.5 5-4.5s4.4 1.5 5 4.5M13.5 19c.4-2.4 2-3.7 4-3.7s3.6 1.3 4 3.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Arkadaşlar</h3>
+            <p>Paylaşım kodlarıyla arkadaş ekle, kimin çevrimiçi olduğunu gör ve birlikte oynayın.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Nişangah Stüdyosu</h3>
+            <p>Kendi nişangahını tasarla, rengini ve biçimini seç; anında oyunda kullan.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 16a8 8 0 1 1 16 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m12 15 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 20h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Performans</h3>
+            <p>RAM, çözünürlük ve JVM ayarlarını profiline göre düzenle; hazır FPS paketleriyle başla.</p>
+          </article>
+          <article class="card card-cta reveal">
+            <div>
+              <h3>Hepsi tek uygulamada</h3>
+              <p>Windows ve Linux. Kurulum, Java ve modlar dahil.</p>
+            </div>
+            <a class="btn btn-primary" href="#indir">İndir <span aria-hidden="true">↓</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section wrap" id="nasil">
+        <div class="section-head reveal">
+          <span class="kicker">Üç adım</span>
+          <h2>Kur, giriş yap, oyna.</h2>
+        </div>
+        <div class="steps">
+          <article class="step reveal">
+            <h3>İndir</h3>
+            <p>Windows kurulum dosyasını çalıştır ya da Linux'ta AppImage'ı çift tıkla. Ek kurulum gerekmez.</p>
+          </article>
+          <article class="step reveal">
+            <h3>Giriş yap</h3>
+            <p>Microsoft hesabınla oturum aç. Bilgilerin cihazında şifrelenmiş olarak saklanır.</p>
+          </article>
+          <article class="step reveal">
+            <h3>Oyna</h3>
+            <p>Profilini seç, OYNA'ya bas. Java çalışma zamanı ve modlar otomatik hazırlanır.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="download wrap" id="indir">
+        <div class="download-panel reveal">
+          <div class="download-copy">
+            <span class="kicker">Hazır mısın?</span>
+            <h2>Maceraya tek tıkla başla.</h2>
+            <p>Ücretsiz, reklamsız ve hesabın sende kalır. Kurulum paketi GitHub Releases üzerinden iner.</p>
+            <p class="release" id="release-2" aria-live="polite">Sürüm bilgisi alınıyor…</p>
+          </div>
+          <div class="platforms">
+            <div class="platform">
+              <span class="platform-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.6 10.4 4.5v7.1H3V5.6Zm8.6-1.3L21 3v8.6h-9.4V4.3ZM3 12.7h7.4v7.1L3 18.6v-5.9Zm8.6 0H21V21l-9.4-1.3v-7Z"/></svg>
+              </span>
+              <div class="platform-body">
+                <div class="platform-title">Windows <span class="soon">x64</span></div>
+                <div class="platform-meta" id="win-meta">Windows 10/11 · .exe kurulum</div>
+              </div>
+              <a class="btn btn-primary" href="#" data-win aria-disabled="true">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span data-win-label>İndir</span>
+              </a>
+            </div>
+            <div class="platform">
+              <span class="platform-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M9 9.8a3.2 3.2 0 1 1 6.4 0c0 1.3-.7 1.9-1.1 2.8-.4.9-.3 2.6-1 3.6-.6.9-1.6 1.3-3.2 1.1-2.1-.3-2.8-2.1-2.6-3.6.2-1.5 1.5-2.2 1.5-3.9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.6 15 7 17.4m7.6-2.4 2.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10.4" cy="9.4" r=".65" fill="currentColor"/><circle cx="13.6" cy="9.4" r=".65" fill="currentColor"/><path d="M11.3 11.2h1.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </span>
+              <div class="platform-body">
+                <div class="platform-title">Linux <span class="soon" id="linux-badge">x64</span></div>
+                <div class="platform-meta" id="linux-meta">AppImage · 64-bit</div>
+                <a class="deb-link" id="deb-link" href="#" rel="noopener noreferrer">veya .deb paketini indir</a>
+              </div>
+              <a class="btn btn-ghost" href="#" data-linux aria-disabled="true">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span data-linux-label>İndir</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      <div class="wrap foot">
+        <span class="foot-brand"><img src="./logo.png" alt="" width="22" height="22" /> © <span id="year"></span> Atemingo Launcher</span>
+        <div class="foot-links">
+          <a href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord</a>
+          <a href="#top">Yukarı çık ↑</a>
+        </div>
+      </div>
+    </footer>
+
     <script>
-      const updateUrl = new URL("https://atemingo.github.io/AtemingoLauncher/updates/version.json");
-      const download = document.getElementById("download");
-      const downloadLabel = document.getElementById("download-label");
-      const release = document.getElementById("release");
-      const downloadButtons = [download, ...document.querySelectorAll("[data-download]")];
-      document.getElementById("year").textContent = new Date().getFullYear();
+      (function () {
+        "use strict";
+        const updateUrl = new URL("https://atemingo.github.io/AtemingoLauncher/updates/version.json");
+        const winButtons = Array.from(document.querySelectorAll("[data-win]"));
+        const linuxButtons = Array.from(document.querySelectorAll("[data-linux]"));
+        const winLabels = Array.from(document.querySelectorAll("[data-win-label]"));
+        const linuxLabels = Array.from(document.querySelectorAll("[data-linux-label]"));
+        const releaseNodes = [document.getElementById("release"), document.getElementById("release-2")];
+        const debLink = document.getElementById("deb-link");
+        const linuxMeta = document.getElementById("linux-meta");
+        const linuxBadge = document.getElementById("linux-badge");
+        document.getElementById("year").textContent = new Date().getFullYear();
 
-      downloadButtons.forEach((button) => button.addEventListener("click", (event) => {
-        if (button.getAttribute("aria-disabled") === "true") {
-          event.preventDefault();
-          loadRelease();
-        }
-      }));
+        let state = "loading";
+        let linuxUrl = "";
 
-      function setDownloadUrl(url) {
-        const installerUrl = new URL(url, updateUrl);
-        if (installerUrl.protocol !== "https:") throw new Error("Güvenli olmayan indirme adresi.");
-        downloadButtons.forEach((button) => {
-          button.href = installerUrl.href;
-          button.target = "_blank";
-          button.rel = "noopener noreferrer";
-          button.removeAttribute("aria-disabled");
-        });
-        downloadLabel.textContent = "Windows için indir";
-        document.querySelector("[data-download] span").textContent = "Windows için indir";
-      }
-
-      async function loadRelease() {
-        downloadLabel.textContent = "İndirme bağlantısı yükleniyor...";
-        downloadButtons.forEach((button) => {
-          button.removeAttribute("href");
-          button.setAttribute("aria-disabled", "true");
-        });
-        try {
-          const response = await fetch(updateUrl, { cache: "no-store" });
-          if (!response.ok) throw new Error("Sürüm bilgisi alınamadı (" + response.status + ").");
-          const info = await response.json();
-          if (!info || typeof info.version !== "string" || typeof info.url !== "string") {
-            throw new Error("Sürüm bilgisinin biçimi geçersiz.");
-          }
-          setDownloadUrl(info.url);
-          release.textContent = "Windows 10/11 · Sürüm " + info.version + (info.notes ? " · " + info.notes : "");
-        } catch (error) {
-          release.textContent = "İndirme bilgisi alınamadı. Yeniden denemek için tıklayın.";
-          downloadLabel.textContent = "Tekrar dene";
-          document.querySelector("[data-download] span").textContent = "Tekrar dene";
-          console.error("Atemingo Launcher sürüm bilgisi yüklenemedi:", error);
-        }
-      }
-
-      loadRelease();
-      const revealObserver = "IntersectionObserver" in window
-        ? new IntersectionObserver((entries, observer) => entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
+        function setButtons(nodes, url, enabled) {
+          nodes.forEach(function (node) {
+            if (enabled) {
+              node.href = url;
+              node.target = "_blank";
+              node.rel = "noopener noreferrer";
+              node.removeAttribute("aria-disabled");
+            } else {
+              node.removeAttribute("href");
+              node.setAttribute("aria-disabled", "true");
             }
-          }), { threshold: 0.12 })
-        : null;
-      document.querySelectorAll(".reveal").forEach((element) => {
-        if (revealObserver) revealObserver.observe(element);
-        else element.classList.add("visible");
-      });
+          });
+        }
+
+        function setText(nodes, text) {
+          nodes.forEach(function (node) { node.textContent = text; });
+        }
+
+        function setVersion(version) {
+          ["ver", "shot-ver"].forEach(function (id) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = version;
+          });
+        }
+
+        function linuxUrlFrom(info) {
+          const linux = info && typeof info.linux === "object" && info.linux ? info.linux : {};
+          return (
+            info.linux_url ||
+            info.linux_appimage ||
+            (typeof info.linux === "string" ? info.linux : "") ||
+            linux.appimage ||
+            linux.url ||
+            ""
+          );
+        }
+
+        function linuxDebFrom(info) {
+          const linux = info && typeof info.linux === "object" && info.linux ? info.linux : {};
+          return info.linux_deb || linux.deb || "";
+        }
+
+        function httpsOnly(url) {
+          if (!url || typeof url !== "string") return "";
+          try {
+            const parsed = new URL(url, updateUrl);
+            return parsed.protocol === "https:" ? parsed.href : "";
+          } catch (error) {
+            return "";
+          }
+        }
+
+        async function loadRelease() {
+          releaseNodes.forEach(function (node) {
+            if (node) node.textContent = "Sürüm bilgisi alınıyor…";
+          });
+          state = "loading";
+          try {
+            const response = await fetch(updateUrl, { cache: "no-store" });
+            if (!response.ok) throw new Error("HTTP " + response.status);
+            const info = await response.json();
+            if (!info || typeof info.version !== "string" || typeof info.url !== "string") {
+              throw new Error("Geçersiz sürüm bilgisi");
+            }
+            const winUrl = httpsOnly(info.url);
+            if (!winUrl) throw new Error("Güvenli olmayan indirme adresi");
+
+            setVersion(info.version);
+            setButtons(winButtons, winUrl, true);
+            setText(winLabels, "Windows için indir");
+            const winMeta = document.getElementById("win-meta");
+            if (winMeta) winMeta.textContent = "Windows 10/11 · Sürüm " + info.version + " · .exe";
+
+            linuxUrl = httpsOnly(linuxUrlFrom(info));
+            const debUrl = httpsOnly(linuxDebFrom(info));
+            if (linuxUrl) {
+              setButtons(linuxButtons, linuxUrl, true);
+              setText(linuxLabels, "Linux için indir");
+              if (linuxBadge) linuxBadge.textContent = "x64";
+              if (linuxMeta) linuxMeta.textContent = "AppImage · Sürüm " + info.version;
+              if (debUrl && debLink) {
+                debLink.href = debUrl;
+                debLink.classList.add("show");
+              }
+            } else {
+              setButtons(linuxButtons, "", false);
+              setText(linuxLabels, "Linux · yakında");
+              if (linuxBadge) linuxBadge.textContent = "Yakında";
+              if (linuxMeta) linuxMeta.textContent = "Linux sürümü hazırlanıyor";
+            }
+            releaseNodes.forEach(function (node, index) {
+              if (!node) return;
+              node.innerHTML = "";
+              const strong = document.createElement("b");
+              strong.textContent = "Sürüm " + info.version;
+              node.appendChild(strong);
+              let suffix = " · Windows 10/11" + (linuxUrl ? " & Linux" : "");
+              if (index === 1 && info.notes) suffix += " · " + info.notes;
+              node.appendChild(document.createTextNode(suffix));
+            });
+            state = "ready";
+          } catch (error) {
+            state = "error";
+            releaseNodes.forEach(function (node) {
+              if (node) node.textContent = "Sürüm bilgisi alınamadı · Tekrar denemek için tıkla";
+            });
+            setButtons(winButtons, "", false);
+            setText(winLabels, "Tekrar dene");
+            setText(linuxLabels, "Linux · yakında");
+            console.error("Atemingo sürüm bilgisi yüklenemedi:", error);
+          }
+        }
+
+        function onLockedClick(event) {
+          if (state === "error") {
+            event.preventDefault();
+            loadRelease();
+            return;
+          }
+          if (state === "ready") {
+            if (event.currentTarget.hasAttribute("data-linux")) {
+              event.preventDefault();
+              releaseNodes.forEach(function (node) {
+                if (node) node.textContent = "Linux sürümü henüz yayınlanmadı · Windows sürümü hazır";
+              });
+            }
+            return;
+          }
+          event.preventDefault();
+        }
+
+        winButtons.concat(linuxButtons).forEach(function (button) {
+          button.addEventListener("click", function (event) {
+            if (button.getAttribute("aria-disabled") === "true") onLockedClick(event);
+          });
+        });
+
+        const header = document.getElementById("site-head");
+        function onScroll() {
+          header.classList.toggle("scrolled", window.scrollY > 12);
+        }
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+
+        const observer = "IntersectionObserver" in window
+          ? new IntersectionObserver(function (entries, obs) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                  obs.unobserve(entry.target);
+                }
+              });
+            }, { threshold: 0.12 })
+          : null;
+        document.querySelectorAll(".reveal").forEach(function (el) {
+          if (observer) observer.observe(el);
+          else el.classList.add("visible");
+        });
+
+        loadRelease();
+      })();
     </script>
   </body>
 </html>
