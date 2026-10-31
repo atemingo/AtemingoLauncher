@@ -1,0 +1,79 @@
+name: Publish release
+
+# Sürüm yayını: GitHub Release'i ve içindeki kurulum dosyasını oluşturur.
+# Kurulum dosyası var olan bir release asset'inden indirilip SHA-256 ile
+# doğrulanır; böylece büyük dosyayı tarayıcıyla elle yüklemek gerekmez.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Yeni sürüm etiketi (örn. v2.0.0)'
+        required: true
+      title:
+        description: 'Release başlığı'
+        required: true
+      asset_url:
+        description: 'Kurulum dosyasının indirileceği adres'
+        required: true
+      asset_sha256:
+        description: 'Kurulum dosyasının SHA-256 değeri'
+        required: true
+      notes_from_tag:
+        description: 'Notların kopyalanacağı mevcut release etiketi (boş bırakılabilir)'
+        required: false
+        default: ''
+      delete_release:
+        description: 'Yayından sonra silinecek eski release etiketi (boş bırakılabilir)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TAG: ${{ inputs.tag }}
+      TITLE: ${{ inputs.title }}
+      ASSET_URL: ${{ inputs.asset_url }}
+      ASSET_SHA256: ${{ inputs.asset_sha256 }}
+      NOTES_FROM: ${{ inputs.notes_from_tag }}
+      DELETE_RELEASE: ${{ inputs.delete_release }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Kurulum dosyasını indir ve doğrula
+        run: |
+          set -euo pipefail
+          name="$(basename "$ASSET_URL")"
+          curl -fL --retry 3 --retry-delay 5 -o "$name" "$ASSET_URL"
+          echo "$ASSET_SHA256  $name" | sha256sum -c -
+          ls -l "$name"
+
+      - name: Release notlarını hazırla
+        run: |
+          set -euo pipefail
+          if [ -n "$NOTES_FROM" ]; then
+            gh api "repos/$REPO/releases/tags/$NOTES_FROM" --jq .body > notes.md
+          else
+            : > notes.md
+          fi
+          wc -c notes.md
+
+      - name: Release oluştur
+        run: |
+          set -euo pipefail
+          name="$(basename "$ASSET_URL")"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$name" --clobber
+          else
+            gh release create "$TAG" "$name" --title "$TITLE" --notes-file notes.md --latest
+          fi
+
+      - name: Eski release'i sil
+        if: inputs.delete_release != ''
+        run: |
+          set -euo pipefail
+          gh release delete "$DELETE_RELEASE" --yes --cleanup-tag || true
