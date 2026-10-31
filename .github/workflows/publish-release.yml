@@ -24,7 +24,7 @@ on:
         required: false
         default: ''
       delete_release:
-        description: 'Yayından sonra silinecek eski release etiketi (boş bırakılabilir)'
+        description: 'Yayından sonra silinecek release etiketleri, virgülle ayrılmış (boş bırakılabilir)'
         required: false
         default: ''
       recreate_existing:
@@ -81,8 +81,11 @@ jobs:
             gh release create "$TAG" "$name" --title "$TITLE" --notes-file notes.md --latest
           fi
 
-      - name: Eski release'i sil
+      - name: Eski release'leri sil
         if: inputs.delete_release != ''
         run: |
           set -euo pipefail
-          gh release delete "$DELETE_RELEASE" --yes --cleanup-tag || true
+          for t in $(echo "$DELETE_RELEASE" | tr ',' ' '); do
+            gh release delete "$t" --yes --cleanup-tag || true
+            gh api -X DELETE "repos/$REPO/git/refs/tags/$t" >/dev/null 2>&1 || true
+          done
