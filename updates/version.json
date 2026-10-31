@@ -3,5 +3,7 @@
   "url": "https://github.com/atemingo/AtemingoLauncher/releases/download/minecraft/AtemingoLauncher-setup.exe",
   "sha256": "152be21d4ef9e65c76cc471b5d7870b287af4bc0530121ed4044cb8a236fe19c",
   "sha1": "e4e992ef540d61d940522e8f0d53bb385fcd9602",
-  "notes": "BEST UPDATE — güvenlik, paylaşım kodları, Nişangah Stüdyosu ve daha fazlası."
+  "notes": "BEST UPDATE — güvenlik, paylaşım kodları, Nişangah Stüdyosu ve daha fazlası. Linux sürümü de yayında!",
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.0.0-linux/AtemingoLauncher_2.0.0_amd64.AppImage",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.0.0-linux/AtemingoLauncher_2.0.0_amd64.deb"
 }
