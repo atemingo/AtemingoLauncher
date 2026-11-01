@@ -1,13 +1,13 @@
 {
-  "version": "2.1.0",
-  "url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.0-windows/AtemingoLauncher-setup.exe",
-  "sha256": "c75944240629e64da7a2a1574e7049948b8a191831065fe77b706eb568098dd7",
-  "sha1": "96dd870a8c6bb156432d969d24d754f528124c86",
-  "notes": "Liquid Glass arayüz ve 20 maddelik güvenlik katmanı. Windows ve Linux sürümleri birlikte yayında.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.0-linux/AtemingoLauncher-2.1.0-linux-x64.AppImage",
-  "linux_sha256": "4741d3d056974c491476618d69be05784ef03338df82ad4e5f1dfce0501b9ec7",
-  "linux_sha1": "72e34d112e8b8e13efc2997a1fb990d35599b3f8",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.0-linux/AtemingoLauncher-2.1.0-linux-x64.deb",
-  "linux_deb_sha256": "40714f7133a722d5cedb137aec8122a724320ca9d156017109d11ce81b7a9b48",
-  "linux_deb_sha1": "82710c0c4879d1675e63c7d87d6728f17c0e5193"
+  "version": "2.1.1",
+  "url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.1-windows/AtemingoLauncher-setup.exe",
+  "sha256": "224c2f147c63dc943070247afb394cfac841fd0c125d0bdc889c335a58fc0b5c",
+  "sha1": "f151649b115d58e33480776ef5c5f318b8d4d4d4",
+  "notes": "Arkadaş sohbeti artık otomatik bağlanıyor; sunucu adresi girmene gerek yok. Windows ve Linux sürümleri birlikte yayında.",
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.1-linux/AtemingoLauncher-2.1.1-linux-x64.AppImage",
+  "linux_sha256": "8f58609ca0bf220fc71a2404855efd0cb38d88859fdc5538ca1f65c22aa7e22f",
+  "linux_sha1": "d80047dbbab689b4a18c1d966902e3c5d9cc5e81",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.1-linux/AtemingoLauncher-2.1.1-linux-x64.deb",
+  "linux_deb_sha256": "06befc3ab84d6b43d6c040f16c2c17f288b8f765cda9f509aad8d15237a6f290",
+  "linux_deb_sha1": "ae6bc8c72ce9de4dc1bc0cc34e73ce74d0a7def2"
 }
