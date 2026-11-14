@@ -4,10 +4,10 @@
   "sha256": "965881185683e9aae9de7889effa21a10bed0df3a8ef06a51c1341ed371ac19a",
   "sha1": "73b2e544b4f5a63a924441731e313063ad14fe10",
   "notes": "Sunucu listesi artık yönetim panelinden geliyor. Panelde eklenen sunucu launcher'da görünür, silinen sunucu listeden kalkar. Windows ve Linux sürümleri birlikte yayında.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.2-linux/AtemingoLauncher-2.1.2-linux-x64.AppImage",
-  "linux_sha256": "ef71d52bc60a83aba839034a74993fd3eaa28bea8b73213d694a82f1cb2f1c0d",
-  "linux_sha1": "f699bbc062a569fc5c4f6f9a0b01368b02778846",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.2-linux/AtemingoLauncher-2.1.2-linux-x64.deb",
-  "linux_deb_sha256": "f456f50806d0fbb67efee79ff48b5b3550c171dd17c50dcc3c61edf074d2e255",
-  "linux_deb_sha1": "7fc52cb3442848ac10fb936ca7acc94f3e68daa9"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.3-linux/AtemingoLauncher-2.1.3-linux-x64.AppImage",
+  "linux_sha256": "bbaa387268b8402c032bb80b37c53544cc2aad7028528fd46bef4b4ac094e3c7",
+  "linux_sha1": "61c34aa41fba59a880b822ed3477b5c18b90bbb7",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.3-linux/AtemingoLauncher-2.1.3-linux-x64.deb",
+  "linux_deb_sha256": "405f3e311130ee11e43b87b38711101823fc5cdb4d16030389eafb60f6160e9b",
+  "linux_deb_sha1": "cd976f4f5d187c4f5d999dfcc91b343bef57ed18"
 }
