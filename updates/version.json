@@ -3,5 +3,11 @@
   "url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.2-windows/AtemingoLauncher-setup.exe",
   "sha256": "965881185683e9aae9de7889effa21a10bed0df3a8ef06a51c1341ed371ac19a",
   "sha1": "73b2e544b4f5a63a924441731e313063ad14fe10",
-  "notes": "Sunucu listesi artık yönetim panelinden geliyor. Panelde eklenen sunucu launcher'da görünür, silinen sunucu listeden kalkar."
+  "notes": "Sunucu listesi artık yönetim panelinden geliyor. Panelde eklenen sunucu launcher'da görünür, silinen sunucu listeden kalkar. Windows ve Linux sürümleri birlikte yayında.",
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.2-linux/AtemingoLauncher-2.1.2-linux-x64.AppImage",
+  "linux_sha256": "ef71d52bc60a83aba839034a74993fd3eaa28bea8b73213d694a82f1cb2f1c0d",
+  "linux_sha1": "f699bbc062a569fc5c4f6f9a0b01368b02778846",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.2-linux/AtemingoLauncher-2.1.2-linux-x64.deb",
+  "linux_deb_sha256": "f456f50806d0fbb67efee79ff48b5b3550c171dd17c50dcc3c61edf074d2e255",
+  "linux_deb_sha1": "7fc52cb3442848ac10fb936ca7acc94f3e68daa9"
 }
