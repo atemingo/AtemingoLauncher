@@ -3,7 +3,7 @@
   "url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.5-windows/AtemingoLauncher-setup.exe",
   "sha256": "f210470d0529b9bf7f5d8402d1009f5dc2dd9eeea6dcd5e12ccc06a2b90f1724",
   "sha1": "814e1aa53f2f114d82622c8605d4a921a355e0e6",
-  "notes": "Canli sayac: kullanim bildirimi 5 dakikada birden 1 dakikaya indi; misafir ve hesapsiz acilislar da sayiliyor, Discord botundaki aktif launcher kullanicisi sayisi gercek zamana yaklasti. Windows ve Linux surumleri birlikte yayinda.",
+  "notes": "Live counter: usage reporting now runs every minute instead of every five; guest and signed-out sessions are counted too, so the active launcher users shown in the Discord bot are close to real time. Windows and Linux builds are available.",
   "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.5-linux/AtemingoLauncher-2.1.5-linux-x64.AppImage",
   "linux_sha256": "6d0d455898a3a95cd6a9a361fa635b0651d7e9e05c70ffd02b4f272d541d48de",
   "linux_sha1": "a41f05edfeafb9e1b9351cc25eb16b6cdc2ad3c6",
