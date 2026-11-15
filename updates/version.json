@@ -4,10 +4,10 @@
   "sha256": "be9e45efba92bdbcc4fd16e08b90b180f1e6c653aa3be301d7fe2e3a96c19a27",
   "sha1": "284914c2b19a31deaad842519648ac2689553a68",
   "notes": "Altin tema: varsayilan vurgu rengi altin oldu; cam yuzeyler notr grafite tasindi ve mavimsi renk kirliligi giderildi. Ayarlar > Renk paletinde Altin, Aurora, Ocean, Ember ve Crimson arasinda gecis yapilabilir. Windows ve Linux surumleri birlikte yayinda.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.4-linux/AtemingoLauncher-2.1.4-linux-x64.AppImage",
-  "linux_sha256": "eea45dea46a48af5fd6afe86046f1a9ed19f91fa9e56407308fbd6828a4aa015",
-  "linux_sha1": "6deafbee54a89c6db4c9fb02b78d2cd2cf67149f",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.4-linux/AtemingoLauncher-2.1.4-linux-x64.deb",
-  "linux_deb_sha256": "67584defda77bf6da38c289ce98cb4f7dcd14062669a61f2ec46caf0c1e705ee",
-  "linux_deb_sha1": "2ccf0e96eaa69b7adcfe80c99797a391221db14a"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.5-linux/AtemingoLauncher-2.1.5-linux-x64.AppImage",
+  "linux_sha256": "6d0d455898a3a95cd6a9a361fa635b0651d7e9e05c70ffd02b4f272d541d48de",
+  "linux_sha1": "a41f05edfeafb9e1b9351cc25eb16b6cdc2ad3c6",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.5-linux/AtemingoLauncher-2.1.5-linux-x64.deb",
+  "linux_deb_sha256": "b19d7d839d5d8cf652708ebf631485cb8d33024cacaca6308681cfbf5cfb8122",
+  "linux_deb_sha1": "1c514cd5d12fe763b6e827a94e1ac828d68e496d"
 }
