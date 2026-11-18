@@ -4,10 +4,10 @@
   "sha256": "f210470d0529b9bf7f5d8402d1009f5dc2dd9eeea6dcd5e12ccc06a2b90f1724",
   "sha1": "814e1aa53f2f114d82622c8605d4a921a355e0e6",
   "notes": "Live counter: usage reporting now runs every minute instead of every five; guest and signed-out sessions are counted too, so the active launcher users shown in the Discord bot are close to real time. Windows and Linux builds are available.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.5-linux/AtemingoLauncher-2.1.5-linux-x64.AppImage",
-  "linux_sha256": "6d0d455898a3a95cd6a9a361fa635b0651d7e9e05c70ffd02b4f272d541d48de",
-  "linux_sha1": "a41f05edfeafb9e1b9351cc25eb16b6cdc2ad3c6",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.5-linux/AtemingoLauncher-2.1.5-linux-x64.deb",
-  "linux_deb_sha256": "b19d7d839d5d8cf652708ebf631485cb8d33024cacaca6308681cfbf5cfb8122",
-  "linux_deb_sha1": "1c514cd5d12fe763b6e827a94e1ac828d68e496d"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.6-linux/AtemingoLauncher-2.1.6-linux-x64.AppImage",
+  "linux_sha256": "9cff9a1bd1da4a2494f56ee6f4fbe166c8321e5a41e30d6df87cfd681f8e7888",
+  "linux_sha1": "d2315ad85db8f0da177d177bc847f8087d5dbccd",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.6-linux/AtemingoLauncher-2.1.6-linux-x64.deb",
+  "linux_deb_sha256": "308dcb4bcf73fb1ce0b006eb3bf18bee78763b9ce2f1f3a845ff16915f24351f",
+  "linux_deb_sha1": "393668635448f59a470a5da31432700188a4ee21"
 }
