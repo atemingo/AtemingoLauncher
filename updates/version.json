@@ -4,10 +4,10 @@
   "sha256": "0a623a5bae192cd2c657c8e3dcd28451521c8a69f26850449cde0c181bfd8d40",
   "sha1": "d05432868c252b190ad3d6675def6028d008937d",
   "notes": "Smart crash fix: the automatic fix now only touches the mod named in the crash log, so unrelated mods are no longer disabled. If the log names no mod, nothing is disabled and the Mods page is suggested instead. Windows and Linux builds are available.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.6-linux/AtemingoLauncher-2.1.6-linux-x64.AppImage",
-  "linux_sha256": "9cff9a1bd1da4a2494f56ee6f4fbe166c8321e5a41e30d6df87cfd681f8e7888",
-  "linux_sha1": "d2315ad85db8f0da177d177bc847f8087d5dbccd",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.6-linux/AtemingoLauncher-2.1.6-linux-x64.deb",
-  "linux_deb_sha256": "308dcb4bcf73fb1ce0b006eb3bf18bee78763b9ce2f1f3a845ff16915f24351f",
-  "linux_deb_sha1": "393668635448f59a470a5da31432700188a4ee21"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.7-linux/AtemingoLauncher-2.1.7-linux-x64.AppImage",
+  "linux_sha256": "29944ee1a222d5c421eec8d8ed4b28b3d503aba278e44eaeda16af8c6ff0fdd5",
+  "linux_sha1": "10ae8a538d81db00aed0222bd54679d172855eb0",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.7-linux/AtemingoLauncher-2.1.7-linux-x64.deb",
+  "linux_deb_sha256": "56c334a9d9fc5457f7c2b5bdf8606badc5d7e41d8470d3b087a65812110c671b",
+  "linux_deb_sha1": "efca5492a2d5162febb059247ba5ea473b824fdc"
 }
