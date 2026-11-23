@@ -4,10 +4,10 @@
   "sha256": "1ca22650351347ef2e64ae153bc4a66d7fed952b356dd0c630b4747a09c54c4e",
   "sha1": "5c1b5862f9cf255e38f0675d3f16d9f14186ef53",
   "notes": "Reliability update: the friends and sharing server moved to a new address, so admin panel changes reach the launcher immediately. When the crash screen reports a missing dependency the launcher installs the required mods itself. Mod incompatibility warnings show clear findings instead of the raw log. CurseForge was removed; Discover uses Modrinth only. The broken desktop shortcut created after updating is fixed, and the admin panel labels premium and cracked accounts separately.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.8-linux/AtemingoLauncher-2.1.8-linux-x64.AppImage",
-  "linux_sha256": "20c6be2d3bb78b209feba76a7ea057226184026c49d3c8794ae83a19a55d4a06",
-  "linux_sha1": "d3c37e8654ae030ed66304c15fc44fbff4a664ee",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.8-linux/AtemingoLauncher-2.1.8-linux-x64.deb",
-  "linux_deb_sha256": "d55a2f9288d84a3512f1fb3547144f5dd5447152e3d6ac2f7f10cb5f873672a8",
-  "linux_deb_sha1": "e25be5cc626de89497247dac7e1f2454b97541c3"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.10-linux/AtemingoLauncher-2.1.10-linux-x64.AppImage",
+  "linux_sha256": "d467a26b1a9085fc404300ba046364db7c731643d9d2c87b794213fa842ed98c",
+  "linux_sha1": "8b957995b282057d9ee2ee1efefec77c96a04c93",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.10-linux/AtemingoLauncher-2.1.10-linux-x64.deb",
+  "linux_deb_sha256": "d877bcc1141afed4d4e8ef09269c84560a24df72b953bea5210f529219ca64c0",
+  "linux_deb_sha1": "c547df4012112cf2b88b78af46604fae0c25a028"
 }
