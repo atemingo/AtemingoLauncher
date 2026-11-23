@@ -4,10 +4,10 @@
   "sha256": "cde0f3d6d7b42f50d59bd154553d01a785b77054f4e3224740e183529645dc8e",
   "sha1": "775bd750a4e3ca8e1970525ba7639323fafd13a3",
   "notes": "Performance mode: a lighter launcher UI with glass blur and decorative animations off and the background video stopped, reachable from the title bar, Ctrl+Shift+P, the command palette, Settings and the FPS centre. Pages are split into separate chunks so the launcher opens much faster. Game settings are untouched. Windows and Linux builds are available.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.7-linux/AtemingoLauncher-2.1.7-linux-x64.AppImage",
-  "linux_sha256": "29944ee1a222d5c421eec8d8ed4b28b3d503aba278e44eaeda16af8c6ff0fdd5",
-  "linux_sha1": "10ae8a538d81db00aed0222bd54679d172855eb0",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.7-linux/AtemingoLauncher-2.1.7-linux-x64.deb",
-  "linux_deb_sha256": "56c334a9d9fc5457f7c2b5bdf8606badc5d7e41d8470d3b087a65812110c671b",
-  "linux_deb_sha1": "efca5492a2d5162febb059247ba5ea473b824fdc"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.8-linux/AtemingoLauncher-2.1.8-linux-x64.AppImage",
+  "linux_sha256": "20c6be2d3bb78b209feba76a7ea057226184026c49d3c8794ae83a19a55d4a06",
+  "linux_sha1": "d3c37e8654ae030ed66304c15fc44fbff4a664ee",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.8-linux/AtemingoLauncher-2.1.8-linux-x64.deb",
+  "linux_deb_sha256": "d55a2f9288d84a3512f1fb3547144f5dd5447152e3d6ac2f7f10cb5f873672a8",
+  "linux_deb_sha1": "e25be5cc626de89497247dac7e1f2454b97541c3"
 }
