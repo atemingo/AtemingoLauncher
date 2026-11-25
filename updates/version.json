@@ -3,7 +3,7 @@
   "url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.14-windows/AtemingoLauncher-setup.exe",
   "sha256": "e0469b7752d36450d28dfc31286e513489a28803360ffeb5cbcca9e177452bf6",
   "sha1": "69d7b85e487194e25e47e8f867b4ecd556ecb586",
-  "notes": "Updates install silently without admin rights. Friend messages appear in-game in the bottom right with the sender name. 3D pets follow and move with you instead of sticking to your body. Wings always render and replace the cape. Cosmetics can be changed while the game is running, and other launcher users see your cape, wings, pet, hat, shoes and bag. Wardrobe items now cost credits once: hat 250, shoes or bag 300, pet 400, wings 500. Windows build; Linux follows next.",
+  "notes": "Updates install silently without admin rights. Friend messages appear in-game in the bottom right with the sender name. 3D pets follow and move with you instead of sticking to your body. Wings always render and replace the cape. Cosmetics can be changed while the game is running, and other launcher users see your cape, wings, pet, hat, shoes and bag. Wardrobe items now cost credits once: hat 250, shoes or bag 300, pet 400, wings 500. Windows and Linux builds available.",
   "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.14-linux/AtemingoLauncher-2.1.14-linux-x64.AppImage",
   "linux_sha256": "223feb97be1459cbd6b0f7f3012fda9d4aa8a37fb471fe5a63968d028fd60fa4",
   "linux_sha1": "a84cf1aeacc86214b5f9e51044c3393f54b4b6ea",
