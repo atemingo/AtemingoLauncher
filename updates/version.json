@@ -4,10 +4,10 @@
   "sha256": "e0469b7752d36450d28dfc31286e513489a28803360ffeb5cbcca9e177452bf6",
   "sha1": "69d7b85e487194e25e47e8f867b4ecd556ecb586",
   "notes": "Updates install silently without admin rights. Friend messages appear in-game in the bottom right with the sender name. 3D pets follow and move with you instead of sticking to your body. Wings always render and replace the cape. Cosmetics can be changed while the game is running, and other launcher users see your cape, wings, pet, hat, shoes and bag. Wardrobe items now cost credits once: hat 250, shoes or bag 300, pet 400, wings 500. Windows build; Linux follows next.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.12-linux/AtemingoLauncher-2.1.12-linux-x64.AppImage",
-  "linux_sha256": "65173e8061bdec46330f86a69e5cf280e326c9006cac6f40577235a420b28ee9",
-  "linux_sha1": "36bf65cbf6a3bebfbcf9a731ebb78ccaebc18d64",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.12-linux/AtemingoLauncher-2.1.12-linux-x64.deb",
-  "linux_deb_sha256": "6e2bd2f6e1f8d789b55740a64391166a37aacb9b0f39dede107ee48afb7c182c",
-  "linux_deb_sha1": "1d71c754a0fa61615dee455996faa91e8f808302"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.14-linux/AtemingoLauncher-2.1.14-linux-x64.AppImage",
+  "linux_sha256": "223feb97be1459cbd6b0f7f3012fda9d4aa8a37fb471fe5a63968d028fd60fa4",
+  "linux_sha1": "a84cf1aeacc86214b5f9e51044c3393f54b4b6ea",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.1.14-linux/AtemingoLauncher-2.1.14-linux-x64.deb",
+  "linux_deb_sha256": "24d3b8127c28be7691bd14a34e7106ac7aac5a25272a9e026d2458017be5b90b",
+  "linux_deb_sha1": "2fe5b60d4493f522d9d0c384a153ca0eac3da671"
 }
