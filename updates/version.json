@@ -4,10 +4,10 @@
   "sha256": "02dbca705e803feec4e74a2530b1075b8655ffc8e6c3f7f3be53a9d465de15bb",
   "sha1": "cbdfbe3f2a40e6e820094a952d7bf64586058065",
   "notes": "Catalog items preview first: tapping a piece shows it on your character in 3D and only the Buy button spends credits. Pets were rebuilt with white eyes, pupils and short legs; the frog now has a wide body, bulging eyes on top and long hind legs. Cosmetics are no longer painted into your skin, which fixes the doubled hat and the colour bleed on hats, bags and shoes. A bag no longer pokes through a worn cape. Windows and Linux builds available.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.1-linux/AtemingoLauncher-2.2.1-linux-x64.AppImage",
-  "linux_sha256": "ab5dacb2017344c1c5b4a2abf39bbbccccb9fd0b293fa503087249feec5c0f31",
-  "linux_sha1": "87af84eabe1704dfd279432526cbd9b371896f1c",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.1-linux/AtemingoLauncher-2.2.1-linux-x64.deb",
-  "linux_deb_sha256": "feb4374a72b2ee207cd9bc7b0bb1fc28ef9eaed137a1cbd76733d0e48c85c8d2",
-  "linux_deb_sha1": "c1efe0fc8bf91047ea65033f7f85f41374914b3e"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.2-linux/AtemingoLauncher-2.2.2-linux-x64.AppImage",
+  "linux_sha256": "ff541aab35a638071c848a852305d5f2074dbf31299a216a37aa0f372ab7d877",
+  "linux_sha1": "b8422712fa5c080f67907088c937eda329f1b3c9",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.2-linux/AtemingoLauncher-2.2.2-linux-x64.deb",
+  "linux_deb_sha256": "a92d0a3f6eeb882a3719da1eeef7135affac522c2418fc47cf9d3bee381ce68d",
+  "linux_deb_sha1": "220ceb8dd46a0e0bb7495d51d88c3b5b5abea1f7"
 }
