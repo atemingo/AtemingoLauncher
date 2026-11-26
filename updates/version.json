@@ -4,10 +4,10 @@
   "sha256": "25c35b9d07acfa06723949b002d8599bf1454b63fd54d24e638bc30d206c6d92",
   "sha1": "5c90d2e142aa4701e3e7d400090bae87c89943cf",
   "notes": "Turning the mouse no longer freezes hats: they follow the vanilla head transform, pitch included. Capes now render through a dedicated layer with alpha cutout, so transparent pixels no longer show as black boxes and the cape hides itself when wings are worn. The pet follow fix ships with the updated in-game mod. Windows and Linux builds are available.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.2-linux/AtemingoLauncher-2.2.2-linux-x64.AppImage",
-  "linux_sha256": "ff541aab35a638071c848a852305d5f2074dbf31299a216a37aa0f372ab7d877",
-  "linux_sha1": "b8422712fa5c080f67907088c937eda329f1b3c9",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.2-linux/AtemingoLauncher-2.2.2-linux-x64.deb",
-  "linux_deb_sha256": "a92d0a3f6eeb882a3719da1eeef7135affac522c2418fc47cf9d3bee381ce68d",
-  "linux_deb_sha1": "220ceb8dd46a0e0bb7495d51d88c3b5b5abea1f7"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.0-linux/AtemingoLauncher-2.2.0-linux-x64.AppImage",
+  "linux_sha256": "e949c969fb616dcfa5ff8b5ab8fcb5fe630d77b25eb53496a83e39bdcce06e3c",
+  "linux_sha1": "1bd0bf68337259f8f891896e1f761a79833deba3",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.0-linux/AtemingoLauncher-2.2.0-linux-x64.deb",
+  "linux_deb_sha256": "5bb70aa3e838c144c97f22c9486eba941f00920a7f9f8106c01b569aacd08bf0",
+  "linux_deb_sha1": "687ea799de7d577da9540f4b75208a5378f843ef"
 }
