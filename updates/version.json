@@ -4,10 +4,10 @@
   "sha256": "9338b9954e77e41e5633b0591c0e419dd26a98e08779d7d876fce12010f87850",
   "sha1": "5514830a667f47961e3414fc61c10d0f43f82c69",
   "notes": "Catalog items preview before buying, pets were rebuilt, and cosmetics are no longer painted into the skin. This build also fixes hats freezing when turning the mouse, draws capes through a dedicated cutout layer so transparent pixels no longer show as black boxes, hides the cape while wings are worn, and smooths pet follow so it no longer teleports. Friend chats now show online status and the last active time, and launcher message notifications still arrive when the computer clock drifts. Windows and Linux builds are available.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.0-linux/AtemingoLauncher-2.2.0-linux-x64.AppImage",
-  "linux_sha256": "e949c969fb616dcfa5ff8b5ab8fcb5fe630d77b25eb53496a83e39bdcce06e3c",
-  "linux_sha1": "1bd0bf68337259f8f891896e1f761a79833deba3",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.0-linux/AtemingoLauncher-2.2.0-linux-x64.deb",
-  "linux_deb_sha256": "5bb70aa3e838c144c97f22c9486eba941f00920a7f9f8106c01b569aacd08bf0",
-  "linux_deb_sha1": "687ea799de7d577da9540f4b75208a5378f843ef"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.3-linux/AtemingoLauncher-2.2.3-linux-x64.AppImage",
+  "linux_sha256": "71bd30a1a212636859ac49977d3682b04189db5f5d2ca113d5073946dc268df5",
+  "linux_sha1": "11c6427a2cd68ff7d9d9be0cf7ae8a99fa6050e7",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.3-linux/AtemingoLauncher-2.2.3-linux-x64.deb",
+  "linux_deb_sha256": "8fe3df9aa1561c55e5d3789c413df8160812d27d1991806282f38ee4796b3e08",
+  "linux_deb_sha1": "dfedfe433b3817686872d2d5defd59f832a97df8"
 }
