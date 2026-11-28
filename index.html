@@ -3,1835 +3,498 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0d0c0b" />
-    <meta
-      name="description"
-      content="Atemingo Launcher ile Minecraft profillerini, Modrinth modlarını, sunucularını, pelerinlerini ve nişangahlarını tek ekrandan yönet. Windows 10/11 ve Linux için ücretsiz."
-    />
-    <meta
-      name="keywords"
-      content="atemingo, minecraft launcher, ücretsiz minecraft launcher, modrinth, fabric, minecraft mod, minecraft sunucu, pelerin, crosshair, linux minecraft launcher"
-    />
-    <meta name="color-scheme" content="dark" />
-    <link rel="canonical" href="https://atemingo.github.io/AtemingoLauncher/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Atemingo Launcher" />
-    <meta property="og:locale" content="tr_TR" />
-    <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:url" content="https://atemingo.github.io/AtemingoLauncher/" />
-    <meta property="og:title" content="Atemingo Launcher — Ücretsiz Minecraft Launcher (Windows &amp; Linux)" />
-    <meta
-      property="og:description"
-      content="Profiller, Modrinth modları, sunucular, pelerin ve nişangah stüdyosu tek ekranda. Windows 10/11 ve Linux için ücretsiz."
-    />
-    <meta property="og:image" content="https://atemingo.github.io/AtemingoLauncher/launcher.jpg" />
-    <meta property="og:image:width" content="1600" />
-    <meta property="og:image:height" content="857" />
-    <meta property="og:image:alt" content="Atemingo Launcher ana ekranı — altın temalı arayüz" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Atemingo Launcher — Ücretsiz Minecraft Launcher" />
-    <meta
-      name="twitter:description"
-      content="Profiller, Modrinth modları, sunucular, pelerin ve nişangah stüdyosu tek ekranda. Windows ve Linux için ücretsiz."
-    />
-    <meta name="twitter:image" content="https://atemingo.github.io/AtemingoLauncher/launcher.jpg" />
-    <title>Atemingo Launcher — Ücretsiz Minecraft Launcher (Windows &amp; Linux)</title>
-    <script type="application/ld+json" id="ld-json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Atemingo Launcher",
-        "applicationCategory": "GameApplication",
-        "applicationSubCategory": "Minecraft Launcher",
-        "operatingSystem": "Windows 10, Windows 11, Linux",
-        "softwareVersion": "2.2.5",
-        "inLanguage": ["tr", "en"],
-        "url": "https://atemingo.github.io/AtemingoLauncher/",
-        "downloadUrl": "https://github.com/atemingo/AtemingoLauncher/releases/latest",
-        "image": "https://atemingo.github.io/AtemingoLauncher/launcher.jpg",
-        "description": "Atemingo Launcher ile Minecraft profillerini, Modrinth modlarını, sunucularını, pelerinlerini ve nişangahlarını tek ekrandan yönet. Windows 10/11 ve Linux için ücretsiz.",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "TRY",
-          "availability": "https://schema.org/InStock"
-        },
-        "author": {
-          "@type": "Organization",
-          "name": "Atemingo",
-          "url": "https://atemingo.github.io/AtemingoLauncher/"
-        }
-      }
-    </script>
-    <link rel="icon" type="image/png" href="./icon.png" />
-    <link rel="apple-touch-icon" href="./icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="theme-color" content="#f7f5ef" />
+    <meta name="description" content="Minecraft profillerini, Modrinth modlarını ve arkadaşlarını Atemingo Launcher ile tek yerden yönet. Windows ve Linux için ücretsiz indir." />
+    <title>Atemingo Launcher — Oyununa göre yaşa</title>
     <style>
       :root {
-        color-scheme: dark;
-        --ink: #090716;
-        --ink-2: #0d0a22;
-        --panel: rgba(22, 18, 46, 0.55);
-        --panel-2: rgba(12, 10, 28, 0.72);
-        --text: #f7f4ff;
-        --muted: #a9a3c4;
-        --dim: #736d90;
-        --line: rgba(255, 255, 255, 0.09);
-        --line-strong: rgba(255, 255, 255, 0.16);
-        --gold: #f6c453;
-        --gold-2: #ffe29a;
-        --gold-3: #eab13c;
-        --violet: #a78bfa;
-        --violet-2: #7c5cff;
-        --cyan: #7fe7f2;
-        --green: #5fe39a;
-        --radius: 24px;
-        --display: "Manrope", "Space Grotesk", Inter, "Segoe UI", system-ui, sans-serif;
+        color-scheme: light;
         font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
-        color: var(--text);
-        background: var(--ink);
+        color: #24231f;
+        background: #f7f5ef;
         font-synthesis: none;
         text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
+        --ink: #24231f;
+        --muted: #77746f;
+        --paper: #f7f5ef;
+        --white: #fffefa;
+        --line: #e8e4da;
+        --violet: #7356f2;
+        --violet-dark: #543bd1;
+        --lilac: #e9e3ff;
+        --lime: #d7f477;
+        --coral: #ff9a79;
       }
+
       * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body { margin: 0; min-width: 320px; overflow-x: hidden; background: var(--ink); }
-      a { color: inherit; text-decoration: none; }
-      button { font: inherit; }
-      img { display: block; max-width: 100%; }
-      ::selection { color: #1a1206; background: var(--gold); }
-
-      /* ---------- atmosphere ---------- */
-      .bg {
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        pointer-events: none;
-        overflow: hidden;
-        background:
-          radial-gradient(1200px 820px at 82% -12%, #2a2058 0%, transparent 62%),
-          linear-gradient(180deg, #0a081a 0%, #0b0920 46%, #070612 100%);
-      }
-      .aurora {
+      html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+      body { min-width: 320px; margin: 0; overflow-x: hidden; background: var(--paper); }
+      body::before {
         position: absolute;
-        border-radius: 50%;
-        filter: blur(90px);
-        opacity: 0.55;
-        will-change: transform;
-      }
-      .aurora.a {
-        top: -34vw;
-        right: -16vw;
-        width: 66vw;
-        height: 66vw;
-        background: radial-gradient(circle, rgba(124, 92, 255, 0.5), transparent 64%);
-        animation: drift 26s ease-in-out infinite alternate;
-      }
-      .aurora.b {
-        bottom: -46vw;
-        left: -18vw;
-        width: 62vw;
-        height: 62vw;
-        background: radial-gradient(circle, rgba(246, 196, 83, 0.16), transparent 64%);
-        animation: drift 34s -8s ease-in-out infinite alternate-reverse;
-      }
-      .aurora.c {
-        top: 34%;
-        left: 46%;
-        width: 34vw;
-        height: 34vw;
-        opacity: 0.35;
-        background: radial-gradient(circle, rgba(103, 232, 249, 0.14), transparent 66%);
-        animation: drift 30s -14s ease-in-out infinite alternate;
-      }
-      .stars,
-      .stars.s2 {
-        position: absolute;
-        inset: -8% 0 0;
-        background-size: 460px 420px;
-        opacity: 0.8;
-        animation: twinkle 9s ease-in-out infinite;
-      }
-      .stars {
-        background-image:
-          radial-gradient(1.8px 1.8px at 24px 36px, rgba(255, 255, 255, 0.95), transparent 100%),
-          radial-gradient(1.4px 1.4px at 132px 88px, rgba(255, 255, 255, 0.6), transparent 100%),
-          radial-gradient(2px 2px at 236px 162px, rgba(232, 222, 255, 0.85), transparent 100%),
-          radial-gradient(1.4px 1.4px at 318px 58px, rgba(255, 255, 255, 0.5), transparent 100%),
-          radial-gradient(1.5px 1.5px at 70px 250px, rgba(127, 231, 242, 0.7), transparent 100%),
-          radial-gradient(1.8px 1.8px at 392px 300px, rgba(255, 255, 255, 0.75), transparent 100%),
-          radial-gradient(1.4px 1.4px at 176px 372px, rgba(255, 255, 255, 0.55), transparent 100%),
-          radial-gradient(2.2px 2.2px at 430px 196px, rgba(246, 196, 83, 0.7), transparent 100%);
-        mask-image: linear-gradient(#000 0%, rgba(0, 0, 0, 0.4) 72%, transparent 100%);
-      }
-      .stars.s2 {
-        background-size: 620px 560px;
-        background-position: 180px 120px;
-        opacity: 0.6;
-        animation-delay: -4.5s;
-        animation-duration: 12s;
-        transform: scale(1.25);
-        background-image:
-          radial-gradient(1px 1px at 60px 90px, rgba(255, 255, 255, 0.55), transparent 100%),
-          radial-gradient(1.4px 1.4px at 300px 40px, rgba(255, 255, 255, 0.7), transparent 100%),
-          radial-gradient(1px 1px at 490px 260px, rgba(199, 184, 255, 0.6), transparent 100%),
-          radial-gradient(1.8px 1.8px at 220px 420px, rgba(255, 255, 255, 0.5), transparent 100%),
-          radial-gradient(1px 1px at 560px 480px, rgba(246, 196, 83, 0.45), transparent 100%),
-          radial-gradient(1px 1px at 120px 520px, rgba(255, 255, 255, 0.35), transparent 100%);
-      }
-      .grid {
-        position: absolute;
-        left: -20%;
-        right: -20%;
-        bottom: -12%;
-        height: 46vh;
-        background-image:
-          linear-gradient(rgba(167, 139, 250, 0.07) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(167, 139, 250, 0.07) 1px, transparent 1px);
-        background-size: 64px 64px;
-        transform: perspective(520px) rotateX(62deg);
-        transform-origin: 50% 100%;
-        mask-image: linear-gradient(transparent 0%, #000 42%, transparent 100%);
-        opacity: 0.65;
-      }
-      .shooting {
-        position: absolute;
-        top: 16%;
-        left: -12%;
-        width: 160px;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.85));
-        filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
-        transform: rotate(16deg);
-        opacity: 0;
-        animation: shoot 12s linear infinite;
-      }
-      .grain {
-        position: fixed;
-        inset: 0;
-        z-index: -1;
-        pointer-events: none;
-        opacity: 0.05;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-      }
-      .progress {
-        position: fixed;
+        z-index: 0;
         inset: 0 0 auto;
-        height: 2px;
-        z-index: 80;
-        pointer-events: none;
-      }
-      .progress span {
-        display: block;
-        width: 0;
-        height: 100%;
-        background: linear-gradient(90deg, var(--gold), #ffd98a 40%, var(--violet) 100%);
-        box-shadow: 0 0 14px rgba(246, 196, 83, 0.55);
-      }
-
-      .wrap { position: relative; width: min(1200px, calc(100% - 44px)); margin: 0 auto; }
-
-      /* ---------- header ---------- */
-      .site-head {
-        position: sticky;
-        top: 0;
-        z-index: 60;
-        padding: 14px 0;
-        transition: padding 0.3s ease;
-      }
-      .head-shell {
-        position: relative;
-        width: min(1200px, calc(100% - 28px));
-        height: 66px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 18px;
-        padding: 0 12px 0 16px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 999px;
-        background: rgba(14, 11, 30, 0.55);
-        box-shadow: 0 14px 44px -18px rgba(0, 0, 0, 0.85), inset 0 1px rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(18px) saturate(150%);
-        transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      }
-      .site-head.scrolled { padding: 8px 0; }
-      .site-head.scrolled .head-shell {
-        background: rgba(11, 9, 24, 0.86);
-        border-color: rgba(255, 255, 255, 0.14);
-        box-shadow: 0 18px 50px -20px rgba(0, 0, 0, 0.95), inset 0 1px rgba(255, 255, 255, 0.1);
-      }
-      .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.02em; }
-      .brand-mark { position: relative; display: grid; place-items: center; width: 40px; height: 40px; }
-      .brand-mark img {
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 0 24px rgba(246, 196, 83, 0.3);
-        position: relative;
-        z-index: 1;
-      }
-      .brand-ring {
-        position: absolute;
-        inset: -3px;
-        border-radius: 50%;
-        background: conic-gradient(from 0deg, rgba(246, 196, 83, 0), rgba(246, 196, 83, 0.85), rgba(167, 139, 250, 0.8), rgba(246, 196, 83, 0));
-        -webkit-mask: radial-gradient(circle, transparent 62%, #000 64%);
-        mask: radial-gradient(circle, transparent 62%, #000 64%);
-        animation: spin 9s linear infinite;
-      }
-      .brand-text { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
-      .brand-name { font-family: var(--display); font-size: 15px; font-weight: 800; letter-spacing: 0.12em; }
-      .brand-tag { color: var(--gold-2); font-family: ui-monospace, "Cascadia Mono", monospace; font-size: 8.5px; font-weight: 700; letter-spacing: 0.34em; opacity: 0.85; }
-      nav { display: flex; align-items: center; gap: 4px; color: var(--muted); font-size: 13.5px; font-weight: 500; }
-      nav a { padding: 8px 13px; border-radius: 999px; transition: color 0.2s ease, background 0.2s ease; }
-      nav a:hover { color: #fff; background: rgba(255, 255, 255, 0.07); }
-      .nav-discord { color: #d8ccff; }
-      .nav-discord::after { content: "↗"; margin-left: 5px; font-size: 10px; opacity: 0.65; }
-      .head-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 16px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid var(--line-strong);
-        font-size: 13px;
-        font-weight: 650;
-        color: #fff;
-        transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-      }
-      .head-cta:hover { background: rgba(246, 196, 83, 0.14); border-color: rgba(246, 196, 83, 0.5); transform: translateY(-1px); }
-      .head-cta svg { width: 15px; height: 15px; }
-      .head-tools { display: inline-flex; align-items: center; gap: 10px; }
-      .lang-switch {
-        display: inline-flex;
-        gap: 2px;
-        padding: 3px;
-        border: 1px solid var(--line-strong);
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.045);
-      }
-      .lang-btn {
-        appearance: none;
-        padding: 6px 9px;
-        border: 0;
-        border-radius: 999px;
-        background: transparent;
-        color: var(--dim);
-        font: inherit;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        cursor: pointer;
-        transition: color 0.2s ease, background 0.2s ease;
-      }
-      .lang-btn:hover { color: #fff; }
-      .lang-btn[aria-pressed="true"] {
-        color: #1a1206;
-        background: linear-gradient(103deg, #ffe29a, #f6c453 62%, #eab13c);
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0.45);
-      }
-      .lang-btn:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
-
-      /* ---------- hero ---------- */
-      .hero {
-        position: relative;
-        display: grid;
-        grid-template-columns: 1.02fr 0.98fr;
-        align-items: center;
-        gap: 40px;
-        padding: 58px 0 96px;
-        background: radial-gradient(640px circle at var(--hx, 70%) var(--hy, 36%), rgba(246, 196, 83, 0.07), transparent 70%);
-      }
-      .hero-copy { position: relative; z-index: 2; animation: rise 0.9s both; }
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        padding: 8px 14px;
-        border: 1px solid rgba(167, 139, 250, 0.3);
-        border-radius: 99px;
-        background: rgba(124, 92, 255, 0.1);
-        color: #ded4ff;
-        font-family: ui-monospace, "Cascadia Mono", monospace;
-        font-size: 10.5px;
-        font-weight: 600;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0.08);
-      }
-      .eyebrow b { color: var(--gold-2); font-weight: 700; }
-      .eyebrow .sep { color: rgba(255, 255, 255, 0.25); }
-      .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); animation: pulse 2s infinite; }
-      h1 {
-        margin: 26px 0 20px;
-        font-family: var(--display);
-        font-size: clamp(50px, 6.4vw, 92px);
-        line-height: 0.94;
-        letter-spacing: -0.055em;
-        font-weight: 800;
-      }
-      .grad {
-        color: transparent;
-        background: linear-gradient(102deg, #ffe6a8 0%, #f6c453 30%, #c9a9ff 74%, #8f74ff 100%);
-        background-size: 170% 100%;
-        background-clip: text;
-        -webkit-background-clip: text;
-        filter: drop-shadow(0 10px 40px rgba(246, 196, 83, 0.18));
-        animation: gradShift 9s ease-in-out infinite;
-      }
-      .intro { max-width: 505px; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
-      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 32px; }
-      .btn {
-        position: relative;
-        min-height: 54px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 0 22px;
-        border: 1px solid transparent;
-        border-radius: 16px;
-        font-size: 14px;
-        font-weight: 650;
-        letter-spacing: 0.01em;
-        overflow: hidden;
-        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      }
-      .btn:hover { transform: translateY(-2px); }
-      .btn:focus-visible, nav a:focus-visible, .brand:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
-      .btn-primary {
-        color: #1a1206;
-        background: linear-gradient(103deg, #ffe29a, #f6c453 62%, #eab13c);
-        box-shadow: 0 14px 40px -12px rgba(246, 196, 83, 0.55), inset 0 1px rgba(255, 255, 255, 0.5);
-      }
-      .btn-primary::after {
+        height: 980px;
         content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(112deg, transparent 32%, rgba(255, 255, 255, 0.65) 50%, transparent 68%);
-        transform: translateX(-130%);
-        transition: transform 0.75s ease;
-      }
-      .btn-primary:hover { box-shadow: 0 20px 52px -14px rgba(246, 196, 83, 0.7), inset 0 1px rgba(255, 255, 255, 0.5); }
-      .btn-primary:hover::after { transform: translateX(130%); }
-      .btn-ghost {
-        color: #f1edff;
-        background: rgba(255, 255, 255, 0.05);
-        border-color: var(--line-strong);
-        backdrop-filter: blur(10px);
-      }
-      .btn-ghost:hover { border-color: rgba(255, 255, 255, 0.32); background: rgba(255, 255, 255, 0.085); }
-      .btn[aria-disabled="true"] { cursor: default; opacity: 0.55; }
-      .btn[aria-disabled="true"]:hover { transform: none; }
-      .btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
-      .release { min-height: 18px; margin: 14px 0 0 3px; color: #8d87a8; font-size: 12.5px; }
-      .release b { color: #c9bffb; font-weight: 600; }
-      .facts {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 28px 0 0;
-        padding: 0;
-        list-style: none;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.025);
-        overflow: hidden;
-        backdrop-filter: blur(8px);
-      }
-      .facts li {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        padding: 11px 15px;
-        color: #a49dbe;
-        font-family: ui-monospace, "Cascadia Mono", monospace;
-        font-size: 10.5px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        border-right: 1px solid rgba(255, 255, 255, 0.07);
-      }
-      .facts li:last-child { border-right: 0; }
-      .facts li::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px rgba(246, 196, 83, 0.6); }
-
-      .showcase { position: relative; z-index: 1; min-height: 520px; display: grid; place-items: center; animation: rise 1s 0.1s both; }
-      .showcase::before {
-        content: "";
-        position: absolute;
-        width: 88%;
-        height: 78%;
-        border-radius: 50%;
-        background: radial-gradient(ellipse at 52% 46%, rgba(124, 92, 255, 0.42), rgba(246, 196, 83, 0.06) 46%, transparent 68%);
-        filter: blur(46px);
-      }
-      .showcase::after {
-        content: "";
-        position: absolute;
-        inset: 3% 1%;
-        border: 1px solid rgba(167, 139, 250, 0.14);
-        border-radius: 50%;
-        pointer-events: none;
-      }
-      .ring {
-        position: absolute;
-        inset: 15% 8%;
-        border: 1px solid rgba(246, 196, 83, 0.1);
-        border-radius: 50%;
-        pointer-events: none;
-        animation: halo 9s ease-in-out infinite;
-      }
-      .moon { position: absolute; z-index: 4; top: -6px; right: 2px; width: 82px; height: 82px; display: grid; place-items: center; }
-      .moon::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        background: conic-gradient(from 140deg, rgba(246, 196, 83, 0.9), rgba(255, 255, 255, 0.15), rgba(167, 139, 250, 0.9), rgba(246, 196, 83, 0.9));
-        -webkit-mask: radial-gradient(circle, transparent 63%, #000 65%);
-        mask: radial-gradient(circle, transparent 63%, #000 65%);
-        animation: spin 14s linear infinite;
-      }
-      .moon-badge {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        box-shadow: 0 12px 44px rgba(124, 92, 255, 0.5);
-        animation: float 7s ease-in-out infinite;
-      }
-      .shot { position: relative; width: min(660px, 100%); }
-      .shot::before {
-        content: "";
-        position: absolute;
-        inset: 6% -4% -16%;
-        border-radius: 48px;
-        background: radial-gradient(ellipse at 50% 40%, rgba(124, 92, 255, 0.6), transparent 66%);
-        filter: blur(40px);
-        z-index: -1;
-      }
-      .shot::after {
-        content: "";
-        position: absolute;
-        inset: -13px;
-        z-index: 3;
         pointer-events: none;
         background:
-          linear-gradient(90deg, rgba(127, 231, 242, 0.55), transparent) left top / 26px 1px no-repeat,
-          linear-gradient(180deg, rgba(127, 231, 242, 0.55), transparent) left top / 1px 26px no-repeat,
-          linear-gradient(270deg, rgba(127, 231, 242, 0.55), transparent) right top / 26px 1px no-repeat,
-          linear-gradient(180deg, rgba(127, 231, 242, 0.55), transparent) right top / 1px 26px no-repeat,
-          linear-gradient(90deg, rgba(127, 231, 242, 0.55), transparent) left bottom / 26px 1px no-repeat,
-          linear-gradient(0deg, rgba(127, 231, 242, 0.55), transparent) left bottom / 1px 26px no-repeat,
-          linear-gradient(270deg, rgba(127, 231, 242, 0.55), transparent) right bottom / 26px 1px no-repeat,
-          linear-gradient(0deg, rgba(127, 231, 242, 0.55), transparent) right bottom / 1px 26px no-repeat;
+          radial-gradient(ellipse at 82% 28%, rgba(216, 205, 255, .72), transparent 34%),
+          radial-gradient(ellipse at 18% 8%, rgba(255, 224, 192, .48), transparent 33%),
+          linear-gradient(180deg, #fbf9f4, var(--paper));
       }
-      .shot-frame {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 20px;
-        background: linear-gradient(160deg, rgba(38, 32, 68, 0.92), rgba(11, 10, 23, 0.96));
-        box-shadow: 0 50px 120px -24px rgba(0, 0, 0, 0.85), 0 0 70px rgba(124, 92, 255, 0.22), 0 -12px 60px -20px rgba(103, 232, 249, 0.3), inset 0 1px rgba(255, 255, 255, 0.12);
-        transform: perspective(1600px) rotateX(calc(3deg + var(--tilt-x, 0deg))) rotateY(calc(-8deg + var(--tilt-y, 0deg)));
-        transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.5s ease;
-      }
-      .showcase:hover .shot-frame {
-        box-shadow: 0 60px 140px -24px rgba(0, 0, 0, 0.9), 0 0 90px rgba(124, 92, 255, 0.3), 0 -12px 80px -18px rgba(103, 232, 249, 0.42), inset 0 1px rgba(255, 255, 255, 0.14);
-      }
-      .shot-frame::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: linear-gradient(115deg, transparent 22%, rgba(255, 255, 255, 0.11) 36%, rgba(255, 255, 255, 0.02) 46%, transparent 58%, transparent 74%, rgba(255, 255, 255, 0.03) 100%);
-        background-size: 240% 100%;
-        animation: sheen 10s ease-in-out infinite;
-      }
-      .shot-bar {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 11px 14px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        background: rgba(10, 9, 20, 0.75);
-        backdrop-filter: blur(12px);
-      }
-      .dots { display: flex; gap: 5px; }
-      .dots i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255, 255, 255, 0.22); }
-      .dots i:first-child { background: rgba(246, 196, 83, 0.8); }
-      .dots i:nth-child(2) { background: rgba(167, 139, 250, 0.7); }
-      .dots i:nth-child(3) { background: rgba(103, 232, 249, 0.6); }
-      .shot-title {
-        margin-left: 4px;
-        color: #b6aee0;
-        font-family: ui-monospace, "Cascadia Mono", monospace;
-        font-size: 9.5px;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-      }
-      .shot-title b { color: var(--gold-2); font-weight: 700; }
-      .shot-tech {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin-left: auto;
-        color: #8d87a8;
-        font-family: ui-monospace, "Cascadia Mono", monospace;
-        font-size: 8.5px;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-      }
-      .shot-tech i { width: 5px; height: 5px; border-radius: 50%; background: var(--green); box-shadow: 0 0 9px rgba(95, 227, 154, 0.9); }
-      .shot-frame picture { display: block; }
-      .shot-frame img { width: 100%; height: auto; }
-      .chip {
-        position: absolute;
-        z-index: 5;
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        padding: 10px 14px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 14px;
-        background: rgba(16, 13, 32, 0.82);
-        box-shadow: 0 18px 44px -14px rgba(0, 0, 0, 0.8), inset 0 1px rgba(255, 255, 255, 0.08);
-        color: #e6e0ff;
-        font-size: 11.5px;
-        font-weight: 500;
-        backdrop-filter: blur(14px);
-        animation: float 6s ease-in-out infinite;
-      }
-      .chip b { color: var(--gold-2); font-weight: 700; }
-      .chip svg { width: 15px; height: 15px; color: var(--gold); flex: 0 0 auto; }
-      .chip-a { top: 4%; left: -46px; }
-      .chip-b { right: -40px; bottom: 22%; animation-delay: -2.5s; }
-      .chip-c { left: 10%; bottom: -24px; animation-delay: -4s; }
+      a { color: inherit; text-decoration: none; }
+      .shell { position: relative; z-index: 1; width: min(1160px, calc(100% - 56px)); margin: 0 auto; }
+      .topbar { position: relative; z-index: 4; }
+      .nav { height: 82px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(58, 53, 43, .09); }
+      .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 900; letter-spacing: .12em; }
+      .brand img { width: 38px; height: 38px; border-radius: 12px; box-shadow: 0 5px 16px rgba(44, 35, 91, .16); }
+      .brand-word span { color: var(--violet); }
+      .nav-links { display: flex; align-items: center; gap: 30px; color: #66625d; font-size: 12px; font-weight: 650; }
+      .nav-links a { transition: color .2s ease; }
+      .nav-links a:hover { color: var(--violet); }
+      .nav-download { padding: 11px 16px; border: 1px solid #ded5ff; border-radius: 10px; color: var(--violet-dark); background: rgba(255,255,255,.62); }
+      .nav-download:hover { background: white; }
+      .hero { padding: 78px 0 40px; text-align: center; }
+      .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid #e8defc; border-radius: 99px; color: #6552b4; background: rgba(255,255,255,.66); font-size: 10px; font-weight: 800; letter-spacing: .09em; }
+      .eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #8e73ff; box-shadow: 0 0 0 4px rgba(142,115,255,.13); }
+      h1 { max-width: 920px; margin: 25px auto 16px; font-size: clamp(48px, 7.6vw, 88px); line-height: .98; letter-spacing: -.075em; font-weight: 820; }
+      .title-accent { color: var(--violet); }
+      .hero-copy { max-width: 600px; margin: 0 auto; color: #6e6a64; font-size: 15px; line-height: 1.8; }
+      .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 25px; }
+      .button { min-height: 49px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 17px; border: 1px solid transparent; border-radius: 11px; font-size: 12px; font-weight: 800; transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease; }
+      .button:hover { transform: translateY(-3px); }
+      .button:focus-visible, .nav a:focus-visible { outline: 3px solid rgba(115,86,242,.38); outline-offset: 3px; }
+      .button-primary { color: white; background: linear-gradient(115deg, #8066f7, #6447e5); box-shadow: 0 8px 22px rgba(108,81,226,.23); }
+      .button-primary:hover { box-shadow: 0 12px 28px rgba(108,81,226,.34); }
+      .button-secondary { border-color: #e0d9fa; color: #54459a; background: rgba(255,255,255,.74); }
+      .button-secondary:hover { border-color: #bfb0fb; background: white; }
+      .button[aria-disabled="true"] { cursor: wait; opacity: .65; }
+      .platform-icon-small { display: grid; width: 18px; height: 18px; place-items: center; border: 1px solid currentColor; border-radius: 5px; font-size: 9px; font-weight: 850; }
+      .release-line { min-height: 16px; margin: 12px 0 0; color: #817d76; font-size: 10px; }
+      .hero-proof { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 21px; }
+      .proof-pill { display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; border: 1px solid rgba(76,67,48,.09); border-radius: 99px; color: #68645d; background: rgba(255,255,255,.54); font-size: 10px; font-weight: 650; }
+      .proof-pill b { color: #6a51da; font-size: 12px; }
 
-      /* ---------- marquee ---------- */
-      .marquee {
-        position: relative;
-        overflow: hidden;
-        padding: 18px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.07);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        background: rgba(255, 255, 255, 0.018);
-      }
-      .marquee::before,
-      .marquee::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 140px;
-        z-index: 2;
-        pointer-events: none;
-      }
-      .marquee::before { left: 0; background: linear-gradient(90deg, #0a081a, transparent); }
-      .marquee::after { right: 0; background: linear-gradient(270deg, #0a081a, transparent); }
-      .marquee-track { display: flex; width: max-content; gap: 44px; animation: slide 34s linear infinite; }
-      .marquee span {
-        color: rgba(255, 255, 255, 0.26);
-        font-family: var(--display);
-        font-size: 12.5px;
-        font-weight: 700;
-        letter-spacing: 0.3em;
-        white-space: nowrap;
-      }
-      .marquee span em { color: rgba(246, 196, 83, 0.6); font-style: normal; }
+      .showcase { position: relative; width: min(1040px, calc(100% - 80px)); margin: 36px auto 0; perspective: 1300px; }
+      .showcase-halo { position: absolute; inset: 10% -7% -14%; border-radius: 50%; background: linear-gradient(110deg, rgba(255,185,146,.37), rgba(170,148,255,.38), rgba(185,243,210,.32)); filter: blur(55px); opacity: .75; animation: halo-breathe 8s ease-in-out infinite; }
+      .showcase-spark { position: absolute; z-index: 2; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.8); border-radius: 14px; color: #684ce3; background: rgba(255,255,255,.86); box-shadow: 0 12px 32px rgba(61,46,137,.13); font-size: 18px; animation: bob 5s ease-in-out infinite; }
+      .spark-one { top: 16%; left: -32px; transform: rotate(-12deg); }
+      .spark-two { right: -25px; bottom: 17%; color: #de7956; animation-delay: -2s; }
+      .preview-frame { position: relative; z-index: 1; padding: 9px; border: 1px solid rgba(255,255,255,.9); border-radius: 22px; background: rgba(255,255,255,.82); box-shadow: 0 38px 100px rgba(62,49,117,.2), 0 8px 24px rgba(62,49,117,.08); transform: rotateX(2deg); animation: preview-enter .8s .12s both, preview-float 8s 1s ease-in-out infinite; }
+      .launcher-screen { min-height: 490px; overflow: hidden; border: 1px solid rgba(255,255,255,.09); border-radius: 15px; color: #f6f4ff; background: #171622; }
+      .app-topbar { height: 47px; display: flex; align-items: center; justify-content: space-between; padding: 0 17px; border-bottom: 1px solid rgba(255,255,255,.075); background: #1d1b2b; }
+      .app-brand { display: flex; align-items: center; gap: 8px; color: #ded8ff; font-size: 9px; font-weight: 850; letter-spacing: .12em; }
+      .app-brand img { width: 24px; height: 24px; border-radius: 7px; }
+      .app-window-controls { display: flex; gap: 6px; }
+      .app-window-controls i { width: 7px; height: 7px; border-radius: 50%; background: #615b78; }
+      .app-window-controls i:first-child { background: #b2ee9c; }
+      .app-layout { min-height: 443px; display: grid; grid-template-columns: 178px minmax(0, 1fr) 205px; }
+      .app-sidebar { display: flex; flex-direction: column; padding: 19px 12px; border-right: 1px solid rgba(255,255,255,.07); background: #1b1928; text-align: left; }
+      .sidebar-caption { margin: 0 0 11px 8px; color: #78758b; font-size: 8px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      .sidebar-link { display: flex; align-items: center; gap: 9px; margin-bottom: 5px; padding: 9px 10px; border-radius: 8px; color: #a7a3b8; font-size: 10px; }
+      .sidebar-link i { width: 17px; color: #a89af4; font-size: 13px; font-style: normal; text-align: center; }
+      .sidebar-link.active { color: #eeeaff; background: rgba(143,119,255,.17); box-shadow: inset 2px 0 #9c87ff; }
+      .sidebar-spacer { flex: 1; min-height: 35px; }
+      .profile-mini { display: flex; align-items: center; gap: 8px; padding: 10px 6px 0; border-top: 1px solid rgba(255,255,255,.08); text-align: left; }
+      .profile-mini img { width: 27px; height: 27px; border-radius: 8px; }
+      .profile-mini strong { display: block; color: #e8e5f3; font-size: 9px; }
+      .profile-mini small { display: block; margin-top: 3px; color: #848096; font-size: 8px; }
+      .app-content { min-width: 0; padding: 24px 25px 20px; text-align: left; }
+      .app-greeting { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+      .app-greeting h2 { margin: 0; color: #f5f2ff; font-size: 18px; letter-spacing: -.04em; }
+      .app-greeting p { margin: 5px 0 0; color: #a29db2; font-size: 9px; }
+      .online-badge { display: inline-flex; align-items: center; gap: 6px; padding: 7px 9px; border: 1px solid rgba(120,226,149,.17); border-radius: 99px; color: #a6e7ad; background: rgba(120,226,149,.07); font-size: 8px; white-space: nowrap; }
+      .online-badge i { width: 6px; height: 6px; border-radius: 50%; background: #86e99c; box-shadow: 0 0 9px #86e99c; }
+      .world-tile { position: relative; height: 222px; display: flex; align-items: end; overflow: hidden; padding: 18px; border: 1px solid rgba(255,255,255,.13); border-radius: 12px; background: linear-gradient(0deg, rgba(15,13,28,.83), transparent 68%), url("./backgrounds/wallpaper-aurora.jpg") center 48% / cover; }
+      .world-tile::after { position: absolute; inset: 0; content: ""; background: linear-gradient(120deg, rgba(65,49,117,.18), transparent 52%); pointer-events: none; }
+      .world-tile-copy { position: relative; z-index: 1; }
+      .world-tile-copy small { color: #d5caff; font-size: 8px; font-weight: 800; letter-spacing: .15em; }
+      .world-tile-copy strong { display: block; margin-top: 6px; font-size: 22px; letter-spacing: -.05em; }
+      .world-tile-copy span { display: block; margin-top: 5px; color: #dedbe8; font-size: 9px; }
+      .play-button { display: inline-flex; align-items: center; gap: 7px; margin-top: 11px; padding: 8px 12px; border-radius: 7px; color: #262044; background: #d8f385; font-size: 8px; font-weight: 900; letter-spacing: .08em; }
+      .play-button i { font-style: normal; }
+      .app-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 11px; }
+      .stat-tile { padding: 10px 11px; border: 1px solid rgba(255,255,255,.07); border-radius: 9px; background: rgba(255,255,255,.035); }
+      .stat-tile small { display: block; color: #8f8a9f; font-size: 8px; }
+      .stat-tile strong { display: block; margin-top: 5px; color: #e9e5f5; font-size: 10px; }
+      .app-activity { padding: 20px 14px; border-left: 1px solid rgba(255,255,255,.07); background: #1a1826; text-align: left; }
+      .activity-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; color: #eeebf7; font-size: 10px; font-weight: 800; }
+      .activity-heading span { color: #a69bff; font-size: 8px; font-weight: 650; }
+      .friend-row { display: flex; align-items: center; gap: 8px; margin: 0 -4px; padding: 9px 4px; border-bottom: 1px solid rgba(255,255,255,.055); }
+      .friend-avatar { width: 27px; height: 27px; display: grid; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; color: #e6deff; background: linear-gradient(140deg, #6954bc, #3e4168); font-size: 9px; font-weight: 850; }
+      .friend-row:nth-child(3) .friend-avatar { background: linear-gradient(140deg, #ba755e, #75546c); }
+      .friend-row:nth-child(4) .friend-avatar { background: linear-gradient(140deg, #548a78, #42647b); }
+      .friend-row strong { display: block; color: #e3dfeb; font-size: 8px; }
+      .friend-row small { display: block; margin-top: 4px; color: #898498; font-size: 7px; }
+      .friend-status { width: 6px; height: 6px; margin-left: auto; border-radius: 50%; background: #82e69c; }
+      .activity-card { margin-top: 17px; padding: 11px; border: 1px solid rgba(159,141,255,.17); border-radius: 9px; background: rgba(136,113,245,.08); }
+      .activity-card small { color: #a9a0d4; font-size: 8px; }
+      .activity-card strong { display: block; margin-top: 5px; color: #e5e0ff; font-size: 9px; }
+      .activity-card p { margin: 5px 0 0; color: #a7a1b5; font-size: 8px; line-height: 1.6; }
 
-      /* ---------- sections ---------- */
-      .section { padding: 104px 0 0; scroll-margin-top: 100px; }
-      .section-head { max-width: 680px; margin: 0 0 42px; }
-      .kicker {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        margin: 0 0 16px;
-        padding: 6px 12px;
-        border: 1px solid rgba(246, 196, 83, 0.26);
-        border-radius: 99px;
-        background: rgba(246, 196, 83, 0.07);
-        color: var(--gold-2);
-        font-family: ui-monospace, "Cascadia Mono", monospace;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-      }
-      .kicker::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px rgba(246, 196, 83, 0.7); }
-      h2 {
-        margin: 0;
-        font-family: var(--display);
-        font-size: clamp(31px, 4.2vw, 48px);
-        line-height: 1.04;
-        letter-spacing: -0.045em;
-        font-weight: 800;
-      }
-      .section-head p { max-width: 540px; margin: 16px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.75; }
+      .strip { padding: 18px 0; border-top: 1px solid rgba(58,53,43,.08); border-bottom: 1px solid rgba(58,53,43,.08); background: rgba(255,255,255,.4); }
+      .strip-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px 32px; color: #6c6862; font-size: 10px; font-weight: 700; }
+      .strip-inner span { display: inline-flex; align-items: center; gap: 8px; }
+      .strip-inner i { color: var(--violet); font-size: 14px; font-style: normal; }
+      .features { padding: 100px 0 105px; }
+      .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 30px; }
+      .section-heading h2 { max-width: 540px; margin: 0; font-size: clamp(34px, 5vw, 54px); line-height: 1.05; letter-spacing: -.065em; }
+      .section-heading p { max-width: 350px; margin: 0 0 5px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+      .section-kicker { display: block; margin-bottom: 12px; color: var(--violet-dark); font-size: 10px; font-weight: 850; letter-spacing: .1em; }
+      .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .feature-card { position: relative; min-height: 205px; overflow: hidden; padding: 23px; border: 1px solid rgba(53,45,30,.08); border-radius: 17px; background: var(--white); box-shadow: 0 7px 22px rgba(61,49,25,.035); transition: transform .25s ease, box-shadow .25s ease; }
+      .feature-card:hover { transform: translateY(-5px); box-shadow: 0 18px 38px rgba(61,49,25,.09); }
+      .feature-card:nth-child(2) { background: #f0edff; }
+      .feature-card:nth-child(3) { background: #eff7e4; }
+      .feature-symbol { width: 41px; height: 41px; display: grid; place-items: center; margin-bottom: 27px; border-radius: 13px; color: #674bd7; background: #eee9ff; font-size: 17px; }
+      .feature-card:nth-child(2) .feature-symbol { color: #b26043; background: #ffe8de; }
+      .feature-card:nth-child(3) .feature-symbol { color: #4a8458; background: #dff0d3; }
+      .feature-card h3 { margin: 0 0 8px; font-size: 14px; letter-spacing: -.02em; }
+      .feature-card p { max-width: 295px; margin: 0; color: #74716c; font-size: 11px; line-height: 1.75; }
 
-      .bento { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-      .card {
-        position: relative;
-        overflow: hidden;
-        min-height: 214px;
-        padding: 28px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        background: linear-gradient(158deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.012));
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
-        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      .download-section { overflow: hidden; padding: 84px 0 90px; color: white; background: #292044; }
+      .download-layout { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: 55px; }
+      .download-copy .section-kicker { color: #c5b7ff; }
+      .download-copy h2 { max-width: 440px; margin: 0; font-size: clamp(38px, 5.5vw, 60px); line-height: 1.02; letter-spacing: -.07em; }
+      .download-copy p { max-width: 370px; margin: 17px 0 0; color: #c3bdd5; font-size: 13px; line-height: 1.8; }
+      .download-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .download-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 205px; padding: 21px; border: 1px solid rgba(255,255,255,.12); border-radius: 16px; background: rgba(255,255,255,.075); transition: transform .22s ease, background .22s ease, border-color .22s ease; }
+      .download-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,.32); background: rgba(255,255,255,.11); }
+      .download-card-top { width: 100%; display: flex; align-items: center; justify-content: space-between; }
+      .download-icon { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.16); border-radius: 12px; color: #e9e1ff; background: rgba(255,255,255,.08); font-size: 17px; }
+      .download-card-top small { color: #beb5d4; font-size: 9px; }
+      .download-card h3 { margin: 20px 0 5px; font-size: 14px; }
+      .download-card p { margin: 0; color: #bbb4ca; font-size: 10px; }
+      .download-card .button { min-height: 39px; margin-top: auto; padding: 0 13px; font-size: 10px; }
+      .button-light { color: #33275c; background: #f4f0ff; }
+      .button-light:hover { background: white; }
+      .release-note { min-height: 16px; margin: 14px 0 0; color: #bdb5ce; font-size: 10px; }
+      footer { padding: 24px 0 30px; color: #77736c; font-size: 10px; }
+      .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+      .footer-links { display: flex; gap: 20px; }
+      .footer-links a:hover { color: var(--violet); }
+      .reveal { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+      .reveal.visible { opacity: 1; transform: translateY(0); }
+      @keyframes halo-breathe { 0%, 100% { transform: scale(.96); opacity: .68; } 50% { transform: scale(1.04); opacity: .95; } }
+      @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -9px; } }
+      @keyframes preview-enter { from { opacity: 0; transform: translateY(20px) rotateX(2deg) scale(.99); } to { opacity: 1; transform: translateY(0) rotateX(2deg) scale(1); } }
+      @keyframes preview-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+      @media (max-width: 900px) {
+        .hero { padding-top: 65px; }
+        .showcase { width: calc(100% - 46px); }
+        .app-layout { grid-template-columns: 145px minmax(0, 1fr); }
+        .app-activity { display: none; }
+        .download-layout { grid-template-columns: 1fr; gap: 32px; }
+        .download-copy h2 { max-width: 620px; }
+        .download-copy p { max-width: 560px; }
       }
-      .card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), rgba(var(--glow, 167, 139, 250), 0.16), transparent 64%);
-        opacity: 0;
-        transition: opacity 0.35s ease;
+      @media (max-width: 640px) {
+        .shell { width: calc(100% - 36px); }
+        .nav { height: 70px; }
+        .brand { font-size: 11px; }
+        .brand img { width: 34px; height: 34px; }
+        .nav-links { gap: 13px; font-size: 10px; }
+        .nav-links a:first-child { display: none; }
+        .nav-download { padding: 9px 11px; }
+        .hero { padding: 56px 0 31px; }
+        .eyebrow { font-size: 9px; }
+        h1 { max-width: 520px; margin-top: 21px; font-size: clamp(43px, 12.5vw, 68px); }
+        .hero-copy { max-width: 440px; font-size: 13px; }
+        .hero-actions { gap: 8px; margin-top: 21px; }
+        .button { min-height: 45px; padding: 0 13px; font-size: 10px; }
+        .hero-proof { gap: 6px; margin-top: 17px; }
+        .proof-pill { padding: 6px 8px; font-size: 9px; }
+        .showcase { width: calc(100% - 2px); margin-top: 27px; }
+        .preview-frame { padding: 5px; border-radius: 16px; }
+        .launcher-screen { min-height: 360px; border-radius: 12px; }
+        .app-topbar { height: 39px; padding: 0 10px; }
+        .app-brand { font-size: 8px; }
+        .app-brand img { width: 21px; height: 21px; }
+        .app-layout { min-height: 320px; grid-template-columns: 48px minmax(0,1fr); }
+        .app-sidebar { align-items: center; padding: 13px 5px; }
+        .sidebar-caption, .sidebar-link span, .profile-mini div { display: none; }
+        .sidebar-link { width: 34px; justify-content: center; margin-bottom: 6px; padding: 8px 0; }
+        .sidebar-link i { font-size: 14px; }
+        .profile-mini { justify-content: center; width: 100%; padding: 10px 0 0; }
+        .profile-mini img { width: 25px; height: 25px; }
+        .app-content { padding: 14px 11px; }
+        .app-greeting { align-items: flex-start; margin-bottom: 11px; }
+        .app-greeting h2 { font-size: 13px; }
+        .app-greeting p { font-size: 8px; }
+        .online-badge { padding: 6px 7px; font-size: 7px; }
+        .world-tile { height: 155px; padding: 12px; }
+        .world-tile-copy strong { font-size: 17px; }
+        .world-tile-copy span { font-size: 8px; }
+        .play-button { margin-top: 8px; padding: 7px 9px; font-size: 7px; }
+        .app-stats { gap: 5px; margin-top: 7px; }
+        .stat-tile { padding: 7px 6px; }
+        .stat-tile small { font-size: 7px; }
+        .stat-tile strong { font-size: 8px; }
+        .spark-one { top: 12%; left: -6px; width: 32px; height: 32px; }
+        .spark-two { right: -5px; bottom: 13%; width: 32px; height: 32px; }
+        .strip-inner { gap: 9px 16px; font-size: 9px; }
+        .features { padding: 72px 0; }
+        .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+        .section-heading h2 { font-size: 38px; }
+        .section-heading p { font-size: 12px; }
+        .feature-grid { grid-template-columns: 1fr; gap: 9px; }
+        .feature-card { min-height: 0; padding: 17px; }
+        .feature-symbol { width: 36px; height: 36px; margin-bottom: 15px; }
+        .download-section { padding: 65px 0; }
+        .download-layout { gap: 25px; }
+        .download-copy h2 { font-size: 43px; }
+        .download-copy p { font-size: 12px; }
+        .download-grid { gap: 9px; }
+        .download-card { min-height: 185px; padding: 15px; }
+        .download-card h3 { font-size: 12px; }
+        .download-card p { font-size: 9px; }
+        .download-card .button { min-height: 36px; font-size: 9px; }
+        .footer-row { align-items: flex-start; flex-direction: column; }
       }
-      .card:hover::before { opacity: 1; }
-      .card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(var(--glow, 167, 139, 250), 0.4);
-        box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.75), inset 0 1px rgba(255, 255, 255, 0.1);
-      }
-      .card.wide { grid-column: span 2; display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 26px; align-items: center; }
-      .card.wide > .num { display: none; }
-      .card.feature-gold {
-        --glow: 246, 196, 83;
-        border-color: rgba(246, 196, 83, 0.22);
-        background:
-          radial-gradient(ellipse 82% 120% at 90% -6%, rgba(246, 196, 83, 0.16), transparent 62%),
-          linear-gradient(158deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.012));
-      }
-      .card-icon {
-        width: 46px;
-        height: 46px;
-        display: grid;
-        place-items: center;
-        margin-bottom: 20px;
-        border: 1px solid rgba(167, 139, 250, 0.3);
-        border-radius: 14px;
-        background: linear-gradient(150deg, rgba(167, 139, 250, 0.3), rgba(124, 92, 255, 0.08));
-        color: #d7c8ff;
-        box-shadow: 0 12px 30px -12px rgba(124, 92, 255, 0.65), inset 0 1px rgba(255, 255, 255, 0.2);
-      }
-      .feature-gold .card-icon {
-        border-color: rgba(246, 196, 83, 0.35);
-        background: linear-gradient(150deg, rgba(246, 196, 83, 0.34), rgba(246, 196, 83, 0.07));
-        color: #fff0c7;
-        box-shadow: 0 12px 30px -12px rgba(246, 196, 83, 0.6), inset 0 1px rgba(255, 255, 255, 0.25);
-      }
-      .card-icon svg { width: 22px; height: 22px; }
-      .card h3 { margin: 0 0 9px; font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: -0.015em; }
-      .card p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.7; }
-      .num {
-        position: absolute;
-        top: 24px;
-        right: 26px;
-        color: rgba(255, 255, 255, 0.18);
-        font-family: ui-monospace, "Cascadia Mono", monospace;
-        font-size: 10.5px;
-        letter-spacing: 0.18em;
-      }
-      .card .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
-      .tag {
-        padding: 5px 10px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 99px;
-        color: #bcb4dc;
-        font-size: 10.5px;
-      }
-      .feature-gold .tag { border-color: rgba(246, 196, 83, 0.26); color: #f0d79c; }
-      .card-copy { position: relative; z-index: 1; }
-      .card-cta {
-        grid-column: span 2;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-        background:
-          radial-gradient(ellipse 70% 130% at 0% 0%, rgba(124, 92, 255, 0.24), transparent 60%),
-          linear-gradient(150deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.012));
-        border-color: rgba(167, 139, 250, 0.28);
-      }
-      .card-cta .btn { margin-top: 0; min-height: 48px; padding: 0 22px; font-size: 13px; flex: 0 0 auto; }
-
-      /* mini app preview */
-      .mini {
-        position: relative;
-        z-index: 1;
-        padding: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 16px;
-        background: rgba(9, 8, 20, 0.72);
-        box-shadow: 0 24px 50px -26px rgba(0, 0, 0, 0.9), inset 0 1px rgba(255, 255, 255, 0.07);
-        transform: rotate(-1.4deg);
-        transition: transform 0.4s ease;
-      }
-      .card.wide:hover .mini { transform: rotate(0deg) translateY(-2px); }
-      .mini-bar { display: flex; gap: 4px; margin-bottom: 10px; }
-      .mini-bar i { width: 5px; height: 5px; border-radius: 50%; background: rgba(255, 255, 255, 0.2); }
-      .mini-bar i:first-child { background: rgba(246, 196, 83, 0.7); }
-      .mini-search {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        padding: 8px 10px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 9px;
-        background: rgba(255, 255, 255, 0.04);
-        margin-bottom: 8px;
-      }
-      .mini-search svg { width: 11px; height: 11px; color: rgba(255, 255, 255, 0.4); flex: 0 0 auto; }
-      .mini-search i { display: block; height: 5px; border-radius: 99px; background: rgba(255, 255, 255, 0.16); }
-      .mini-search i:first-of-type { width: 46%; }
-      .mini-search i:last-of-type { width: 12%; margin-left: auto; background: rgba(246, 196, 83, 0.32); }
-      .mini-row {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        padding: 8px 9px;
-        border-radius: 9px;
-        background: rgba(255, 255, 255, 0.025);
-        margin-bottom: 6px;
-      }
-      .mini-row:last-child { margin-bottom: 0; }
-      .mini-ico {
-        width: 22px;
-        height: 22px;
-        flex: 0 0 auto;
-        border-radius: 6px;
-        background: linear-gradient(150deg, rgba(167, 139, 250, 0.5), rgba(124, 92, 255, 0.16));
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0.25);
-      }
-      .mini-row:nth-child(4) .mini-ico { background: linear-gradient(150deg, rgba(246, 196, 83, 0.5), rgba(246, 196, 83, 0.12)); }
-      .mini-row:nth-child(5) .mini-ico { background: linear-gradient(150deg, rgba(103, 232, 249, 0.42), rgba(103, 232, 249, 0.1)); }
-      .mini-lines { flex: 1; display: grid; gap: 4px; }
-      .mini-lines i { display: block; height: 4px; border-radius: 99px; background: rgba(255, 255, 255, 0.15); }
-      .mini-lines i:first-child { width: 58%; }
-      .mini-lines i:last-child { width: 34%; background: rgba(255, 255, 255, 0.08); }
-      .mini-pill { width: 34px; height: 14px; border-radius: 99px; background: rgba(246, 196, 83, 0.18); border: 1px solid rgba(246, 196, 83, 0.3); flex: 0 0 auto; }
-
-      /* ---------- steps ---------- */
-      .steps { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-      .step {
-        position: relative;
-        z-index: 1;
-        overflow: hidden;
-        padding: 28px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        background: linear-gradient(165deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.012));
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
-        backdrop-filter: blur(8px);
-        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      }
-      .step::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 0%), rgba(246, 196, 83, 0.1), transparent 66%);
-        opacity: 0;
-        transition: opacity 0.35s ease;
-      }
-      .step:hover::before { opacity: 1; }
-      .step:hover { transform: translateY(-4px); border-color: rgba(246, 196, 83, 0.28); box-shadow: 0 26px 60px -30px rgba(0, 0, 0, 0.8); }
-      .step-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 22px; }
-      .step-icon {
-        width: 44px;
-        height: 44px;
-        display: grid;
-        place-items: center;
-        border: 1px solid rgba(246, 196, 83, 0.3);
-        border-radius: 13px;
-        background: linear-gradient(150deg, rgba(246, 196, 83, 0.24), rgba(246, 196, 83, 0.05));
-        color: #ffe9b0;
-        box-shadow: 0 10px 26px -12px rgba(246, 196, 83, 0.6), inset 0 1px rgba(255, 255, 255, 0.2);
-      }
-      .step-icon svg { width: 20px; height: 20px; }
-      .step-num {
-        color: transparent;
-        font-family: var(--display);
-        font-size: 42px;
-        font-weight: 800;
-        line-height: 1;
-        -webkit-text-stroke: 1px rgba(246, 196, 83, 0.7);
-        opacity: 0.75;
-      }
-      .step h3 { margin: 0 0 9px; font-family: var(--display); font-size: 19px; font-weight: 700; }
-      .step p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.72; }
-
-      /* ---------- download ---------- */
-      .download { padding: 104px 0 96px; scroll-margin-top: 90px; }
-      .download-panel {
-        position: relative;
-        overflow: hidden;
-        padding: 46px;
-        border: 1px solid rgba(246, 196, 83, 0.2);
-        border-radius: 30px;
-        background:
-          radial-gradient(ellipse 62% 110% at 0% 0%, rgba(246, 196, 83, 0.13), transparent 58%),
-          radial-gradient(ellipse 62% 130% at 100% 100%, rgba(124, 92, 255, 0.24), transparent 60%),
-          rgba(255, 255, 255, 0.022);
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 50px 120px -60px rgba(0, 0, 0, 0.9);
-        display: grid;
-        grid-template-columns: 0.92fr 1.08fr;
-        gap: 40px;
-        align-items: center;
-      }
-      .download-panel::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(700px circle at 82% 0%, rgba(255, 255, 255, 0.06), transparent 55%);
-      }
-      .panel-tag {
-        position: absolute;
-        top: 20px;
-        right: 24px;
-        z-index: 2;
-        padding: 6px 10px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 99px;
-        background: rgba(10, 8, 22, 0.5);
-        color: rgba(255, 255, 255, 0.4);
-        font-family: ui-monospace, "Cascadia Mono", monospace;
-        font-size: 9px;
-        letter-spacing: 0.18em;
-      }
-      .download-copy { position: relative; z-index: 1; }
-      .download-copy h2 { font-size: clamp(31px, 3.6vw, 44px); }
-      .download-copy p { margin: 16px 0 0; color: var(--muted); font-size: 14.5px; line-height: 1.75; max-width: 400px; }
-      .download-copy .release { margin-top: 18px; color: #9c95b8; }
-      .platforms { position: relative; z-index: 1; display: grid; gap: 12px; }
-      .platform {
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        padding: 18px 18px 18px 20px;
-        border: 1px solid rgba(255, 255, 255, 0.11);
-        border-radius: 20px;
-        background: rgba(9, 8, 22, 0.6);
-        backdrop-filter: blur(14px);
-        transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-      }
-      .platform::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(246, 196, 83, 0.1), transparent 62%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      .platform:hover::before { opacity: 1; }
-      .platform:hover {
-        border-color: rgba(246, 196, 83, 0.34);
-        background: rgba(14, 11, 30, 0.78);
-        transform: translateY(-2px);
-        box-shadow: 0 22px 50px -26px rgba(0, 0, 0, 0.9);
-      }
-      .platform-icon {
-        width: 46px;
-        height: 46px;
-        display: grid;
-        place-items: center;
-        flex: 0 0 auto;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 14px;
-        background: linear-gradient(150deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
-        color: #f0ecff;
-        box-shadow: inset 0 1px rgba(255, 255, 255, 0.16);
-      }
-      .platform-icon svg { width: 22px; height: 22px; }
-      .platform-body { position: relative; z-index: 1; flex: 1; min-width: 0; }
-      .platform-title { display: flex; align-items: center; gap: 8px; font-family: var(--display); font-size: 16px; font-weight: 700; }
-      .platform-meta { margin-top: 3px; color: var(--dim); font-size: 11.5px; }
-      .soon {
-        padding: 2px 8px;
-        border: 1px solid rgba(246, 196, 83, 0.3);
-        border-radius: 99px;
-        color: var(--gold-2);
-        font-family: ui-monospace, "Cascadia Mono", monospace;
-        font-size: 9px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-      }
-      .platform .btn { position: relative; z-index: 1; min-height: 44px; padding: 0 17px; border-radius: 12px; font-size: 13px; }
-      .platform .btn svg { width: 16px; height: 16px; }
-      .deb-link { display: none; margin-top: 6px; color: #a99ff0; font-size: 11.5px; text-decoration: underline; text-underline-offset: 3px; }
-      .deb-link.show { display: inline-block; }
-
-      footer { border-top: 1px solid rgba(255, 255, 255, 0.07); padding: 26px 0 34px; color: #78728f; font-size: 11.5px; }
-      .foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
-      .foot-brand { display: inline-flex; align-items: center; gap: 9px; }
-      .foot-brand img { width: 22px; height: 22px; border-radius: 50%; opacity: 0.85; }
-      .foot-links { display: flex; gap: 22px; }
-      .foot-links a:hover { color: #fff; }
-
-      .reveal { opacity: 0; transform: translateY(24px); filter: blur(6px); transition: opacity 0.7s ease, transform 0.7s ease, filter 0.7s ease; }
-      .reveal.visible { opacity: 1; transform: none; filter: none; }
-
-      @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
-      @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -11px; } }
-      @keyframes pulse { 50% { opacity: 0.4; box-shadow: 0 0 4px var(--green); } }
-      @keyframes slide { to { transform: translateX(-50%); } }
-      @keyframes spin { to { transform: rotate(360deg); } }
-      @keyframes halo { 0%, 100% { opacity: 0.55; } 50% { opacity: 0.95; } }
-      @keyframes drift { from { transform: translate3d(-3%, -2%, 0) scale(1); } to { transform: translate3d(4%, 3%, 0) scale(1.08); } }
-      @keyframes twinkle { 0%, 100% { opacity: 0.65; } 50% { opacity: 0.92; } }
-      @keyframes gradShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-      @keyframes sheen { 0%, 100% { background-position: 130% 0; } 50% { background-position: -30% 0; } }
-      @keyframes shoot {
-        0%, 84% { opacity: 0; transform: translate3d(0, 0, 0) rotate(16deg); }
-        85% { opacity: 0.9; }
-        93% { opacity: 0; transform: translate3d(620px, 210px, 0) rotate(16deg); }
-        100% { opacity: 0; }
-      }
-
-      @media (max-width: 1320px) {
-        .chip-a { left: -12px; }
-        .chip-b { right: -10px; }
-        .shot::before { inset: 6% -3% -14%; }
-      }
-      @media (max-width: 1020px) {
-        .hero { grid-template-columns: 1fr; gap: 34px; padding: 46px 0 72px; }
-        .intro { max-width: 560px; }
-        .showcase { min-height: auto; margin-top: 10px; }
-        .shot { width: min(640px, 94%); margin: 0 auto; }
-        .shot-frame { transform: none; }
-        .chip-a { top: -30px; left: 6px; }
-        .chip-b { right: -6px; bottom: 16%; }
-        .chip-c { left: 2%; bottom: -6%; }
-        .moon { display: none; }
-        .download-panel { grid-template-columns: 1fr; gap: 30px; padding: 36px; }
-        .download-copy p { max-width: 520px; }
-      }
-      @media (max-width: 880px) {
-        nav { display: none; }
-        .bento { grid-template-columns: 1fr 1fr; }
-        .card.wide { grid-column: span 2; }
-        .card-cta { grid-column: span 1; flex-direction: column; align-items: stretch; gap: 16px; }
-        .steps { grid-template-columns: 1fr; }
-        .steps::before { display: none; }
-        .shot::after { display: none; }
-        .shot-tech { display: none; }
-        .moon { width: 68px; height: 68px; }
-        .moon-badge { width: 54px; height: 54px; }
-      }
-      @media (max-width: 560px) {
-        .wrap { width: calc(100% - 34px); }
-        .head-shell { height: 60px; width: calc(100% - 20px); padding: 0 8px 0 12px; }
-        .brand-tag { display: none; }
-        .brand-mark { width: 34px; height: 34px; }
-        .brand-mark img { width: 30px; height: 30px; }
-        .head-tools { gap: 8px; }
-        .head-tools .head-cta { display: none; }
-        .lang-btn { padding: 5px 7px; }
-        h1 { font-size: clamp(44px, 12.8vw, 60px); }
-        .actions { gap: 10px; }
-        .actions .btn { flex: 1 1 100%; }
-        .facts li { padding: 9px 12px; font-size: 9.5px; }
-        .bento { grid-template-columns: 1fr; }
-        .card.wide { grid-column: auto; grid-template-columns: 1fr; }
-        .card-cta { grid-column: auto; }
-        .mini { margin-top: 4px; }
-        .chip { font-size: 10.5px; padding: 8px 10px; }
-        .chip-a { display: none; }
-        .chip-b { display: none; }
-        .chip-c { display: none; }
-        .shot::before { inset: 6% -1% -10%; }
-        .ring { display: none; }
-        .section { padding-top: 76px; }
-        .section-head { margin-bottom: 30px; }
-        .download { padding: 76px 0 72px; }
-        .download-panel { padding: 26px; border-radius: 24px; }
-        .platform { flex-wrap: wrap; }
-        .platform .btn { width: 100%; }
-        .foot { flex-direction: column; align-items: flex-start; }
+      @media (max-width: 390px) {
+        .download-grid { grid-template-columns: 1fr; }
+        .download-card { min-height: 155px; }
+        .hero-actions .button { width: 100%; }
       }
       @media (prefers-reduced-motion: reduce) {
-        html { scroll-behavior: auto; }
-        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-        .reveal { opacity: 1; transform: none; filter: none; }
-        .shooting { display: none; }
+        *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+        .reveal { opacity: 1; transform: none; }
       }
     </style>
   </head>
   <body>
-    <div class="progress" aria-hidden="true"><span id="scroll-progress"></span></div>
-    <div class="bg" aria-hidden="true">
-      <div class="aurora a"></div>
-      <div class="aurora b"></div>
-      <div class="aurora c"></div>
-      <div class="stars"></div>
-      <div class="stars s2"></div>
-      <div class="grid"></div>
-      <div class="shooting"></div>
-    </div>
-    <div class="grain" aria-hidden="true"></div>
-
-    <header class="site-head" id="site-head">
-      <div class="head-shell">
-        <a class="brand" href="#top" aria-label="Atemingo Launcher ana sayfa" data-i18n-aria="brandAria">
-          <span class="brand-mark">
-            <img src="./logo.png" alt="" width="36" height="36" />
-            <span class="brand-ring" aria-hidden="true"></span>
-          </span>
-          <span class="brand-text">
-            <span class="brand-name">ATEMINGO</span>
-            <span class="brand-tag">LAUNCHER</span>
-          </span>
+    <header class="topbar">
+      <div class="shell nav">
+        <a class="brand" href="#top" aria-label="Atemingo ana sayfa">
+          <img src="./logo.png" alt="" />
+          <span class="brand-word">ATEMINGO<span>.</span></span>
         </a>
-        <nav aria-label="Ana menü" data-i18n-aria="navAria">
-          <a href="#ozellikler" data-i18n="nav.features">Özellikler</a>
-          <a href="#nasil" data-i18n="nav.how">Nasıl çalışır</a>
-          <a href="#indir" data-i18n="nav.download">İndir</a>
-          <a class="nav-discord" href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord</a>
+        <nav class="nav-links" aria-label="Ana menü">
+          <a href="#ozellikler">Özellikler</a>
+          <a href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord ↗</a>
+          <a class="nav-download" href="#indir">Ücretsiz indir <span aria-hidden="true">↓</span></a>
         </nav>
-        <div class="head-tools">
-          <div class="lang-switch" role="group" aria-label="Dil seçimi" data-i18n-aria="langAria">
-            <button type="button" class="lang-btn" data-lang="tr" aria-pressed="true">TR</button>
-            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
-          </div>
-          <a class="head-cta" href="#indir">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            <span data-i18n="nav.download">İndir</span>
-          </a>
-        </div>
       </div>
     </header>
 
     <main>
-      <section class="hero wrap" id="top">
-        <div class="hero-copy">
-          <span class="eyebrow"><span class="pulse"></span> <span data-i18n="hero.version">Sürüm</span> <b id="ver">2.0.0</b> <span class="sep">/</span> FABRIC 1.21.11</span>
-          <h1><span data-i18n="hero.title1">Macera</span><br /><span class="grad" data-i18n="hero.title2">burada başlar.</span></h1>
-          <p class="intro" data-i18n="hero.intro">
-            Profillerini, modlarını ve sunucularını tek bir yerden yönet. Java'yı, modları ve ayarları
-            Atemingo halletsin; sen sadece oyna.
-          </p>
-          <div class="actions">
-            <a class="btn btn-primary" href="#" data-win aria-disabled="true">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-              <span data-win-label>Windows için indir</span>
-            </a>
-            <a class="btn btn-ghost" href="#" data-linux aria-disabled="true">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 10a3 3 0 1 1 6 0c0 1.2-.6 1.8-1 2.6-.4.8-.3 2.4-1 3.4-.5.8-1.5 1.2-3 1-2-.3-2.6-2-2.4-3.4.2-1.4 1.4-2 1.4-3.6Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.5 14.5 7 17m7.5-2.5L17 17" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-              <span data-linux-label>Linux · yakında</span>
-            </a>
-          </div>
-          <p class="release" id="release" aria-live="polite" data-i18n="releaseLoading">Sürüm bilgisi alınıyor…</p>
-          <ul class="facts">
-            <li data-i18n="hero.fact1">Windows 10/11</li>
-            <li data-i18n="hero.fact2">Fabric 1.21.11</li>
-            <li data-i18n="hero.fact3">~28 MB</li>
-            <li data-i18n="hero.fact4">Ücretsiz</li>
-          </ul>
+      <section class="shell hero" id="top">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> MINECRAFT'I KENDİ TARZINDA OYNA</div>
+        <h1>Bir dünya.<br /><span class="title-accent">Binlerce ihtimal.</span></h1>
+        <p class="hero-copy">Modlarını keşfet, profillerini hazırla, arkadaşlarını yanına al. Minecraft keyfin için gereken her şey tek bir launcher'da.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" data-download="windows" href="#" aria-disabled="true"><span class="platform-icon-small" aria-hidden="true">W</span> Windows için indir <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" data-download="linux" href="#" aria-disabled="true"><span class="platform-icon-small" aria-hidden="true">L</span> Linux için indir (.deb) <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="release-line" id="release" aria-live="polite">Güncel sürüm kontrol ediliyor...</p>
+        <div class="hero-proof" aria-label="Launcher özellikleri">
+          <span class="proof-pill"><b>✓</b> Ücretsiz</span>
+          <span class="proof-pill"><b>✓</b> Windows ve Linux</span>
+          <span class="proof-pill"><b>✓</b> Modrinth modları</span>
         </div>
 
-        <div class="showcase" aria-label="Atemingo Launcher arayüzü" data-i18n-aria="hero.showcaseAria">
-          <span class="ring" aria-hidden="true"></span>
-          <span class="moon" aria-hidden="true">
-            <img class="moon-badge" src="./logo.png" alt="" width="64" height="64" loading="eager" />
-          </span>
-          <div class="shot">
-            <div class="shot-frame">
-              <div class="shot-bar">
-                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="shot-title">ATEMINGO LAUNCHER <b id="shot-ver">2.0.0</b></span>
-                <span class="shot-tech"><i aria-hidden="true"></i>FABRIC · 1.21.11</span>
+        <div class="showcase" aria-label="Atemingo Launcher arayüz önizlemesi">
+          <div class="showcase-halo" aria-hidden="true"></div>
+          <div class="showcase-spark spark-one" aria-hidden="true">✦</div>
+          <div class="showcase-spark spark-two" aria-hidden="true">✧</div>
+          <div class="preview-frame">
+            <div class="launcher-screen">
+              <div class="app-topbar">
+                <div class="app-brand"><img src="./logo.png" alt="" /> ATEMINGO LAUNCHER</div>
+                <div class="app-window-controls" aria-hidden="true"><i></i><i></i><i></i></div>
               </div>
-              <picture>
-                <source srcset="./launcher.webp" type="image/webp" />
-                <img src="./launcher.jpg" alt="Atemingo Launcher ana ekranı" data-i18n-alt="hero.shotAlt" width="1600" height="857" loading="eager" />
-              </picture>
+              <div class="app-layout">
+                <aside class="app-sidebar" aria-hidden="true">
+                  <p class="sidebar-caption">MENÜ</p>
+                  <div class="sidebar-link active"><i>⌂</i><span>Ana sayfa</span></div>
+                  <div class="sidebar-link"><i>▦</i><span>Profiller</span></div>
+                  <div class="sidebar-link"><i>⌘</i><span>Modlar</span></div>
+                  <div class="sidebar-link"><i>◎</i><span>Arkadaşlar</span></div>
+                  <div class="sidebar-spacer"></div>
+                  <div class="sidebar-link"><i>⚙</i><span>Ayarlar</span></div>
+                  <div class="profile-mini"><img src="./icon.png" alt="" /><div><strong>Oyuncu</strong><small>Hesabın bağlı</small></div></div>
+                </aside>
+                <section class="app-content" aria-label="Launcher ana ekranı">
+                  <div class="app-greeting">
+                    <div><h2>Selam, oyuncu!</h2><p>Yeni maceran için her şey hazır.</p></div>
+                    <span class="online-badge"><i></i> Hazır</span>
+                  </div>
+                  <div class="world-tile">
+                    <div class="world-tile-copy">
+                      <small>SON OYNANAN PROFİL</small>
+                      <strong>Hayatta Kalma</strong>
+                      <span>Fabric 1.21.11 · 12 mod</span>
+                      <div class="play-button"><i>▶</i> OYUNA DEVAM ET</div>
+                    </div>
+                  </div>
+                  <div class="app-stats">
+                    <div class="stat-tile"><small>PROFİLLER</small><strong>Oyunların</strong></div>
+                    <div class="stat-tile"><small>MODLAR</small><strong>Modrinth</strong></div>
+                    <div class="stat-tile"><small>TOPLULUK</small><strong>Arkadaşların</strong></div>
+                  </div>
+                </section>
+                <aside class="app-activity" aria-label="Arkadaşlar">
+                  <div class="activity-heading">Arkadaşların <span>Hepsini gör</span></div>
+                  <div class="friend-row"><span class="friend-avatar">A</span><div><strong>Alex</strong><small>Hayatta kalıyor</small></div><i class="friend-status"></i></div>
+                  <div class="friend-row"><span class="friend-avatar">M</span><div><strong>Mira</strong><small>Lobi'de</small></div><i class="friend-status"></i></div>
+                  <div class="friend-row"><span class="friend-avatar">K</span><div><strong>Kuzey</strong><small>Çevrimiçi</small></div><i class="friend-status"></i></div>
+                  <div class="activity-card"><small>MODRINTH'TE KEŞFET</small><strong>Yeni modlar seni bekliyor</strong><p>Oyun sürümüne uygun içerikleri bul.</p></div>
+                </aside>
+              </div>
             </div>
-          </div>
-          <div class="chip chip-a">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            <span data-i18n-html="chip.modrinth">Modrinth'te <b>keşfet</b></span>
-          </div>
-          <div class="chip chip-b">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 19c.6-3 2.6-4.5 5-4.5s4.4 1.5 5 4.5M13.5 19c.4-2.4 2-3.7 4-3.7s3.6 1.3 4 3.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <span data-i18n-html="chip.friends">Arkadaşlarınla <b>oyna</b></span>
           </div>
         </div>
       </section>
 
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track" id="marquee-track"></div>
+      <div class="strip" aria-label="Launcher öne çıkanları">
+        <div class="shell strip-inner">
+          <span><i>✦</i> Modlarını bul</span>
+          <span><i>✦</i> Profillerini düzenle</span>
+          <span><i>✦</i> Sunucularına bağlan</span>
+          <span><i>✦</i> Arkadaşlarınla oyna</span>
+        </div>
       </div>
 
-      <section class="section wrap" id="ozellikler">
-        <div class="section-head reveal">
-          <span class="kicker" data-i18n="f.kicker">Her şey elinin altında</span>
-          <h2 data-i18n="f.title">Oyuna odaklan, gerisini biz halledelim.</h2>
-          <p data-i18n="f.lead">Vanilla'dan Fabric'e, mod keşfinden arkadaşlarına kadar launcher'ın her parçası tek bir akışta.</p>
+      <section class="shell features" id="ozellikler">
+        <div class="section-heading reveal">
+          <div><span class="section-kicker">DAHA AZ UĞRAŞ, DAHA ÇOK OYUN</span><h2>Oyun keyfin,<br />kendi düzeninde.</h2></div>
+          <p>Tek tek ayarlarla uğraşma. Minecraft için kullandığın şeyleri kolayca bul, düzenle ve hazır olduğunda oyuna geç.</p>
         </div>
-        <div class="bento">
-          <article class="card wide feature-gold reveal">
-            <span class="num">01</span>
-            <div class="card-copy">
-              <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
-              </div>
-              <h3 data-i18n="f.modrinth.title">Modrinth atölyesi</h3>
-              <p data-i18n="f.modrinth.body">Modları launcher'ın içinde ara, sürüm uyumluluğunu gör, tek tıkla profiline ekle. Ayrı site, ayrı indirme yok.</p>
-              <div class="tags"><span class="tag" data-i18n="f.modrinth.tag1">Tek tıkla kur</span><span class="tag" data-i18n="f.modrinth.tag2">Sürüm filtresi</span><span class="tag" data-i18n="f.modrinth.tag3">Otomatik güncelleme</span></div>
-            </div>
-            <div class="mini" aria-hidden="true">
-              <div class="mini-bar"><i></i><i></i><i></i></div>
-              <div class="mini-search">
-                <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                <i></i><i></i>
-              </div>
-              <div class="mini-row"><span class="mini-ico"></span><span class="mini-lines"><i></i><i></i></span><span class="mini-pill"></span></div>
-              <div class="mini-row"><span class="mini-ico"></span><span class="mini-lines"><i></i><i></i></span><span class="mini-pill"></span></div>
-              <div class="mini-row"><span class="mini-ico"></span><span class="mini-lines"><i></i><i></i></span><span class="mini-pill"></span></div>
-            </div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-symbol" aria-hidden="true">⌘</div>
+            <h3>Modlarını keşfet</h3>
+            <p>Modrinth içeriklerini launcher içinden ara, sürümüne uygun olanları profiline ekle.</p>
           </article>
-          <article class="card reveal">
-            <span class="num">02</span>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m12 12 8-4.5M12 12v9M12 12 4 7.5" stroke="currentColor" stroke-width="1.7"/></svg>
-            </div>
-            <h3 data-i18n="f.profiles.title">Profiller tek yerde</h3>
-            <p data-i18n="f.profiles.body">Vanilla ve Fabric profillerini oluştur; her profil kendi modlarını, ayarlarını ve dünyasını taşısın.</p>
+          <article class="feature-card reveal">
+            <div class="feature-symbol" aria-hidden="true">▦</div>
+            <h3>Her dünyaya ayrı profil</h3>
+            <p>Vanilla ve Fabric profillerini oluştur. Modların ve oyun ayarların düzenli kalsın.</p>
           </article>
-          <article class="card reveal">
-            <span class="num">03</span>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13" width="18" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M7 7.5h.01M7 16.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-            </div>
-            <h3 data-i18n="f.servers.title">Sunucular</h3>
-            <p data-i18n="f.servers.body">Sunucu adreslerini kaydet, canlı durumlarını gör ve oyuna doğrudan sunucuya bağlan.</p>
-          </article>
-          <article class="card reveal">
-            <span class="num">04</span>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8.5 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm7 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 19c.6-3 2.6-4.5 5-4.5s4.4 1.5 5 4.5M13.5 19c.4-2.4 2-3.7 4-3.7s3.6 1.3 4 3.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-            </div>
-            <h3 data-i18n="f.friends.title">Arkadaşlar</h3>
-            <p data-i18n="f.friends.body">Paylaşım kodlarıyla arkadaş ekle, kimin çevrimiçi olduğunu gör ve birlikte oynayın.</p>
-          </article>
-          <article class="card reveal">
-            <span class="num">05</span>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-            </div>
-            <h3 data-i18n="f.crosshair.title">Nişangah Stüdyosu</h3>
-            <p data-i18n="f.crosshair.body">Kendi nişangahını tasarla, rengini ve biçimini seç; anında oyunda kullan.</p>
-          </article>
-          <article class="card reveal">
-            <span class="num">06</span>
-            <div class="card-icon">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 16a8 8 0 1 1 16 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m12 15 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M12 20h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-            </div>
-            <h3 data-i18n="f.performance.title">Performans</h3>
-            <p data-i18n="f.performance.body">RAM, çözünürlük ve JVM ayarlarını profiline göre düzenle; hazır FPS paketleriyle başla.</p>
-          </article>
-          <article class="card card-cta reveal">
-            <div class="card-copy">
-              <h3 data-i18n="f.cta.title">Hepsi tek uygulamada</h3>
-              <p data-i18n="f.cta.body">Windows ve Linux. Kurulum, Java ve modlar dahil.</p>
-            </div>
-            <a class="btn btn-primary" href="#indir"><span data-i18n="f.cta.button">İndir</span> <span aria-hidden="true">↓</span></a>
+          <article class="feature-card reveal">
+            <div class="feature-symbol" aria-hidden="true">◎</div>
+            <h3>Arkadaşlarınla buluş</h3>
+            <p>Arkadaşlarını ekle, kimlerin çevrimiçi olduğunu gör ve birlikte oyna.</p>
           </article>
         </div>
       </section>
 
-      <section class="section wrap" id="nasil">
-        <div class="section-head reveal">
-          <span class="kicker" data-i18n="s.kicker">Üç adım</span>
-          <h2 data-i18n="s.title">Kur, giriş yap, oyna.</h2>
-        </div>
-        <div class="steps">
-          <article class="step reveal">
-            <div class="step-top">
-              <span class="step-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v10m0 0 3.5-3.5M12 13 8.5 9.5M4.5 16v3a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              <span class="step-num" aria-hidden="true">01</span>
-            </div>
-            <h3 data-i18n="s.1.title">İndir</h3>
-            <p data-i18n="s.1.body">Windows kurulum dosyasını çalıştır ya da Linux'ta AppImage'ı çift tıkla. Ek kurulum gerekmez.</p>
-          </article>
-          <article class="step reveal">
-            <div class="step-top">
-              <span class="step-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M15 9V7a3 3 0 0 0-6 0v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="4.5" y="9" width="15" height="11" rx="3" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="14.5" r="1.5" fill="currentColor"/></svg>
-              </span>
-              <span class="step-num" aria-hidden="true">02</span>
-            </div>
-            <h3 data-i18n="s.2.title">Giriş yap</h3>
-            <p data-i18n="s.2.body">Microsoft hesabınla oturum aç. Bilgilerin cihazında şifrelenmiş olarak saklanır.</p>
-          </article>
-          <article class="step reveal">
-            <div class="step-top">
-              <span class="step-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10-6.5a1 1 0 0 0 0-1.72l-10-6.5A1 1 0 0 0 8 5.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-              </span>
-              <span class="step-num" aria-hidden="true">03</span>
-            </div>
-            <h3 data-i18n="s.3.title">Oyna</h3>
-            <p data-i18n="s.3.body">Profilini seç, OYNA'ya bas. Java çalışma zamanı ve modlar otomatik hazırlanır.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="download wrap" id="indir">
-        <div class="download-panel reveal">
-          <span class="panel-tag" aria-hidden="true">GITHUB RELEASES</span>
-          <div class="download-copy">
-            <span class="kicker" data-i18n="d.kicker">Hazır mısın?</span>
-            <h2 data-i18n="d.title">Maceraya tek tıkla başla.</h2>
-            <p data-i18n="d.body">Ücretsiz, reklamsız ve hesabın sende kalır. Kurulum paketi GitHub Releases üzerinden iner.</p>
-            <p class="release" id="release-2" aria-live="polite" data-i18n="releaseLoading">Sürüm bilgisi alınıyor…</p>
+      <section class="download-section" id="indir">
+        <div class="shell download-layout">
+          <div class="download-copy reveal">
+            <span class="section-kicker">ÜCRETSİZ İNDİR</span>
+            <h2>Maceraya<br />hazır mısın?</h2>
+            <p>Bilgisayarına uygun sürümü seç. Birkaç adımda launcher hazır; sonraki adım tamamen sana kalmış.</p>
+            <p class="release-note" id="release-details" aria-live="polite">Sürüm bilgisi yükleniyor...</p>
           </div>
-          <div class="platforms">
-            <div class="platform">
-              <span class="platform-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5.6 10.4 4.5v7.1H3V5.6Zm8.6-1.3L21 3v8.6h-9.4V4.3ZM3 12.7h7.4v7.1L3 18.6v-5.9Zm8.6 0H21V21l-9.4-1.3v-7Z"/></svg>
-              </span>
-              <div class="platform-body">
-                <div class="platform-title">Windows <span class="soon">x64</span></div>
-                <div class="platform-meta" id="win-meta" data-i18n="d.winMeta">Windows 10/11 · .exe kurulum</div>
-              </div>
-              <a class="btn btn-primary" href="#" data-win aria-disabled="true">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                <span data-win-label>İndir</span>
-              </a>
-            </div>
-            <div class="platform">
-              <span class="platform-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M9 9.8a3.2 3.2 0 1 1 6.4 0c0 1.3-.7 1.9-1.1 2.8-.4.9-.3 2.6-1 3.6-.6.9-1.6 1.3-3.2 1.1-2.1-.3-2.8-2.1-2.6-3.6.2-1.5 1.5-2.2 1.5-3.9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.6 15 7 17.4m7.6-2.4 2.6 2.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10.4" cy="9.4" r=".65" fill="currentColor"/><circle cx="13.6" cy="9.4" r=".65" fill="currentColor"/><path d="M11.3 11.2h1.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-              </span>
-              <div class="platform-body">
-                <div class="platform-title">Linux <span class="soon" id="linux-badge">x64</span></div>
-                <div class="platform-meta" id="linux-meta" data-i18n="d.linuxMeta">AppImage · 64-bit</div>
-                <a class="deb-link" id="deb-link" href="#" rel="noopener noreferrer" data-i18n="d.deb">veya .deb paketini indir</a>
-              </div>
-              <a class="btn btn-ghost" href="#" data-linux aria-disabled="true">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                <span data-linux-label>İndir</span>
-              </a>
-            </div>
+          <div class="download-grid">
+            <article class="download-card reveal">
+              <div class="download-card-top"><span class="download-icon" aria-hidden="true">⊞</span><small>64-BIT</small></div>
+              <h3>Windows</h3>
+              <p>Windows 10/11 · Kurulum dosyası</p>
+              <a class="button button-light" data-download="windows" href="#" aria-disabled="true"><span>Windows için indir</span><span aria-hidden="true">↓</span></a>
+            </article>
+            <article class="download-card reveal">
+              <div class="download-card-top"><span class="download-icon" aria-hidden="true">◈</span><small>64-BIT</small></div>
+              <h3>Linux / Debian</h3>
+              <p>Debian ve Ubuntu · Tek .deb paketi</p>
+              <a class="button button-light" data-download="linux" href="#" aria-disabled="true"><span>Linux için indir</span><span aria-hidden="true">↓</span></a>
+            </article>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <div class="wrap foot">
-        <span class="foot-brand"><img src="./logo.png" alt="" width="22" height="22" /> © <span id="year"></span> Atemingo Launcher</span>
-        <div class="foot-links">
-          <a href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord</a>
-          <a href="#top" data-i18n="foot.top">Yukarı çık ↑</a>
+      <div class="shell footer-row">
+        <span>© <span id="year"></span> Atemingo Launcher · İyi oyunlar!</span>
+        <div class="footer-links">
+          <a href="https://discord.gg/jknhMGrrVG" target="_blank" rel="noopener noreferrer">Discord ↗</a>
+          <a href="#top">Başa dön ↑</a>
         </div>
       </div>
     </footer>
 
     <script>
-      (function () {
-        "use strict";
-        const updateUrl = new URL("https://atemingo.github.io/AtemingoLauncher/updates/version.json");
-        const winButtons = Array.from(document.querySelectorAll("[data-win]"));
-        const linuxButtons = Array.from(document.querySelectorAll("[data-linux]"));
-        const winLabels = Array.from(document.querySelectorAll("[data-win-label]"));
-        const linuxLabels = Array.from(document.querySelectorAll("[data-linux-label]"));
-        const releaseNodes = [document.getElementById("release"), document.getElementById("release-2")];
-        const debLink = document.getElementById("deb-link");
-        const linuxMeta = document.getElementById("linux-meta");
-        const linuxBadge = document.getElementById("linux-badge");
-        const winMetaEl = document.getElementById("win-meta");
-        const marqueeTrack = document.getElementById("marquee-track");
-        const langButtons = Array.from(document.querySelectorAll("[data-lang]"));
-        document.getElementById("year").textContent = new Date().getFullYear();
+      const releasesUrl = new URL("https://api.github.com/repos/atemingo/AtemingoLauncher/releases?per_page=20");
+      const releaseLine = document.getElementById("release");
+      const releaseDetails = document.getElementById("release-details");
+      const downloadButtons = [...document.querySelectorAll("[data-download]")];
+      let loadingReleases = false;
+      document.getElementById("year").textContent = new Date().getFullYear();
 
-        const MARQUEE_KEYS = ["mqProfiles", "mqModrinth", "mqVersions", "mqServers", "mqFriends", "mqCrosshair", "mqPerformance"];
-
-        const I18N = {
-          tr: {
-            title: "Atemingo Launcher — Ücretsiz Minecraft Launcher (Windows & Linux)",
-            desc: "Atemingo Launcher ile Minecraft profillerini, Modrinth modlarını, sunucularını, pelerinlerini ve nişangahlarını tek ekrandan yönet. Windows 10/11 ve Linux için ücretsiz.",
-            ogTitle: "Atemingo Launcher — Ücretsiz Minecraft Launcher (Windows & Linux)",
-            ogDesc: "Profiller, Modrinth modları, sunucular, pelerin ve nişangah stüdyosu tek ekranda. Windows 10/11 ve Linux için ücretsiz.",
-            brandAria: "Atemingo Launcher ana sayfa",
-            navAria: "Ana menü",
-            langAria: "Dil seçimi",
-            "nav.features": "Özellikler",
-            "nav.how": "Nasıl çalışır",
-            "nav.download": "İndir",
-            "hero.version": "Sürüm",
-            "hero.title1": "Macera",
-            "hero.title2": "burada başlar.",
-            "hero.intro": "Profillerini, modlarını ve sunucularını tek bir yerden yönet. Java'yı, modları ve ayarları Atemingo halletsin; sen sadece oyna.",
-            "hero.showcaseAria": "Atemingo Launcher arayüzü",
-            "hero.shotAlt": "Atemingo Launcher ana ekranı",
-            "hero.fact1": "Windows 10/11",
-            "hero.fact2": "Fabric 1.21.11",
-            "hero.fact3": "~28 MB",
-            "hero.fact4": "Ücretsiz",
-            "chip.modrinth": "Modrinth'te <b>keşfet</b>",
-            "chip.friends": "Arkadaşlarınla <b>oyna</b>",
-            "chip.crosshair": "Nişangah <b>Stüdyosu</b>",
-            mqProfiles: "PROFİLLER",
-            mqModrinth: "MODRINTH",
-            mqVersions: "SÜRÜMLER",
-            mqServers: "SUNUCULAR",
-            mqFriends: "ARKADAŞLAR",
-            mqCrosshair: "NİŞANGAH",
-            mqPerformance: "PERFORMANS",
-            "f.kicker": "Her şey elinin altında",
-            "f.title": "Oyuna odaklan, gerisini biz halledelim.",
-            "f.lead": "Vanilla'dan Fabric'e, mod keşfinden arkadaşlarına kadar launcher'ın her parçası tek bir akışta.",
-            "f.modrinth.title": "Modrinth atölyesi",
-            "f.modrinth.body": "Modları launcher'ın içinde ara, sürüm uyumluluğunu gör, tek tıkla profiline ekle. Ayrı site, ayrı indirme yok.",
-            "f.modrinth.tag1": "Tek tıkla kur",
-            "f.modrinth.tag2": "Sürüm filtresi",
-            "f.modrinth.tag3": "Otomatik güncelleme",
-            "f.profiles.title": "Profiller tek yerde",
-            "f.profiles.body": "Vanilla ve Fabric profillerini oluştur; her profil kendi modlarını, ayarlarını ve dünyasını taşısın.",
-            "f.servers.title": "Sunucular",
-            "f.servers.body": "Sunucu adreslerini kaydet, canlı durumlarını gör ve oyuna doğrudan sunucuya bağlan.",
-            "f.friends.title": "Arkadaşlar",
-            "f.friends.body": "Paylaşım kodlarıyla arkadaş ekle, kimin çevrimiçi olduğunu gör ve birlikte oynayın.",
-            "f.crosshair.title": "Nişangah Stüdyosu",
-            "f.crosshair.body": "Kendi nişangahını tasarla, rengini ve biçimini seç; anında oyunda kullan.",
-            "f.performance.title": "Performans",
-            "f.performance.body": "RAM, çözünürlük ve JVM ayarlarını profiline göre düzenle; hazır FPS paketleriyle başla.",
-            "f.cta.title": "Hepsi tek uygulamada",
-            "f.cta.body": "Windows ve Linux. Kurulum, Java ve modlar dahil.",
-            "f.cta.button": "İndir",
-            "s.kicker": "Üç adım",
-            "s.title": "Kur, giriş yap, oyna.",
-            "s.1.title": "İndir",
-            "s.1.body": "Windows kurulum dosyasını çalıştır ya da Linux'ta AppImage'ı çift tıkla. Ek kurulum gerekmez.",
-            "s.2.title": "Giriş yap",
-            "s.2.body": "Microsoft hesabınla oturum aç. Bilgilerin cihazında şifrelenmiş olarak saklanır.",
-            "s.3.title": "Oyna",
-            "s.3.body": "Profilini seç, OYNA'ya bas. Java çalışma zamanı ve modlar otomatik hazırlanır.",
-            "d.kicker": "Hazır mısın?",
-            "d.title": "Maceraya tek tıkla başla.",
-            "d.body": "Ücretsiz, reklamsız ve hesabın sende kalır. Kurulum paketi GitHub Releases üzerinden iner.",
-            "d.winMeta": "Windows 10/11 · .exe kurulum",
-            "d.linuxMeta": "AppImage · 64-bit",
-            "d.deb": "veya .deb paketini indir",
-            "d.linuxPreparing": "Linux sürümü hazırlanıyor",
-            "d.linuxSoonBadge": "Yakında",
-            "foot.top": "Yukarı çık ↑",
-            releaseLoading: "Sürüm bilgisi alınıyor…",
-            releaseError: "Sürüm bilgisi alınamadı · Tekrar denemek için tıkla",
-            retry: "Tekrar dene",
-            versionLabel: "Sürüm",
-            winDownload: "Windows için indir",
-            linuxDownload: "Linux için indir",
-            linuxSoon: "Linux · yakında",
-            winMetaReady: "Windows 10/11 · Sürüm ",
-            linuxMetaReady: "AppImage · Sürüm ",
-            linuxUnreleased: "Linux sürümü henüz yayınlanmadı · Windows sürümü hazır"
-          },
-          en: {
-            title: "Atemingo Launcher — Free Minecraft Launcher (Windows & Linux)",
-            desc: "Manage your Minecraft profiles, Modrinth mods, servers, capes and crosshairs in one place with Atemingo Launcher. Free for Windows 10/11 and Linux.",
-            ogTitle: "Atemingo Launcher — Free Minecraft Launcher (Windows & Linux)",
-            ogDesc: "Profiles, Modrinth mods, servers, cape and crosshair studio in one place. Free for Windows and Linux.",
-            brandAria: "Atemingo Launcher home",
-            navAria: "Main menu",
-            langAria: "Language",
-            "nav.features": "Features",
-            "nav.how": "How it works",
-            "nav.download": "Download",
-            "hero.version": "Version",
-            "hero.title1": "Adventure",
-            "hero.title2": "starts here.",
-            "hero.intro": "Manage your profiles, mods and servers in one place. Atemingo takes care of Java, mods and settings — you just play.",
-            "hero.showcaseAria": "Atemingo Launcher interface",
-            "hero.shotAlt": "Atemingo Launcher home screen",
-            "hero.fact1": "Windows 10/11",
-            "hero.fact2": "Fabric 1.21.11",
-            "hero.fact3": "~28 MB",
-            "hero.fact4": "Free",
-            "chip.modrinth": "Discover on <b>Modrinth</b>",
-            "chip.friends": "Play with <b>friends</b>",
-            "chip.crosshair": "<b>Crosshair</b> Studio",
-            mqProfiles: "PROFILES",
-            mqModrinth: "MODRINTH",
-            mqVersions: "VERSIONS",
-            mqServers: "SERVERS",
-            mqFriends: "FRIENDS",
-            mqCrosshair: "CROSSHAIR",
-            mqPerformance: "PERFORMANCE",
-            "f.kicker": "Everything you need",
-            "f.title": "Focus on the game — we handle the rest.",
-            "f.lead": "From Vanilla to Fabric, from mod discovery to your friends — every part of the launcher in one flow.",
-            "f.modrinth.title": "Modrinth workshop",
-            "f.modrinth.body": "Search mods inside the launcher, check version compatibility and add them to your profile in one click. No extra site, no extra downloads.",
-            "f.modrinth.tag1": "One-click install",
-            "f.modrinth.tag2": "Version filter",
-            "f.modrinth.tag3": "Auto updates",
-            "f.profiles.title": "Profiles in one place",
-            "f.profiles.body": "Create Vanilla and Fabric profiles, each with its own mods, settings and worlds.",
-            "f.servers.title": "Servers",
-            "f.servers.body": "Save server addresses, see live status and join straight from the launcher.",
-            "f.friends.title": "Friends",
-            "f.friends.body": "Add friends with share codes, see who's online and play together.",
-            "f.crosshair.title": "Crosshair Studio",
-            "f.crosshair.body": "Design your own crosshair, choose its color and shape, and use it in-game instantly.",
-            "f.performance.title": "Performance",
-            "f.performance.body": "Tune RAM, resolution and JVM settings per profile, and start with ready-made presets.",
-            "f.cta.title": "All in one app",
-            "f.cta.body": "Windows and Linux. Setup, Java and mods included.",
-            "f.cta.button": "Download",
-            "s.kicker": "Three steps",
-            "s.title": "Install, sign in, play.",
-            "s.1.title": "Download",
-            "s.1.body": "Run the Windows installer or double-click the AppImage on Linux. No extra setup needed.",
-            "s.2.title": "Sign in",
-            "s.2.body": "Sign in with your Microsoft account. Your credentials are stored encrypted on your device.",
-            "s.3.title": "Play",
-            "s.3.body": "Pick your profile and hit PLAY. The Java runtime and mods are prepared automatically.",
-            "d.kicker": "Ready?",
-            "d.title": "Start the adventure in one click.",
-            "d.body": "Free, ad-free, and your account stays yours. The installer downloads from GitHub Releases.",
-            "d.winMeta": "Windows 10/11 · .exe installer",
-            "d.linuxMeta": "AppImage · 64-bit",
-            "d.deb": "or download the .deb package",
-            "d.linuxPreparing": "The Linux build is being prepared",
-            "d.linuxSoonBadge": "Soon",
-            "foot.top": "Back to top ↑",
-            releaseLoading: "Loading release info…",
-            releaseError: "Couldn't load release info · Click to retry",
-            retry: "Retry",
-            versionLabel: "Version",
-            winDownload: "Download for Windows",
-            linuxDownload: "Download for Linux",
-            linuxSoon: "Linux · soon",
-            winMetaReady: "Windows 10/11 · Version ",
-            linuxMetaReady: "AppImage · Version ",
-            linuxUnreleased: "The Linux build isn't out yet · The Windows build is ready"
-          }
-        };
-
-        let lang = "tr";
-        try {
-          const saved = localStorage.getItem("atemingo.lang");
-          if (I18N[saved]) lang = saved;
-        } catch (error) {}
-
-        let state = "loading";
-        let linuxUrl = "";
-        let debUrl = "";
-        let info = null;
-
-        function dict() {
-          return I18N[lang];
-        }
-
-        function setButtons(nodes, url, enabled) {
-          nodes.forEach(function (node) {
-            if (enabled) {
-              node.href = url;
-              node.target = "_blank";
-              node.rel = "noopener noreferrer";
-              node.removeAttribute("aria-disabled");
-            } else {
-              node.removeAttribute("href");
-              node.setAttribute("aria-disabled", "true");
-            }
-          });
-        }
-
-        function setText(nodes, text) {
-          nodes.forEach(function (node) { node.textContent = text; });
-        }
-
-        function setVersion(version) {
-          ["ver", "shot-ver"].forEach(function (id) {
-            const el = document.getElementById(id);
-            if (el) el.textContent = version;
-          });
-        }
-
-        function linuxUrlFrom(info) {
-          const linux = info && typeof info.linux === "object" && info.linux ? info.linux : {};
-          return (
-            info.linux_url ||
-            info.linux_appimage ||
-            (typeof info.linux === "string" ? info.linux : "") ||
-            linux.appimage ||
-            linux.url ||
-            ""
-          );
-        }
-
-        function linuxDebFrom(info) {
-          const linux = info && typeof info.linux === "object" && info.linux ? info.linux : {};
-          return info.linux_deb || linux.deb || "";
-        }
-
-        function httpsOnly(url) {
-          if (!url || typeof url !== "string") return "";
-          try {
-            const parsed = new URL(url, updateUrl);
-            return parsed.protocol === "https:" ? parsed.href : "";
-          } catch (error) {
-            return "";
-          }
-        }
-
-        function renderMarquee() {
-          if (!marqueeTrack) return;
-          const d = dict();
-          const chunk = MARQUEE_KEYS.map(function (key) {
-            return "<span>" + d[key] + ' <em>✦</em></span>';
-          }).join("");
-          marqueeTrack.innerHTML = chunk + chunk;
-        }
-
-        function paint() {
-          const d = dict();
-          if (state === "ready" && info) {
-            setVersion(info.version);
-            setText(winLabels, d.winDownload);
-            if (winMetaEl) winMetaEl.textContent = d.winMetaReady + info.version + " · .exe";
-            if (linuxUrl) {
-              setText(linuxLabels, d.linuxDownload);
-              if (linuxBadge) linuxBadge.textContent = "x64";
-              if (linuxMeta) linuxMeta.textContent = d.linuxMetaReady + info.version;
-            } else {
-              setText(linuxLabels, d.linuxSoon);
-              if (linuxBadge) linuxBadge.textContent = d.linuxSoonBadge;
-              if (linuxMeta) linuxMeta.textContent = d.linuxPreparing;
-            }
-            if (debLink) debLink.classList.toggle("show", !!debUrl);
-            releaseNodes.forEach(function (node, index) {
-              if (!node) return;
-              node.textContent = "";
-              const strong = document.createElement("b");
-              strong.textContent = d.versionLabel + " " + info.version;
-              node.appendChild(strong);
-              let suffix = " · Windows 10/11" + (linuxUrl ? " & Linux" : "");
-              if (index === 1 && info.notes && lang === "tr") suffix += " · " + info.notes;
-              node.appendChild(document.createTextNode(suffix));
-            });
-          } else if (state === "error") {
-            setText(releaseNodes.filter(Boolean), d.releaseError);
-            setText(winLabels, d.retry);
-            setText(linuxLabels, d.linuxSoon);
-            if (winMetaEl) winMetaEl.textContent = d.winMeta;
-            if (linuxMeta) linuxMeta.textContent = d.linuxMeta;
-            if (linuxBadge) linuxBadge.textContent = "x64";
-            if (debLink) debLink.classList.remove("show");
-          } else {
-            setText(releaseNodes.filter(Boolean), d.releaseLoading);
-            setText(winLabels, d.winDownload);
-            setText(linuxLabels, d.linuxSoon);
-            if (winMetaEl) winMetaEl.textContent = d.winMeta;
-            if (linuxMeta) linuxMeta.textContent = d.linuxMeta;
-            if (linuxBadge) linuxBadge.textContent = "x64";
-            if (debLink) debLink.classList.remove("show");
-          }
-        }
-
-        function setMeta(attr, name, value) {
-          const el = document.querySelector("meta[" + attr + '="' + name + '"]');
-          if (el) el.setAttribute("content", value);
-        }
-
-        function applyLang(next) {
-          lang = I18N[next] ? next : "tr";
-          const d = dict();
-          document.documentElement.lang = lang;
-          document.title = d.title;
-          setMeta("name", "description", d.desc);
-          setMeta("property", "og:title", d.ogTitle);
-          setMeta("property", "og:description", d.ogDesc);
-          setMeta("name", "twitter:title", d.ogTitle);
-          setMeta("name", "twitter:description", d.ogDesc);
-
-          document.querySelectorAll("[data-i18n]").forEach(function (el) {
-            const value = d[el.getAttribute("data-i18n")];
-            if (typeof value === "string") el.textContent = value;
-          });
-          document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
-            const value = d[el.getAttribute("data-i18n-html")];
-            if (typeof value === "string") el.innerHTML = value;
-          });
-          document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
-            const value = d[el.getAttribute("data-i18n-aria")];
-            if (typeof value === "string") el.setAttribute("aria-label", value);
-          });
-          document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
-            const value = d[el.getAttribute("data-i18n-alt")];
-            if (typeof value === "string") el.alt = value;
-          });
-          langButtons.forEach(function (btn) {
-            btn.setAttribute("aria-pressed", String(btn.getAttribute("data-lang") === lang));
-          });
-          try {
-            localStorage.setItem("atemingo.lang", lang);
-          } catch (error) {}
-          renderMarquee();
-          paint();
-        }
-
-        async function loadRelease() {
-          state = "loading";
-          paint();
-          try {
-            const response = await fetch(updateUrl, { cache: "no-store" });
-            if (!response.ok) throw new Error("HTTP " + response.status);
-            const data = await response.json();
-            if (!data || typeof data.version !== "string" || typeof data.url !== "string") {
-              throw new Error("Geçersiz sürüm bilgisi");
-            }
-            const winUrl = httpsOnly(data.url);
-            if (!winUrl) throw new Error("Güvenli olmayan indirme adresi");
-
-            info = { version: data.version, notes: data.notes };
-            const ld = document.getElementById("ld-json");
-            if (ld) ld.textContent = ld.textContent.replace(/"softwareVersion": "[^"]*"/, '"softwareVersion": "' + info.version + '"');
-            linuxUrl = httpsOnly(linuxUrlFrom(data));
-            debUrl = httpsOnly(linuxDebFrom(data));
-
-            setButtons(winButtons, winUrl, true);
-            setButtons(linuxButtons, linuxUrl, !!linuxUrl);
-            if (debUrl && debLink) debLink.href = debUrl;
-
-            state = "ready";
-            paint();
-          } catch (error) {
-            state = "error";
-            info = null;
-            linuxUrl = "";
-            debUrl = "";
-            setButtons(winButtons, "", false);
-            setButtons(linuxButtons, "", false);
-            paint();
-            console.error("Atemingo sürüm bilgisi yüklenemedi:", error);
-          }
-        }
-
-        function onLockedClick(event) {
-          if (state === "error") {
-            event.preventDefault();
-            loadRelease();
-            return;
-          }
-          if (state === "ready") {
-            if (event.currentTarget.hasAttribute("data-linux")) {
-              event.preventDefault();
-              releaseNodes.forEach(function (node) {
-                if (node) node.textContent = dict().linuxUnreleased;
-              });
-            }
-            return;
-          }
+      downloadButtons.forEach((button) => button.addEventListener("click", (event) => {
+        if (button.getAttribute("aria-disabled") === "true") {
           event.preventDefault();
+          loadReleases();
         }
+      }));
 
-        winButtons.concat(linuxButtons).forEach(function (button) {
-          button.addEventListener("click", function (event) {
-            if (button.getAttribute("aria-disabled") === "true") onLockedClick(event);
-          });
+      function findRelease(releases, platform, assetPattern) {
+        const tagPattern = new RegExp("-" + platform + "$", "i");
+        const releaseInfo = releases.find((item) =>
+          !item.draft && !item.prerelease && tagPattern.test(item.tag_name) &&
+          Array.isArray(item.assets) && item.assets.some((asset) => assetPattern.test(asset.name))
+        );
+        if (!releaseInfo) throw new Error(platform + " için indirme dosyası bulunamadı.");
+        const asset = releaseInfo.assets.find((item) => assetPattern.test(item.name));
+        const assetUrl = new URL(asset.browser_download_url);
+        if (assetUrl.protocol !== "https:" || assetUrl.hostname !== "github.com") {
+          throw new Error(platform + " indirme adresi güvenli değil.");
+        }
+        return { version: releaseInfo.tag_name.replace(/^v/i, "").replace(tagPattern, ""), url: assetUrl.href };
+      }
+
+      function setPlatformDownload(platform, downloadInfo) {
+        downloadButtons.filter((button) => button.dataset.download === platform).forEach((button) => {
+          button.href = downloadInfo.url;
+          button.target = "_blank";
+          button.rel = "noopener noreferrer";
+          button.removeAttribute("aria-disabled");
         });
+      }
 
-        langButtons.forEach(function (button) {
-          button.addEventListener("click", function () {
-            applyLang(button.getAttribute("data-lang"));
-          });
+      async function loadReleases() {
+        if (loadingReleases) return;
+        loadingReleases = true;
+        releaseLine.textContent = "Güncel sürümler kontrol ediliyor...";
+        releaseDetails.textContent = "GitHub Releases üzerinden güncel dosyalar aranıyor.";
+        downloadButtons.forEach((button) => {
+          button.removeAttribute("href");
+          button.setAttribute("aria-disabled", "true");
         });
+        try {
+          const response = await fetch(releasesUrl, { headers: { Accept: "application/vnd.github+json" } });
+          if (!response.ok) throw new Error("Sürüm bilgisi alınamadı (" + response.status + ").");
+          const releases = await response.json();
+          if (!Array.isArray(releases)) throw new Error("Sürüm bilgisi beklenen biçimde değil.");
+          const windows = findRelease(releases, "windows", /setup\.exe$/i);
+          const linux = findRelease(releases, "linux", /\.deb$/i);
+          setPlatformDownload("windows", windows);
+          setPlatformDownload("linux", linux);
+          releaseLine.textContent = "Windows " + windows.version + " · Linux " + linux.version + " · 64-bit";
+          releaseDetails.textContent = "Linux ve Debian/Ubuntu için aynı .deb dosyası kullanılır.";
+        } catch (error) {
+          releaseLine.textContent = "İndirme bilgisi alınamadı. Tekrar denemek için bir indirme düğmesine bas.";
+          releaseDetails.textContent = error.message;
+          console.error("Atemingo Launcher sürüm bilgisi yüklenemedi:", error);
+        } finally {
+          loadingReleases = false;
+        }
+      }
 
-        const header = document.getElementById("site-head");
-        function onScroll() {
-          header.classList.toggle("scrolled", window.scrollY > 12);
-        }
-        window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
-
-        const observer = "IntersectionObserver" in window
-          ? new IntersectionObserver(function (entries, obs) {
-              entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("visible");
-                  obs.unobserve(entry.target);
-                }
-              });
-            }, { threshold: 0.12 })
-          : null;
-        document.querySelectorAll(".reveal").forEach(function (el) {
-          if (observer) observer.observe(el);
-          else el.classList.add("visible");
-        });
-
-        applyLang(lang);
-        loadRelease();
-      })();
-    </script>
-  
-    <script>
-      (function () {
-        "use strict";
-        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const bar = document.getElementById("scroll-progress");
-        function onScroll() {
-          if (!bar) return;
-          const max = document.documentElement.scrollHeight - window.innerHeight;
-          bar.style.width = (max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0) + "%";
-        }
-        window.addEventListener("scroll", onScroll, { passive: true });
-        window.addEventListener("resize", onScroll);
-        onScroll();
-        if (reduce) return;
-        document.querySelectorAll(".card, .platform, .step").forEach(function (el) {
-          el.addEventListener("pointermove", function (event) {
-            const rect = el.getBoundingClientRect();
-            el.style.setProperty("--mx", (event.clientX - rect.left) + "px");
-            el.style.setProperty("--my", (event.clientY - rect.top) + "px");
-          });
-        });
-        const showcase = document.querySelector(".showcase");
-        const frame = document.querySelector(".shot-frame");
-        if (showcase && frame) {
-          showcase.addEventListener("pointermove", function (event) {
-            const rect = showcase.getBoundingClientRect();
-            const x = (event.clientX - rect.left) / rect.width - 0.5;
-            const y = (event.clientY - rect.top) / rect.height - 0.5;
-            frame.style.setProperty("--tilt-x", (y * -5).toFixed(2) + "deg");
-            frame.style.setProperty("--tilt-y", (x * 7).toFixed(2) + "deg");
-          });
-          showcase.addEventListener("pointerleave", function () {
-            frame.style.removeProperty("--tilt-x");
-            frame.style.removeProperty("--tilt-y");
-          });
-        }
-        const hero = document.querySelector(".hero");
-        if (hero && window.matchMedia("(hover: hover)").matches) {
-          hero.addEventListener("pointermove", function (event) {
-            const rect = hero.getBoundingClientRect();
-            hero.style.setProperty("--hx", ((event.clientX - rect.left) / rect.width) * 100 + "%");
-            hero.style.setProperty("--hy", ((event.clientY - rect.top) / rect.height) * 100 + "%");
-          });
-        }
-      })();
+      loadReleases();
+      const observer = "IntersectionObserver" in window
+        ? new IntersectionObserver((entries, currentObserver) => entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              currentObserver.unobserve(entry.target);
+            }
+          }), { threshold: .12 })
+        : null;
+      document.querySelectorAll(".reveal").forEach((element) => {
+        if (observer) observer.observe(element);
+        else element.classList.add("visible");
+      });
     </script>
   </body>
 </html>
