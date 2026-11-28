@@ -80,56 +80,8 @@
       .spark-one { top: 16%; left: -32px; transform: rotate(-12deg); }
       .spark-two { right: -25px; bottom: 17%; color: #de7956; animation-delay: -2s; }
       .preview-frame { position: relative; z-index: 1; padding: 9px; border: 1px solid rgba(238,234,244,.82); border-radius: 22px; background: rgba(226,221,234,.94); box-shadow: 0 38px 100px rgba(62,49,117,.2), 0 8px 24px rgba(62,49,117,.08); transform: rotateX(2deg); animation: preview-enter .8s .12s both, preview-float 8s 1s ease-in-out infinite; }
-      .launcher-screen { min-height: 490px; overflow: hidden; border: 1px solid rgba(255,255,255,.09); border-radius: 15px; color: #f6f4ff; background: #171622; }
-      .app-topbar { height: 47px; display: flex; align-items: center; justify-content: space-between; padding: 0 17px; border-bottom: 1px solid rgba(255,255,255,.075); background: #1d1b2b; }
-      .app-brand { display: flex; align-items: center; gap: 8px; color: #ded8ff; font-size: 9px; font-weight: 850; letter-spacing: .12em; }
-      .app-brand img { width: 24px; height: 24px; border-radius: 7px; }
-      .app-window-controls { display: flex; gap: 6px; }
-      .app-window-controls i { width: 7px; height: 7px; border-radius: 50%; background: #615b78; }
-      .app-window-controls i:first-child { background: #b2ee9c; }
-      .app-layout { min-height: 443px; display: grid; grid-template-columns: 178px minmax(0, 1fr) 205px; }
-      .app-sidebar { display: flex; flex-direction: column; padding: 19px 12px; border-right: 1px solid rgba(255,255,255,.07); background: #1b1928; text-align: left; }
-      .sidebar-caption { margin: 0 0 11px 8px; color: #78758b; font-size: 8px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-      .sidebar-link { display: flex; align-items: center; gap: 9px; margin-bottom: 5px; padding: 9px 10px; border-radius: 8px; color: #a7a3b8; font-size: 10px; }
-      .sidebar-link i { width: 17px; color: #a89af4; font-size: 13px; font-style: normal; text-align: center; }
-      .sidebar-link.active { color: #eeeaff; background: rgba(143,119,255,.17); box-shadow: inset 2px 0 #9c87ff; }
-      .sidebar-spacer { flex: 1; min-height: 35px; }
-      .profile-mini { display: flex; align-items: center; gap: 8px; padding: 10px 6px 0; border-top: 1px solid rgba(255,255,255,.08); text-align: left; }
-      .profile-mini img { width: 27px; height: 27px; border-radius: 8px; }
-      .profile-mini strong { display: block; color: #e8e5f3; font-size: 9px; }
-      .profile-mini small { display: block; margin-top: 3px; color: #848096; font-size: 8px; }
-      .app-content { min-width: 0; padding: 24px 25px 20px; text-align: left; }
-      .app-greeting { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
-      .app-greeting h2 { margin: 0; color: #f5f2ff; font-size: 18px; letter-spacing: -.04em; }
-      .app-greeting p { margin: 5px 0 0; color: #a29db2; font-size: 9px; }
-      .online-badge { display: inline-flex; align-items: center; gap: 6px; padding: 7px 9px; border: 1px solid rgba(120,226,149,.17); border-radius: 99px; color: #a6e7ad; background: rgba(120,226,149,.07); font-size: 8px; white-space: nowrap; }
-      .online-badge i { width: 6px; height: 6px; border-radius: 50%; background: #86e99c; box-shadow: 0 0 9px #86e99c; }
-      .world-tile { position: relative; height: 222px; display: flex; align-items: end; overflow: hidden; padding: 18px; border: 1px solid rgba(255,255,255,.13); border-radius: 12px; background: linear-gradient(0deg, rgba(15,13,28,.83), transparent 68%), url("https://raw.githubusercontent.com/atemingo/AtemingoLauncher/main/launcher.png") center 48% / cover; }
-      .world-tile::after { position: absolute; inset: 0; content: ""; background: linear-gradient(120deg, rgba(65,49,117,.18), transparent 52%); pointer-events: none; }
-      .world-tile-copy { position: relative; z-index: 1; }
-      .world-tile-copy small { color: #d5caff; font-size: 8px; font-weight: 800; letter-spacing: .15em; }
-      .world-tile-copy strong { display: block; margin-top: 6px; font-size: 22px; letter-spacing: -.05em; }
-      .world-tile-copy span { display: block; margin-top: 5px; color: #dedbe8; font-size: 9px; }
-      .play-button { display: inline-flex; align-items: center; gap: 7px; margin-top: 11px; padding: 8px 12px; border-radius: 7px; color: #262044; background: #d8f385; font-size: 8px; font-weight: 900; letter-spacing: .08em; }
-      .play-button i { font-style: normal; }
-      .app-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 11px; }
-      .stat-tile { padding: 10px 11px; border: 1px solid rgba(255,255,255,.07); border-radius: 9px; background: rgba(255,255,255,.035); }
-      .stat-tile small { display: block; color: #8f8a9f; font-size: 8px; }
-      .stat-tile strong { display: block; margin-top: 5px; color: #e9e5f5; font-size: 10px; }
-      .app-activity { padding: 20px 14px; border-left: 1px solid rgba(255,255,255,.07); background: #1a1826; text-align: left; }
-      .activity-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; color: #eeebf7; font-size: 10px; font-weight: 800; }
-      .activity-heading span { color: #a69bff; font-size: 8px; font-weight: 650; }
-      .friend-row { display: flex; align-items: center; gap: 8px; margin: 0 -4px; padding: 9px 4px; border-bottom: 1px solid rgba(255,255,255,.055); }
-      .friend-avatar { width: 27px; height: 27px; display: grid; flex: 0 0 auto; place-items: center; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; color: #e6deff; background: linear-gradient(140deg, #6954bc, #3e4168); font-size: 9px; font-weight: 850; }
-      .friend-row:nth-child(3) .friend-avatar { background: linear-gradient(140deg, #ba755e, #75546c); }
-      .friend-row:nth-child(4) .friend-avatar { background: linear-gradient(140deg, #548a78, #42647b); }
-      .friend-row strong { display: block; color: #e3dfeb; font-size: 8px; }
-      .friend-row small { display: block; margin-top: 4px; color: #898498; font-size: 7px; }
-      .friend-status { width: 6px; height: 6px; margin-left: auto; border-radius: 50%; background: #82e69c; }
-      .activity-card { margin-top: 17px; padding: 11px; border: 1px solid rgba(159,141,255,.17); border-radius: 9px; background: rgba(136,113,245,.08); }
-      .activity-card small { color: #a9a0d4; font-size: 8px; }
-      .activity-card strong { display: block; margin-top: 5px; color: #e5e0ff; font-size: 9px; }
-      .activity-card p { margin: 5px 0 0; color: #a7a1b5; font-size: 8px; line-height: 1.6; }
+      .launcher-screen { overflow: hidden; border: 1px solid rgba(255,255,255,.09); border-radius: 15px; background: #171622; }
+      .launcher-preview-image { display: block; width: 100%; height: auto; }
 
       .strip { padding: 18px 0; border-top: 1px solid rgba(58,53,43,.12); border-bottom: 1px solid rgba(58,53,43,.12); background: rgba(198,192,209,.58); }
       .strip-inner { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px 32px; color: #393442; font-size: 10px; font-weight: 750; }
@@ -205,30 +157,7 @@
         .proof-pill { padding: 6px 8px; font-size: 9px; }
         .showcase { width: calc(100% - 2px); margin-top: 27px; }
         .preview-frame { padding: 5px; border-radius: 16px; }
-        .launcher-screen { min-height: 360px; border-radius: 12px; }
-        .app-topbar { height: 39px; padding: 0 10px; }
-        .app-brand { font-size: 8px; }
-        .app-brand img { width: 21px; height: 21px; }
-        .app-layout { min-height: 320px; grid-template-columns: 48px minmax(0,1fr); }
-        .app-sidebar { align-items: center; padding: 13px 5px; }
-        .sidebar-caption, .sidebar-link span, .profile-mini div { display: none; }
-        .sidebar-link { width: 34px; justify-content: center; margin-bottom: 6px; padding: 8px 0; }
-        .sidebar-link i { font-size: 14px; }
-        .profile-mini { justify-content: center; width: 100%; padding: 10px 0 0; }
-        .profile-mini img { width: 25px; height: 25px; }
-        .app-content { padding: 14px 11px; }
-        .app-greeting { align-items: flex-start; margin-bottom: 11px; }
-        .app-greeting h2 { font-size: 13px; }
-        .app-greeting p { font-size: 8px; }
-        .online-badge { padding: 6px 7px; font-size: 7px; }
-        .world-tile { height: 155px; padding: 12px; }
-        .world-tile-copy strong { font-size: 17px; }
-        .world-tile-copy span { font-size: 8px; }
-        .play-button { margin-top: 8px; padding: 7px 9px; font-size: 7px; }
-        .app-stats { gap: 5px; margin-top: 7px; }
-        .stat-tile { padding: 7px 6px; }
-        .stat-tile small { font-size: 7px; }
-        .stat-tile strong { font-size: 8px; }
+        .launcher-screen { border-radius: 12px; }
         .spark-one { top: 12%; left: -6px; width: 32px; height: 32px; }
         .spark-two { right: -5px; bottom: 13%; width: 32px; height: 32px; }
         .strip-inner { gap: 9px 16px; font-size: 9px; }
@@ -298,48 +227,7 @@
           <div class="showcase-spark spark-two" aria-hidden="true">✧</div>
           <div class="preview-frame">
             <div class="launcher-screen">
-              <div class="app-topbar">
-                <div class="app-brand"><img src="./logo.png" alt="" /> ATEMINGO LAUNCHER</div>
-                <div class="app-window-controls" aria-hidden="true"><i></i><i></i><i></i></div>
-              </div>
-              <div class="app-layout">
-                <aside class="app-sidebar" aria-hidden="true">
-                  <p class="sidebar-caption">MENÜ</p>
-                  <div class="sidebar-link active"><i>⌂</i><span>Ana sayfa</span></div>
-                  <div class="sidebar-link"><i>▦</i><span>Profiller</span></div>
-                  <div class="sidebar-link"><i>⌘</i><span>Modlar</span></div>
-                  <div class="sidebar-link"><i>◎</i><span>Arkadaşlar</span></div>
-                  <div class="sidebar-spacer"></div>
-                  <div class="sidebar-link"><i>⚙</i><span>Ayarlar</span></div>
-                  <div class="profile-mini"><img src="./icon.png" alt="" /><div><strong>Oyuncu</strong><small>Hesabın bağlı</small></div></div>
-                </aside>
-                <section class="app-content" aria-label="Launcher ana ekranı">
-                  <div class="app-greeting">
-                    <div><h2>Selam, oyuncu!</h2><p>Yeni maceran için her şey hazır.</p></div>
-                    <span class="online-badge"><i></i> Hazır</span>
-                  </div>
-                  <div class="world-tile">
-                    <div class="world-tile-copy">
-                      <small>SON OYNANAN PROFİL</small>
-                      <strong>Hayatta Kalma</strong>
-                      <span>Fabric 1.21.11 · 12 mod</span>
-                      <div class="play-button"><i>▶</i> OYUNA DEVAM ET</div>
-                    </div>
-                  </div>
-                  <div class="app-stats">
-                    <div class="stat-tile"><small>PROFİLLER</small><strong>Oyunların</strong></div>
-                    <div class="stat-tile"><small>MODLAR</small><strong>Modrinth</strong></div>
-                    <div class="stat-tile"><small>TOPLULUK</small><strong>Arkadaşların</strong></div>
-                  </div>
-                </section>
-                <aside class="app-activity" aria-label="Arkadaşlar">
-                  <div class="activity-heading">Arkadaşların <span>Hepsini gör</span></div>
-                  <div class="friend-row"><span class="friend-avatar">A</span><div><strong>Alex</strong><small>Hayatta kalıyor</small></div><i class="friend-status"></i></div>
-                  <div class="friend-row"><span class="friend-avatar">M</span><div><strong>Mira</strong><small>Lobi'de</small></div><i class="friend-status"></i></div>
-                  <div class="friend-row"><span class="friend-avatar">K</span><div><strong>Kuzey</strong><small>Çevrimiçi</small></div><i class="friend-status"></i></div>
-                  <div class="activity-card"><small>MODRINTH'TE KEŞFET</small><strong>Yeni modlar seni bekliyor</strong><p>Oyun sürümüne uygun içerikleri bul.</p></div>
-                </aside>
-              </div>
+              <img class="launcher-preview-image" src="https://raw.githubusercontent.com/atemingo/AtemingoLauncher/main/launcher.png" alt="Atemingo Launcher uygulamasının tam ekran önizlemesi" />
             </div>
           </div>
         </div>
