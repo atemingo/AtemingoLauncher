@@ -4,10 +4,10 @@
   "sha256": "727f6de678291dde0e0396b1e0b149ed3ecd4909fb05e54f52f8a381ae2a87af",
   "sha1": "fc7970095fcaeada7bf991e853802f548a0e49f3",
   "notes": "Microsoft sign-in now uses a device code in your browser: the in-app window that could stay blank is gone. Enter the code on the Microsoft page and the launcher continues automatically. Cosmetics can really be taken off now: removing a hat, shoes, bag, pet or wings no longer pulls the old server entry back, and removals also disappear in your friends' game. Windows and Linux builds are available.",
-  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.4-linux/AtemingoLauncher-2.2.4-linux-x64.AppImage",
-  "linux_sha256": "e359bc0d0c91b84e21314457282e8da1beb774d0ecac746a5247d9692b9625f9",
-  "linux_sha1": "f890fe8858256b9cd4c3443b466718e9963c1f94",
-  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.4-linux/AtemingoLauncher-2.2.4-linux-x64.deb",
-  "linux_deb_sha256": "22c33e44a82671ddce43848121579b9fd56cd942394f54836127098cabde4d8d",
-  "linux_deb_sha1": "08d425a98c0822f5f82b9ab40f5ff8bdf62b97ea"
+  "linux_url": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.5-linux/AtemingoLauncher-2.2.5-linux-x64.AppImage",
+  "linux_sha256": "5d878f9ec30c6b6407240fdff887a76b0ee375f4c33000283236fe640ac91a2c",
+  "linux_sha1": "dba8c8c5faf36dacd1914b0facf04f371a368846",
+  "linux_deb": "https://github.com/atemingo/AtemingoLauncher/releases/download/v2.2.5-linux/AtemingoLauncher-2.2.5-linux-x64.deb",
+  "linux_deb_sha256": "43bac0a493cec4cc5676526fa1ea0ac26d84fe8430bde04824c8689c0ed78f80",
+  "linux_deb_sha1": "50f833f035f29f8f69f14ff5831b9043c4630453"
 }
